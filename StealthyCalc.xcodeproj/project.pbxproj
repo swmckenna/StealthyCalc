@@ -17,6 +17,8 @@
 		DC6343F62669DEE7007A6949 /* StealthyCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343F52669DEE7007A6949 /* StealthyCalcUITests.swift */; };
 		DC6344042669E56D007A6949 /* NumberCruncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6344032669E56D007A6949 /* NumberCruncher.swift */; };
 		DCEB7041266BE50100160DA6 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */; };
+		DCEB7047266BFE9F00160DA6 /* DigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7046266BFE9F00160DA6 /* DigitButton.swift */; };
+		DCEB7049266BFEB800160DA6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7048266BFEB800160DA6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		DC6343F72669DEE7007A6949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6344032669E56D007A6949 /* NumberCruncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCruncher.swift; sourceTree = "<group>"; };
 		DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
+		DCEB7046266BFE9F00160DA6 /* DigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButton.swift; sourceTree = "<group>"; };
+		DCEB7048266BFEB800160DA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +109,11 @@
 			children = (
 				DC6343D32669DEE6007A6949 /* AppDelegate.swift */,
 				DC6343D52669DEE6007A6949 /* SceneDelegate.swift */,
-				DC6343D72669DEE6007A6949 /* ViewController.swift */,
-				DC6344032669E56D007A6949 /* NumberCruncher.swift */,
 				DC6343D92669DEE6007A6949 /* Main.storyboard */,
+				DCEB7044266BFE5500160DA6 /* Model */,
+				DCEB7045266BFE7600160DA6 /* View */,
+				DCEB7043266BFE4E00160DA6 /* Controller */,
+				DCEB7048266BFEB800160DA6 /* Constants.swift */,
 				DC6343DC2669DEE7007A6949 /* Assets.xcassets */,
 				DC6343DE2669DEE7007A6949 /* LaunchScreen.storyboard */,
 				DC6343E12669DEE7007A6949 /* Info.plist */,
@@ -140,6 +146,30 @@
 				DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DCEB7043266BFE4E00160DA6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DC6343D72669DEE6007A6949 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DCEB7044266BFE5500160DA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC6344032669E56D007A6949 /* NumberCruncher.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DCEB7045266BFE7600160DA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DCEB7046266BFE9F00160DA6 /* DigitButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,10 +303,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCEB7047266BFE9F00160DA6 /* DigitButton.swift in Sources */,
 				DC6343D82669DEE6007A6949 /* ViewController.swift in Sources */,
 				DC6343D42669DEE6007A6949 /* AppDelegate.swift in Sources */,
 				DC6344042669E56D007A6949 /* NumberCruncher.swift in Sources */,
 				DC6343D62669DEE6007A6949 /* SceneDelegate.swift in Sources */,
+				DCEB7049266BFEB800160DA6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

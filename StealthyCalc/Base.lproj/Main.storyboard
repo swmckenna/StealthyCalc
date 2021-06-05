@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,11 +22,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBm-W2-Vba">
                                         <rect key="frame" x="5" y="111" width="350" height="111"/>
                                         <fontDescription key="fontDescription" name="VT323-Regular" family="VT323" pointSize="80"/>
-                                        <color key="textColor" red="0.87924890260551614" green="0.20022891850844951" blue="0.29107316328639721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" red="0.8784313725490196" green="0.20000000000000001" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.11038988611409406" green="0.017321811496366423" blue="0.016405708222120067" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.10980392156862745" green="0.015686274509803921" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="GBm-W2-Vba" firstAttribute="height" secondItem="SWr-yE-vr8" secondAttribute="height" multiplier="0.5" id="I4q-Mv-Rig"/>
                                     <constraint firstItem="GBm-W2-Vba" firstAttribute="leading" secondItem="SWr-yE-vr8" secondAttribute="leading" constant="5" id="LBb-UR-5Jq"/>
@@ -44,14 +45,14 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7A-hk-hsX">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="92"/>
-                                                        <color key="backgroundColor" red="0.83372670410000005" green="0.82595558359999999" blue="0.62625448650000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" name="ClassicTan"/>
                                                         <state key="normal" title="C">
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdB-vf-ycI">
                                                         <rect key="frame" x="90" y="0.0" width="80" height="92"/>
-                                                        <color key="backgroundColor" red="0.83372670410000005" green="0.82595558359999999" blue="0.62625448650000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" name="ClassicTan"/>
                                                         <state key="normal" title="ᐩ/˗">
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
@@ -61,7 +62,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXL-Cu-BfK">
                                                         <rect key="frame" x="180" y="0.0" width="80" height="92"/>
-                                                        <color key="backgroundColor" red="0.83372670410000005" green="0.82595558359999999" blue="0.62625448650000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" name="ClassicTan"/>
                                                         <state key="normal" title="%">
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
@@ -71,7 +72,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="150-L4-Ikb">
                                                         <rect key="frame" x="270" y="0.0" width="80" height="92"/>
-                                                        <color key="backgroundColor" red="0.83372670410000005" green="0.82595558359999999" blue="0.62625448650000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" name="ClassicTan"/>
                                                         <state key="normal" title="÷">
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
@@ -116,7 +117,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk5-IE-k3d">
                                                         <rect key="frame" x="270" y="0.0" width="80" height="91.666666666666671"/>
-                                                        <color key="backgroundColor" red="0.83372670410000005" green="0.82595558359999999" blue="0.62625448650000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" name="ClassicTan"/>
                                                         <state key="normal" title="×">
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
@@ -161,7 +162,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0an-Vf-AyL">
                                                         <rect key="frame" x="270" y="0.0" width="80" height="92"/>
-                                                        <color key="backgroundColor" red="0.83372670410000005" green="0.82595558359999999" blue="0.62625448650000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" name="ClassicTan"/>
                                                         <state key="normal" title="−">
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
@@ -206,7 +207,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbL-gz-dp4">
                                                         <rect key="frame" x="270" y="0.0" width="80" height="92"/>
-                                                        <color key="backgroundColor" red="0.83372670410000005" green="0.82595558359999999" blue="0.62625448650000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" name="ClassicTan"/>
                                                         <state key="normal" title="+">
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
@@ -241,7 +242,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E7-Nd-vfV">
                                                         <rect key="frame" x="270" y="0.0" width="80" height="91.666666666666671"/>
-                                                        <color key="backgroundColor" red="0.94589072470000002" green="0.65203499789999997" blue="0.37247577310000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.94509803921568625" green="0.65098039215686276" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="=">
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
@@ -261,7 +262,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.22745098039215686" green="0.24313725490196078" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="0d8-EX-8Qk" firstAttribute="leading" secondItem="608-gS-3uf" secondAttribute="leading" constant="5" id="1aL-Ro-Dit"/>
                                     <constraint firstItem="0d8-EX-8Qk" firstAttribute="top" secondItem="608-gS-3uf" secondAttribute="top" constant="24" id="ddA-Ww-hjt"/>
@@ -271,7 +272,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.83372670410000005" green="0.8259555835518253" blue="0.62625448649200544" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="ClassicTan"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SWr-yE-vr8" secondAttribute="trailing" constant="15" id="17G-5q-mzA"/>
                             <constraint firstItem="SWr-yE-vr8" firstAttribute="height" secondItem="608-gS-3uf" secondAttribute="height" multiplier="0.42" id="3D8-te-3Ba"/>
@@ -292,4 +293,9 @@
             <point key="canvasLocation" x="18.399999999999999" y="93.103448275862078"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="ClassicTan">
+            <color red="0.85490196078431369" green="0.83137254901960789" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>
