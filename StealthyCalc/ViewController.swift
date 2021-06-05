@@ -28,9 +28,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func numberTapped(_ sender: UIButton) {
+    @IBAction func digitTapped(_ sender: UIButton) {
         let number = sender.currentTitle!
         if userIsTyping {
+            if number == "." && display.text!.contains(".") {
+                return
+            }
             let numberSoFar = display.text!
             display.text = numberSoFar + number
         } else {

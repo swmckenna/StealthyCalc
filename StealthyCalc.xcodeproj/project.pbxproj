@@ -16,6 +16,7 @@
 		DC6343EB2669DEE7007A6949 /* StealthyCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343EA2669DEE7007A6949 /* StealthyCalcTests.swift */; };
 		DC6343F62669DEE7007A6949 /* StealthyCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343F52669DEE7007A6949 /* StealthyCalcUITests.swift */; };
 		DC6344042669E56D007A6949 /* NumberCruncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6344032669E56D007A6949 /* NumberCruncher.swift */; };
+		DCEB7041266BE50100160DA6 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		DC6343F52669DEE7007A6949 /* StealthyCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StealthyCalcUITests.swift; sourceTree = "<group>"; };
 		DC6343F72669DEE7007A6949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6344032669E56D007A6949 /* NumberCruncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCruncher.swift; sourceTree = "<group>"; };
+		DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				DC6343DC2669DEE7007A6949 /* Assets.xcassets */,
 				DC6343DE2669DEE7007A6949 /* LaunchScreen.storyboard */,
 				DC6343E12669DEE7007A6949 /* Info.plist */,
+				DCEB7042266BEE0E00160DA6 /* Fonts */,
 			);
 			path = StealthyCalc;
 			sourceTree = "<group>";
@@ -129,6 +132,14 @@
 				DC6343F72669DEE7007A6949 /* Info.plist */,
 			);
 			path = StealthyCalcUITests;
+			sourceTree = "<group>";
+		};
+		DCEB7042266BEE0E00160DA6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +247,7 @@
 			files = (
 				DC6343E02669DEE7007A6949 /* LaunchScreen.storyboard in Resources */,
 				DC6343DD2669DEE7007A6949 /* Assets.xcassets in Resources */,
+				DCEB7041266BE50100160DA6 /* VT323-Regular.ttf in Resources */,
 				DC6343DB2669DEE6007A6949 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

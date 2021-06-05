@@ -20,7 +20,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBm-W2-Vba">
                                         <rect key="frame" x="5" y="96.5" width="335" height="96"/>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="80"/>
+                                        <fontDescription key="fontDescription" name="VT323-Regular" family="VT323" pointSize="80"/>
                                         <color key="textColor" red="0.87924890260551614" green="0.20022891850844951" blue="0.29107316328639721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -91,7 +91,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5b-BK-5kL"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5b-BK-5kL"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NL-dR-gSD">
@@ -101,7 +101,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="88S-sE-If4"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="88S-sE-If4"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5T-9C-Iqb">
@@ -111,7 +111,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bD0-6L-Mul"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bD0-6L-Mul"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk5-IE-k3d">
@@ -136,7 +136,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OJP-M1-bAi"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OJP-M1-bAi"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1I-8O-deU">
@@ -146,7 +146,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jAv-x3-Lwd"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jAv-x3-Lwd"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsK-Vs-Y6L">
@@ -156,7 +156,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z28-z4-CVH"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z28-z4-CVH"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0an-Vf-AyL">
@@ -181,7 +181,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Z8-11-edU"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Z8-11-edU"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxg-WS-B4I">
@@ -191,7 +191,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l5t-Sc-TIh"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l5t-Sc-TIh"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBs-ZL-tdL">
@@ -201,7 +201,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hEV-4o-2F2"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hEV-4o-2F2"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbL-gz-dp4">
@@ -226,7 +226,7 @@
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="numberTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fCr-dy-VzY"/>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fCr-dy-VzY"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJx-Xm-Ym6">
@@ -235,6 +235,9 @@
                                                         <state key="normal" title=".">
                                                             <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mVg-l0-UYD"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E7-Nd-vfV">
                                                         <rect key="frame" x="259" y="0.0" width="76" height="78"/>
