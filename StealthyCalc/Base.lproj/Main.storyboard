@@ -25,6 +25,13 @@
                                         <color key="textColor" red="0.8784313725490196" green="0.20000000000000001" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MN5-Fd-W55">
+                                        <rect key="frame" x="148" y="31" width="49" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="themeSwitchToggled:" destination="BYZ-38-t0r" eventType="valueChanged" id="uw1-AA-Coc"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.015686274509803921" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -85,7 +92,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RoO-4x-GSw">
                                                 <rect key="frame" x="0.0" y="102" width="350" height="91.666666666666686"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn2-Rq-haS">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn2-Rq-haS" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="91.666666666666671"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="7">
@@ -95,7 +102,7 @@
                                                             <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5b-BK-5kL"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NL-dR-gSD">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NL-dR-gSD" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="90" y="0.0" width="80" height="91.666666666666671"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="8">
@@ -105,7 +112,7 @@
                                                             <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="88S-sE-If4"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5T-9C-Iqb">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5T-9C-Iqb" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="180" y="0.0" width="80" height="91.666666666666671"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="9">
@@ -130,7 +137,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mV1-7e-kX3">
                                                 <rect key="frame" x="0.0" y="203.66666666666663" width="350" height="92"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqA-lA-xYF">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqA-lA-xYF" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="92"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="4">
@@ -140,7 +147,7 @@
                                                             <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OJP-M1-bAi"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1I-8O-deU">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1I-8O-deU" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="90" y="0.0" width="80" height="92"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="5">
@@ -150,7 +157,7 @@
                                                             <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jAv-x3-Lwd"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsK-Vs-Y6L">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsK-Vs-Y6L" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="180" y="0.0" width="80" height="92"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="6">
@@ -175,7 +182,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9zY-Ll-uGt">
                                                 <rect key="frame" x="0.0" y="305.66666666666669" width="350" height="92"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqc-Mv-WA1">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqc-Mv-WA1" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="92"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="1">
@@ -185,7 +192,7 @@
                                                             <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Z8-11-edU"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxg-WS-B4I">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxg-WS-B4I" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="90" y="0.0" width="80" height="92"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="2">
@@ -195,7 +202,7 @@
                                                             <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l5t-Sc-TIh"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBs-ZL-tdL">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBs-ZL-tdL" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="180" y="0.0" width="80" height="92"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="3">
@@ -220,7 +227,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TvT-XF-jrM">
                                                 <rect key="frame" x="0.0" y="407.66666666666669" width="350" height="91.666666666666686"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHg-Sn-LQP">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHg-Sn-LQP" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="170" height="91.666666666666671"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="0">
@@ -230,7 +237,7 @@
                                                             <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fCr-dy-VzY"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJx-Xm-Ym6">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJx-Xm-Ym6" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                         <rect key="frame" x="180" y="0.0" width="80" height="91.666666666666671"/>
                                                         <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title=".">

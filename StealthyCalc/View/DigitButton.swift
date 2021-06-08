@@ -15,9 +15,14 @@ class DigitButton: UIButton {
     }
     
     private func setUpButton() {
-//        self.layer.backgroundColor =
-//        self.layer.cornerRadius = 5.0
+        Themer.shared?.register(target: self, action: DigitButton.handleTheme(_:))
         clipsToBounds = true
+    }
+    
+    private func handleTheme(_ theme: CalcTheme) {
+        backgroundColor = theme.settings.digitButtonColor
+        setTitleColor(theme.settings.buttonTextColor, for: .normal)
+        layer.cornerRadius = theme.settings.buttonCornerRadius
     }
 
 }

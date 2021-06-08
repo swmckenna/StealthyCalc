@@ -56,5 +56,8 @@ class ViewController: UIViewController {
             displayValue = result
         }
     }
+    @IBAction func themeSwitchToggled(_ sender: UISwitch) {
+        Themer.shared?.theme = sender.isOn ? .classic : .iOS
+    }
 }
 

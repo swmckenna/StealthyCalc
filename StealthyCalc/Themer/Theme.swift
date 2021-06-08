@@ -14,8 +14,8 @@ enum CalcTheme: ThemeProtocol {
         switch self {
         case .classic:
             return ThemeSettings.classicTheme
-        default:
-            return ThemeSettings.classicTheme //won't be needed later
+        case .iOS:
+            return ThemeSettings.iOSTheme
         }
     }
 }
@@ -43,6 +43,19 @@ struct ThemeSettings: ThemeModelProtocol {
         displayColor: UIColor(named: "ClassicRedBlack")!,
         displayTextColor: UIColor(named: "ClassicRed")!,
         buttonCornerRadius: 5
+    )
+    
+    static let iOSTheme = ThemeSettings(
+        digitButtonColor: .blue,
+        operationButtonColor: .orange,
+        equalsButtonColor: .green,
+        clearButtonColor: .purple,
+        buttonTextColor: .yellow,
+        caseColor: .cyan,
+        numberPadColor: .magenta,
+        displayColor: .red,
+        displayTextColor: .white,
+        buttonCornerRadius: 15
     )
 }
 
