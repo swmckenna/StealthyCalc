@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC029E2C266F1CB60043C73B /* TargetActionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC029E2B266F1CB60043C73B /* TargetActionStorage.swift */; };
+		DC029E2E266F1CE50043C73B /* AnyTargetActionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC029E2D266F1CE50043C73B /* AnyTargetActionWrapper.swift */; };
+		DC029E31266F1D330043C73B /* TargetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC029E30266F1D330043C73B /* TargetAction.swift */; };
+		DC029E33266F1D540043C73B /* ThemeModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC029E32266F1D540043C73B /* ThemeModelProtocol.swift */; };
+		DC029E35266F1D7F0043C73B /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC029E34266F1D7F0043C73B /* ThemeProtocol.swift */; };
+		DC029E37266F1E010043C73B /* Themer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC029E36266F1E010043C73B /* Themer.swift */; };
 		DC6343D42669DEE6007A6949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343D32669DEE6007A6949 /* AppDelegate.swift */; };
 		DC6343D62669DEE6007A6949 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343D52669DEE6007A6949 /* SceneDelegate.swift */; };
 		DC6343D82669DEE6007A6949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343D72669DEE6007A6949 /* ViewController.swift */; };
@@ -18,7 +24,8 @@
 		DC6344042669E56D007A6949 /* NumberCruncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6344032669E56D007A6949 /* NumberCruncher.swift */; };
 		DCEB7041266BE50100160DA6 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */; };
 		DCEB7047266BFE9F00160DA6 /* DigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7046266BFE9F00160DA6 /* DigitButton.swift */; };
-		DCEB7049266BFEB800160DA6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7048266BFEB800160DA6 /* Constants.swift */; };
+		DCEB7049266BFEB800160DA6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7048266BFEB800160DA6 /* Theme.swift */; };
+		DCEB704B266C335200160DA6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB704A266C335200160DA6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC029E2B266F1CB60043C73B /* TargetActionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetActionStorage.swift; sourceTree = "<group>"; };
+		DC029E2D266F1CE50043C73B /* AnyTargetActionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTargetActionWrapper.swift; sourceTree = "<group>"; };
+		DC029E30266F1D330043C73B /* TargetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAction.swift; sourceTree = "<group>"; };
+		DC029E32266F1D540043C73B /* ThemeModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModelProtocol.swift; sourceTree = "<group>"; };
+		DC029E34266F1D7F0043C73B /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		DC029E36266F1E010043C73B /* Themer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themer.swift; sourceTree = "<group>"; };
 		DC6343D02669DEE6007A6949 /* StealthyCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StealthyCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6343D32669DEE6007A6949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6343D52669DEE6007A6949 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +69,8 @@
 		DC6344032669E56D007A6949 /* NumberCruncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCruncher.swift; sourceTree = "<group>"; };
 		DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		DCEB7046266BFE9F00160DA6 /* DigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButton.swift; sourceTree = "<group>"; };
-		DCEB7048266BFEB800160DA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DCEB7048266BFEB800160DA6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		DCEB704A266C335200160DA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +98,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC029E2A266F1C8E0043C73B /* Themer */ = {
+			isa = PBXGroup;
+			children = (
+				DC029E2F266F1D100043C73B /* Protocols */,
+				DCEB7048266BFEB800160DA6 /* Theme.swift */,
+				DC029E2B266F1CB60043C73B /* TargetActionStorage.swift */,
+				DC029E36266F1E010043C73B /* Themer.swift */,
+				DC029E2D266F1CE50043C73B /* AnyTargetActionWrapper.swift */,
+			);
+			path = Themer;
+			sourceTree = "<group>";
+		};
+		DC029E2F266F1D100043C73B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DC029E30266F1D330043C73B /* TargetAction.swift */,
+				DC029E32266F1D540043C73B /* ThemeModelProtocol.swift */,
+				DC029E34266F1D7F0043C73B /* ThemeProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		DC6343C72669DEE6007A6949 = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +149,8 @@
 				DCEB7044266BFE5500160DA6 /* Model */,
 				DCEB7045266BFE7600160DA6 /* View */,
 				DCEB7043266BFE4E00160DA6 /* Controller */,
-				DCEB7048266BFEB800160DA6 /* Constants.swift */,
+				DC029E2A266F1C8E0043C73B /* Themer */,
+				DCEB704A266C335200160DA6 /* Constants.swift */,
 				DC6343DC2669DEE7007A6949 /* Assets.xcassets */,
 				DC6343DE2669DEE7007A6949 /* LaunchScreen.storyboard */,
 				DC6343E12669DEE7007A6949 /* Info.plist */,
@@ -303,12 +340,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC029E2E266F1CE50043C73B /* AnyTargetActionWrapper.swift in Sources */,
+				DC029E33266F1D540043C73B /* ThemeModelProtocol.swift in Sources */,
 				DCEB7047266BFE9F00160DA6 /* DigitButton.swift in Sources */,
+				DC029E35266F1D7F0043C73B /* ThemeProtocol.swift in Sources */,
 				DC6343D82669DEE6007A6949 /* ViewController.swift in Sources */,
 				DC6343D42669DEE6007A6949 /* AppDelegate.swift in Sources */,
+				DC029E31266F1D330043C73B /* TargetAction.swift in Sources */,
 				DC6344042669E56D007A6949 /* NumberCruncher.swift in Sources */,
+				DCEB704B266C335200160DA6 /* Constants.swift in Sources */,
 				DC6343D62669DEE6007A6949 /* SceneDelegate.swift in Sources */,
-				DCEB7049266BFEB800160DA6 /* Constants.swift in Sources */,
+				DC029E2C266F1CB60043C73B /* TargetActionStorage.swift in Sources */,
+				DCEB7049266BFEB800160DA6 /* Theme.swift in Sources */,
+				DC029E37266F1E010043C73B /* Themer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
