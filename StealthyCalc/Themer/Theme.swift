@@ -46,16 +46,16 @@ struct ThemeSettings: ThemeModelProtocol {
     )
     
     static let iOSTheme = ThemeSettings(
-        digitButtonColor: .blue,
-        operationButtonColor: .orange,
-        equalsButtonColor: .green,
-        clearButtonColor: .purple,
-        buttonTextColor: .yellow,
-        caseColor: .cyan,
-        numberPadColor: .magenta,
-        displayColor: .red,
-        displayTextColor: .white,
-        buttonCornerRadius: 15
+        digitButtonColor: UIColor(named: "iOSGray")!,
+        operationButtonColor: UIColor(named: "iOSOrange")!,
+        equalsButtonColor: UIColor(named: "iOSOrange")!,
+        clearButtonColor: UIColor(named: "iOSLightGray")!,
+        buttonTextColor: UIColor(named: "iOSWhite")!,
+        caseColor: UIColor(named: "iOSBlack")!,
+        numberPadColor: UIColor(named: "iOSBlack")!,
+        displayColor: UIColor(named: "iOSBlack")!,
+        displayTextColor: UIColor(named: "iOSWhite")!,
+        buttonCornerRadius: 15 //TODO: how to get this right? Probably callback.
     )
 }
 

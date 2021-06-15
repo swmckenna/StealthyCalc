@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var themeSelectButton: UIButton!
     @IBOutlet weak var display: UILabel!
     
     var numberCruncher = NumberCruncher()
@@ -28,6 +29,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func showThemesPopOver(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let themesVC = storyboard.instantiateViewController(
+                   withIdentifier: "themesPopOverVC")
+         
+        themesVC.modalPresentationStyle = .popover
+
+        themesVC.popoverPresentationController?.sourceView = themeSelectButton
+        themesVC.popoverPresentationController?.sourceRect =
+            themeSelectButton.frame
+
+        self.present(themesVC, animated: true) {
+        }
+    }
+    
     @IBAction func digitTapped(_ sender: UIButton) {
         let number = sender.currentTitle!
         if userIsTyping {
@@ -56,8 +72,6 @@ class ViewController: UIViewController {
             displayValue = result
         }
     }
-    @IBAction func themeSwitchToggled(_ sender: UISwitch) {
-        Themer.shared?.theme = sender.isOn ? .classic : .iOS
-    }
+
 }
 

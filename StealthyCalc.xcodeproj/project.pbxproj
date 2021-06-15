@@ -26,6 +26,8 @@
 		DCEB7047266BFE9F00160DA6 /* DigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7046266BFE9F00160DA6 /* DigitButton.swift */; };
 		DCEB7049266BFEB800160DA6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7048266BFEB800160DA6 /* Theme.swift */; };
 		DCEB704B266C335200160DA6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB704A266C335200160DA6 /* Constants.swift */; };
+		DCFCB9E8267081AE00AECBD2 /* ThemesPopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFCB9E7267081AE00AECBD2 /* ThemesPopOverViewController.swift */; };
+		DCFCB9EA26708DAE00AECBD2 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFCB9E926708DAE00AECBD2 /* ThemeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		DCEB7046266BFE9F00160DA6 /* DigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButton.swift; sourceTree = "<group>"; };
 		DCEB7048266BFEB800160DA6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DCEB704A266C335200160DA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DCFCB9E7267081AE00AECBD2 /* ThemesPopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPopOverViewController.swift; sourceTree = "<group>"; };
+		DCFCB9E926708DAE00AECBD2 /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				DC6343D72669DEE6007A6949 /* ViewController.swift */,
+				DCFCB9E7267081AE00AECBD2 /* ThemesPopOverViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEB7046266BFE9F00160DA6 /* DigitButton.swift */,
+				DCFCB9E926708DAE00AECBD2 /* ThemeCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +356,8 @@
 				DC6344042669E56D007A6949 /* NumberCruncher.swift in Sources */,
 				DCEB704B266C335200160DA6 /* Constants.swift in Sources */,
 				DC6343D62669DEE6007A6949 /* SceneDelegate.swift in Sources */,
+				DCFCB9E8267081AE00AECBD2 /* ThemesPopOverViewController.swift in Sources */,
+				DCFCB9EA26708DAE00AECBD2 /* ThemeCell.swift in Sources */,
 				DC029E2C266F1CB60043C73B /* TargetActionStorage.swift in Sources */,
 				DCEB7049266BFEB800160DA6 /* Theme.swift in Sources */,
 				DC029E37266F1E010043C73B /* Themer.swift in Sources */,
