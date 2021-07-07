@@ -28,10 +28,9 @@ class ThemesPopOverViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "themeCell") as? ThemeCell {
-            cell.label.text = themesArray[indexPath.row].title
-        }
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "themeCell") as! ThemeCell
+        cell.label.text = themesArray[indexPath.row].title
+        return cell
     }
 
 }

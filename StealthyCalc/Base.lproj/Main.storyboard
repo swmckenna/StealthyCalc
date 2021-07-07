@@ -38,15 +38,36 @@
                                             <action selector="showThemesPopOver:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MUt-fo-aDs"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="A9x-4D-xld">
+                                        <rect key="frame" x="35" y="5" width="320" height="101"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M=9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae7-df-hnT">
+                                                <rect key="frame" x="283.33333333333331" y="0.0" width="36.666666666666686" height="50.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="VT323-Regular" family="VT323" pointSize="18"/>
+                                                <color key="textColor" name="ClassicRed"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9+6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m06-NT-IpG">
+                                                <rect key="frame" x="289" y="50.333333333333329" width="31" height="50.666666666666671"/>
+                                                <fontDescription key="fontDescription" name="VT323-Regular" family="VT323" pointSize="18"/>
+                                                <color key="textColor" name="ClassicRed"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.015686274509803921" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="Si8-D7-RJf" firstAttribute="top" secondItem="SWr-yE-vr8" secondAttribute="top" constant="8" id="7fP-Qz-oz8"/>
+                                    <constraint firstItem="A9x-4D-xld" firstAttribute="leading" secondItem="Si8-D7-RJf" secondAttribute="trailing" constant="5" id="8vd-eY-Wol"/>
+                                    <constraint firstAttribute="trailing" secondItem="A9x-4D-xld" secondAttribute="trailing" constant="5" id="AnY-9l-tCN"/>
                                     <constraint firstItem="GBm-W2-Vba" firstAttribute="height" secondItem="SWr-yE-vr8" secondAttribute="height" multiplier="0.5" id="I4q-Mv-Rig"/>
                                     <constraint firstItem="GBm-W2-Vba" firstAttribute="leading" secondItem="SWr-yE-vr8" secondAttribute="leading" constant="5" id="LBb-UR-5Jq"/>
+                                    <constraint firstItem="A9x-4D-xld" firstAttribute="top" secondItem="SWr-yE-vr8" secondAttribute="top" constant="5" id="PvB-Fi-rCr"/>
                                     <constraint firstAttribute="bottom" secondItem="GBm-W2-Vba" secondAttribute="bottom" id="UUS-O6-V8K"/>
                                     <constraint firstAttribute="trailing" secondItem="GBm-W2-Vba" secondAttribute="trailing" constant="5" id="VFN-gb-fzb"/>
                                     <constraint firstItem="Si8-D7-RJf" firstAttribute="leading" secondItem="SWr-yE-vr8" secondAttribute="leading" constant="8" id="gtK-Xq-dj0"/>
+                                    <constraint firstItem="GBm-W2-Vba" firstAttribute="top" secondItem="A9x-4D-xld" secondAttribute="bottom" constant="5" id="pba-DP-ocJ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="608-gS-3uf">
@@ -301,6 +322,8 @@
                     </view>
                     <connections>
                         <outlet property="display" destination="GBm-W2-Vba" id="iVx-a1-Dmw"/>
+                        <outlet property="expressionDisplay" destination="m06-NT-IpG" id="cIU-x5-hZd"/>
+                        <outlet property="memoryDisplay" destination="Ae7-df-hnT" id="snA-BB-DOA"/>
                         <outlet property="themeSelectButton" destination="Si8-D7-RJf" id="IwO-3w-7Gt"/>
                     </connections>
                 </viewController>
@@ -311,7 +334,7 @@
         <!--Themes Pop Over View Controller-->
         <scene sceneID="RGR-So-NSt">
             <objects>
-                <viewController storyboardIdentifier="themesPopOverVC" id="cN4-53-CpB" customClass="ThemesPopOverViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="themesPopOverVC" id="cN4-53-CpB" customClass="ThemesPopOverViewController" customModule="StealthyCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KmN-A2-NS8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -356,16 +379,19 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableview" destination="wmm-11-p7x" id="c29-VU-N14"/>
+                        <outlet property="tableview" destination="wmm-11-p7x" id="Ixn-a7-wNi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6g-WL-3hV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="856.92307692307691" y="79.620853080568722"/>
+            <point key="canvasLocation" x="786" y="92"/>
         </scene>
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <namedColor name="ClassicRed">
+            <color red="0.87800002098083496" green="0.20000000298023224" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ClassicTan">
             <color red="0.85490196078431369" green="0.83137254901960789" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

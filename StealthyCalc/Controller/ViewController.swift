@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var themeSelectButton: UIButton!
+    @IBOutlet weak var memoryDisplay: UILabel!
+    @IBOutlet weak var expressionDisplay: UILabel!
     @IBOutlet weak var display: UILabel!
     
     var numberCruncher = NumberCruncher()
@@ -27,6 +29,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        memoryDisplay.text = ""
+        expressionDisplay.text = ""
+        display.text = "0"
     }
 
     @IBAction func showThemesPopOver(_ sender: UIButton) {
