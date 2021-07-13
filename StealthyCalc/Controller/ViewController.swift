@@ -22,7 +22,7 @@ class ViewController: UIViewController {
             return Double(display.text!)!
         }
         set {
-            display.text = String(newValue)
+            display.text = DisplayNumberFormatter.formatter.string(from: NSNumber(value: newValue))
         }
     }
     
