@@ -9,10 +9,12 @@ import Foundation
 
 struct NumberCruncher {
     private typealias Tally = (Double, String)
+    private typealias Precedence = Int
+    private typealias IsCommutative = Bool
     private enum Operation {
         case constant(Double)
         case unary((Tally) -> Tally)
-        case binary((Tally, Double) -> Tally)
+        case binary(Precedence, IsCommutative, (Tally, Double) -> Tally)
         case equals
     }
     
@@ -30,12 +32,19 @@ struct NumberCruncher {
             return tally?.value
         }
     }
+    
+    var equation: String? {
+        get {
+            return tally?.expression
+        }
+    }
+    
     private var tally: (value:Double, expression:String)?
     private var pendingBinaryOperation: PendingBinaryOperation?
     private var operationsDict = [
         "ᐩ/˗": Operation.unary({ (-$0.0, "-(\($0.1))") }), //TODO: parenthesis depends on if contains binary operation
         "%": Operation.unary({ ($0.0 / 100.0, "(\($0.1))%") }), //TODO: parenthesis depends on if contains binary operation
-        "÷": Operation.binary({ ($0.0 / $1, "\($0.1)/\($1)") }),
+        "÷": Operation.binary(2, false, { ($0.0 / $1, "\($0.1)÷" + DisplayNumberFormatter.formatter.string(from: NSNumber(value: $1))!) }),
 //        "×": Operation.binary({ $0 * $1 }),
 //        "−": Operation.binary({ $0 - $1 }),
 //        "+": Operation.binary({ $0 + $1 }),
@@ -43,7 +52,7 @@ struct NumberCruncher {
     ]
     
     mutating func setOperand(_ value: Double) {
-        let string = String(value)
+        let string = DisplayNumberFormatter.formatter.string(from: NSNumber(value: value))!
         let newExpression: String = tally?.expression ?? "" + string
         tally = (value, newExpression)
     }
@@ -55,7 +64,7 @@ struct NumberCruncher {
                 if let tally = tally {
                     self.tally = function(tally)
                 }
-            case .binary(let function):
+            case .binary(_, _, let function):
                 if let tally = tally {
                     pendingBinaryOperation = PendingBinaryOperation(f: function, lhs: tally)
                 }
