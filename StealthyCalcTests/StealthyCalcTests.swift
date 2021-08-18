@@ -50,6 +50,10 @@ class StealthyCalcTests: XCTestCase {
         XCTAssertEqual(sut.result, 3)
         XCTAssertEqual(sut.equation, "9÷3")
         
+        sut.performOperation("÷")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        XCTAssertEqual(sut.result, 1)
         // "9" "x" "9" "=" RETURNS 81
         // "5" "-" "1.7" "=" RETURNS 3.3
         // "7" "+" "1" "=" RETURNS 8
@@ -62,6 +66,11 @@ class StealthyCalcTests: XCTestCase {
         
         #warning("Solve for large numbers like in Fib problem")
         #warning("Solve for printing long equations")
+    }
+    
+    func testAnotherTest() {
+        sut.setOperand(3)
+        XCTAssertEqual(sut.result, 3)
     }
 
 }
