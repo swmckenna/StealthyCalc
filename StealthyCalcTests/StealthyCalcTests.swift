@@ -8,7 +8,7 @@
 import XCTest
 @testable import StealthyCalc
 
-class StealthyCalcTests: XCTestCase {
+class NumberCruncherTests: XCTestCase {
     var sut: NumberCruncher!
 
     override func setUpWithError() throws {
@@ -23,18 +23,22 @@ class StealthyCalcTests: XCTestCase {
     
     func testNumberCruncherMath() {
         /* rule: typing "=" reduces everything in parentheses */
+        
         // "8" "+/-" RETURNS -8 PRINTS "-8"
         // "8" "+/-" "=" RETURNS -8 PRINTS "-8 ="
         // "8" "+/-" "=" "=" RETURNS -8 PRINTS "-8 ="
+        
         // "8" "%" RETURNS 0.08 PRINTS "8%"
         // "8" "%" "=" RETURNS 0.08 PRINTS "8% ="
         // "8" "%" "=" "=" RETURNS 0.08 PRINTS "8% ="
+        
         // "8" "x^2" RETURNS 64 PRINTS "8^2 ="
         // "8" "x^2" "=" RETURNS 4,096 PRINTS "64^2 ="
         // "8" "x^2" "x^2" RETURNS 4,096 PRINTS "(8^2)^2 ="
         // "8" "x^2" "x^2" "+" "5" RETURNS 5 PRINTS "(8^2)^2 +"
         // "8" "x^2" "x^2" "+" "5" "=" RETURNS 4,101 PRINTS "64^2+5 ="
         // "8" "x^2" "x^2" "+" "5" "=" "=" RETURNS 4,106 PRINTS "64^2+5+5 ="
+        
         // "8" "x" "+/-" RETURNS -0 PRINTS "8 x"
         // "8" "x" "+/-" "7" RETURNS -7 PRINTS "8 x"
         // "8" "x" "+/-" "7" "=" RETURNS -56 PRINTS "8 x -7 ="
