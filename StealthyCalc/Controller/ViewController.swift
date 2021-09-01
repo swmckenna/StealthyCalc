@@ -73,8 +73,8 @@ class ViewController: UIViewController {
             numberCruncher.performOperation(mathematicalSymbol)
         }
         
-        if let result = numberCruncher.result {
-            displayValue = result
+        if let tally = numberCruncher.evaluate().tally {
+            displayValue = tally
         }
     }
 
