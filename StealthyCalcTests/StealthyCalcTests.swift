@@ -22,29 +22,37 @@ class NumberCruncherTests: XCTestCase {
     }
     
     func testSignChange() {
-        // "8" "+/-" RETURNS -8 PRINTS "-8"
+        #warning("Implement = rule")
+        // "8" "+/-" RETURNS -8 PRINTS "-(8)"
         sut.setOperand(8)
         sut.performOperation("ᐩ/˗")
-        let result = sut.evaluate()
+        var result = sut.evaluate()
         XCTAssertEqual(result.tally, -8)
-        XCTAssertEqual(result.expressionString, "˗8")
+        XCTAssertEqual(result.expressionString, "˗(8)")
         
-//        // "8" "+/-" "=" RETURNS -8 PRINTS "-8" (= should be added in UI)
-//        sut.performOperation("=")
-//        XCTAssertEqual(sut.result, -8)
-//        XCTAssertEqual(sut.equation, "˗8")
-//
-//        // "8" "+/-" "=" "=" RETURNS -8 PRINTS "-8"
-//        sut.performOperation("=")
-//        XCTAssertEqual(sut.result, -8)
-//        XCTAssertEqual(sut.equation, "˗8")
-//
-//        // "8" "+/-" "=" "=" "+/-" RETURNS 8 PRINTS "-(-8)"
-//        sut.performOperation("ᐩ/˗")
-//        XCTAssertEqual(sut.result, 8)
-//        XCTAssertEqual(sut.equation, "˗(˗8)")
-//
+        // "8" "+/-" "=" RETURNS -8 PRINTS "-8" (= should be added in UI)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.tally, -8)
+        XCTAssertEqual(result.expressionString, "˗(8)")
+
+        // "8" "+/-" "=" "=" RETURNS -8 PRINTS "-(8)"
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.tally, -8)
+        XCTAssertEqual(result.expressionString, "˗(8)")
+
+        // "8" "+/-" "=" "=" "+/-" RETURNS 8 PRINTS "-(-8)"
+        sut.performOperation("ᐩ/˗")
+        result = sut.evaluate()
+        XCTAssertEqual(result.tally, 8)
+        XCTAssertEqual(result.expressionString, "˗(˗(8))")
+
         // "8" "+/-" "=" "=" "+/-" "=" RETURNS 8 PRINTS "-(-8)"
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.tally, 8)
+        XCTAssertEqual(result.expressionString, "˗(˗(8))")
     }
     
     func testNumberCruncherMath() {

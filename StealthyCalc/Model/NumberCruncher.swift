@@ -62,7 +62,7 @@ struct NumberCruncher {
         "Rand": Operation.nullary({
             return (Double(arc4random())/Double(UInt32.max), "RAND")
         }),
-        "ᐩ/˗": Operation.unary({-$0}, nil, nil),
+        "ᐩ/˗": Operation.unary({-$0}, {"˗(\($0))"}, nil),
         "÷": Operation.binaryOperation({ $0/$1 }, nil, { $1 == 0 ? "Error" : nil }, 1)
     ]
     
