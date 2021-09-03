@@ -34,7 +34,7 @@ struct NumberCruncher {
         let mathFunction: BinaryMathFunction
         var stringFunction: BinaryStringFunction
         let firstOperand: Double
-        var firstStringOperand: String
+        var firstOperandString: String
         var validation: BinaryValidationFunction?
         var prevPrecedence: Int
         var precedence: Int
@@ -44,7 +44,7 @@ struct NumberCruncher {
         }
         
         func performString(with secondStringOperand: String) -> String {
-            var newStringOp = firstStringOperand
+            var newStringOp = firstOperandString
             if prevPrecedence < precedence {
                 newStringOp = "(\(newStringOp))"
             }
@@ -63,7 +63,8 @@ struct NumberCruncher {
             return (Double(arc4random())/Double(UInt32.max), "RAND")
         }),
         "ᐩ/˗": Operation.unary({-$0}, {"˗(\($0))"}, nil),
-        "÷": Operation.binaryOperation({ $0/$1 }, nil, { $1 == 0 ? "Error" : nil }, 1)
+        "÷": Operation.binaryOperation({ $0/$1 }, nil, { $1 == 0 ? "Error" : nil }, 1),
+        "=": Operation.equals
     ]
     
     mutating func setOperand(_ operand: Double) {
@@ -84,8 +85,12 @@ struct NumberCruncher {
         }
     }
     
-    func evaluate() -> (tally: Double?, isPending: Bool, expressionString: String, error: String?) {
-        var cache: (tally: Double?, expressionAccumulator: String?)
+    func evaluate() -> (result: Double?, isPending: Bool, expressionString: String, error: String?) {
+        var cache: (accumulator: Double?, expressionAccumulator: String?) {
+            didSet {
+                print("STEVE: cache is \(cache); resultIsPending \(resultIsPending)")
+            }
+        }
         var error: String?
         var prevPrecedence = Int.max
         var pbo: PendingBinaryOperation?
@@ -95,14 +100,15 @@ struct NumberCruncher {
                 if pbo == nil {
                     return cache.expressionAccumulator
                 } else {
-                    return pbo!.stringFunction(pbo!.firstStringOperand, cache.expressionAccumulator ?? "")
+                    return pbo!.stringFunction(pbo!.firstOperandString, cache.expressionAccumulator ?? "")
                 }
             }
         }
         
         var result: Double? {
             get {
-                return cache.tally
+                print("STEVE: result is \(String(describing: cache.accumulator))")
+                return cache.accumulator
             }
         }
         
@@ -113,8 +119,8 @@ struct NumberCruncher {
         }
         
         func setOperand(_ operand: Double) {
-            cache.tally = operand
-            if let value = cache.tally {
+            cache.accumulator = operand
+            if let value = cache.accumulator {
                 cache.expressionAccumulator = DisplayNumberFormatter.formatter.string(from: NSNumber(value: value)) ?? ""
                 prevPrecedence = Int.max
             }
@@ -125,16 +131,16 @@ struct NumberCruncher {
                 error = nil
                 switch operation {
                 case .constant(let value):
-                    cache = (tally: value, expressionAccumulator: symbol)
+                    cache = (accumulator: value, expressionAccumulator: symbol)
                     
                 case .nullary(let nullaryFunction):
                     let function = nullaryFunction()
-                    cache = (tally: function.result, expressionAccumulator: function.stringResult)
+                    cache = (accumulator: function.result, expressionAccumulator: function.stringResult)
                     
                 case .unary(let mathFunction, var stringFunction, let validationFunction):
-                    if let tally = cache.tally {
-                        error = validationFunction?(tally)
-                        cache.tally = mathFunction(tally)
+                    if let accumulator = cache.accumulator {
+                        error = validationFunction?(accumulator)
+                        cache.accumulator = mathFunction(accumulator)
                         if stringFunction == nil {
                             stringFunction = { "\(symbol)(\($0))" }
                         }
@@ -143,14 +149,14 @@ struct NumberCruncher {
                     
                 case .binaryOperation(let mathFunction, var stringFunction, let validationFunction, let precedence):
                     performPendingBinaryOperation()
-                    if let tally = cache.tally {
+                    if let accumulator = cache.accumulator {
                         if stringFunction == nil {
-                            stringFunction = { "\($0) \(symbol) \($1)" }
+                            stringFunction = { "\($0)\(symbol)\($1)" }
                         }
                         pbo = PendingBinaryOperation(mathFunction: mathFunction,
                                                      stringFunction: stringFunction!,
-                                                     firstOperand: tally,
-                                                     firstStringOperand: cache.expressionAccumulator!,
+                                                     firstOperand: accumulator,
+                                                     firstOperandString: cache.expressionAccumulator!,
                                                      validation: validationFunction,
                                                      prevPrecedence: prevPrecedence,
                                                      precedence: precedence)
@@ -164,17 +170,18 @@ struct NumberCruncher {
         }
         
         func performPendingBinaryOperation() {
-            if let pb = pbo, let tally = cache.tally, let exp = cache.expressionAccumulator {
-                error = pb.validate(with: tally)
-                cache.tally = pb.performMath(with: tally)
+            if let pb = pbo, let accumulator = cache.accumulator, let exp = cache.expressionAccumulator {
+                //run the math and string functions, update cache
+                error = pb.validate(with: accumulator)
+                cache.accumulator = pb.performMath(with: accumulator)
                 cache.expressionAccumulator = pb.performString(with: exp)
                 prevPrecedence = pb.precedence
                 pbo = nil
             }
         }
     
-        //Actual meat of the function here
-        guard !expressionStack.isEmpty else { return (tally: nil, isPending: false, expressionString: " ", error: nil) }
+        //MARK: EVALUATE()
+        guard !expressionStack.isEmpty else { return (result: nil, isPending: false, expressionString: "", error: nil) }
         prevPrecedence = Int.max
         pbo = nil
         for element in expressionStack {
@@ -185,7 +192,8 @@ struct NumberCruncher {
                 performOperation(operation)
             }
         }
-        return (result, resultIsPending, expressionString ?? " ", error)
+        print("Steve: \(String(describing: expressionString))")
+        return (result, resultIsPending, expressionString ?? "", error)
         //
 
     }

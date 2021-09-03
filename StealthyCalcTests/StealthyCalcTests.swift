@@ -27,37 +27,55 @@ class NumberCruncherTests: XCTestCase {
         sut.setOperand(8)
         sut.performOperation("ᐩ/˗")
         var result = sut.evaluate()
-        XCTAssertEqual(result.tally, -8)
+        XCTAssertEqual(result.result, -8)
         XCTAssertEqual(result.expressionString, "˗(8)")
         
         // "8" "+/-" "=" RETURNS -8 PRINTS "-8" (= should be added in UI)
         sut.performOperation("=")
         result = sut.evaluate()
-        XCTAssertEqual(result.tally, -8)
+        XCTAssertEqual(result.result, -8)
         XCTAssertEqual(result.expressionString, "˗(8)")
 
         // "8" "+/-" "=" "=" RETURNS -8 PRINTS "-(8)"
         sut.performOperation("=")
         result = sut.evaluate()
-        XCTAssertEqual(result.tally, -8)
+        XCTAssertEqual(result.result, -8)
         XCTAssertEqual(result.expressionString, "˗(8)")
 
         // "8" "+/-" "=" "=" "+/-" RETURNS 8 PRINTS "-(-8)"
         sut.performOperation("ᐩ/˗")
         result = sut.evaluate()
-        XCTAssertEqual(result.tally, 8)
+        XCTAssertEqual(result.result, 8)
         XCTAssertEqual(result.expressionString, "˗(˗(8))")
 
         // "8" "+/-" "=" "=" "+/-" "=" RETURNS 8 PRINTS "-(-8)"
         sut.performOperation("=")
         result = sut.evaluate()
-        XCTAssertEqual(result.tally, 8)
+        XCTAssertEqual(result.result, 8)
         XCTAssertEqual(result.expressionString, "˗(˗(8))")
+    }
+    
+    func testDivision() {
+        // "12" "÷" "2" "=" RETURNS 6
+        sut.setOperand(12)
+        sut.performOperation("÷")
+        sut.setOperand(2)
+        sut.performOperation("=")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result, 6)
+        XCTAssertEqual(result.expressionString, "12÷2")
+
+        // "12" "÷" "2" "=" "÷" "3" "=" RETURNS 2
+        sut.performOperation("÷")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result, 2)
+        XCTAssertEqual(result.expressionString, "12÷2÷3")
     }
     
     func testNumberCruncherMath() {
         /* rule: typing "=" reduces everything in parentheses */
-        
         
         // "8" "%" RETURNS 0.08 PRINTS "8%"
         // "8" "%" "=" RETURNS 0.08 PRINTS "8% ="
@@ -77,18 +95,6 @@ class NumberCruncherTests: XCTestCase {
         // "8" "x" "7" "+/-" "=" RETURNS -56 PRINTS "8 x -7 ="
         
         
-        // "9" "÷" "3" "=" RETURNS 3
-//        sut.setOperand(9)
-//        sut.performOperation("÷")
-//        sut.setOperand(3)
-//        sut.performOperation("=")
-//        XCTAssertEqual(sut.result, 3)
-//        XCTAssertEqual(sut.equation, "9÷3")
-//        
-//        sut.performOperation("÷")
-//        sut.setOperand(3)
-//        sut.performOperation("=")
-//        XCTAssertEqual(sut.result, 1)
         // "9" "x" "9" "=" RETURNS 81
         // "5" "-" "1.7" "=" RETURNS 3.3
         // "7" "+" "1" "=" RETURNS 8
