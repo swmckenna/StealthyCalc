@@ -74,19 +74,77 @@ class NumberCruncherTests: XCTestCase {
         XCTAssertEqual(result.expressionString, "12÷2÷3")
     }
     
+    func testDivisionRepeats() {
+        sut.setOperand(9)
+        sut.performOperation("÷")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result, 3)
+        XCTAssertEqual(result.expressionString, "9÷3")
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result, 1)
+        XCTAssertEqual(result.expressionString, "9÷3÷3")
+    }
+    
+    func testDivisionRepeatsNewNumber() {
+        sut.setOperand(12)
+        sut.performOperation("÷")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result, 4)
+        XCTAssertEqual(result.expressionString, "12÷3")
+        sut.setOperand(2)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result, 2)
+        XCTAssertEqual(result.expressionString, "12÷3÷2")
+    }
+    
+    func testPercentage() {
+        // "8" "%" RETURNS 0.08 PRINTS "8%"
+        sut .setOperand(8)
+        sut.performOperation("%")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result, 0.08)
+        XCTAssertEqual(result.expressionString, "8%")
+        
+        // "8" "%" "=" RETURNS 0.08 PRINTS "8%"
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result, 0.08)
+        XCTAssertEqual(result.expressionString, "8%")
+        
+        // "8" "%" "=" "=" RETURNS 0.08 PRINTS "8% ="
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result, 0.08)
+        XCTAssertEqual(result.expressionString, "8%")
+        
+    }
+    
+    func testSquared() {
+        // "8" "x²" RETURNS 64 PRINTS "8²"
+        sut.setOperand(8)
+        sut.performOperation("х²")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result, 64)
+        XCTAssertEqual(result.expressionString, "8²")
+        
+        // "8" "x²" "=" RETURNS 4,096 PRINTS "64² ="
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result, 4096)
+        // "8" "x²" "x^2" RETURNS 4,096 PRINTS "(8²)² ="
+        // "8" "x²" "x^2" "+" "5" RETURNS 5 PRINTS "(8²)² +"
+        // "8" "x²" "x^2" "+" "5" "=" RETURNS 4,101 PRINTS "64²+5 ="
+        // "8" "x²" "x^2" "+" "5" "=" "=" RETURNS 4,106 PRINTS "64²+5+5 ="
+    }
+    
     func testNumberCruncherMath() {
         /* rule: typing "=" reduces everything in parentheses */
-        
-        // "8" "%" RETURNS 0.08 PRINTS "8%"
-        // "8" "%" "=" RETURNS 0.08 PRINTS "8% ="
-        // "8" "%" "=" "=" RETURNS 0.08 PRINTS "8% ="
-        
-        // "8" "x^2" RETURNS 64 PRINTS "8^2 ="
-        // "8" "x^2" "=" RETURNS 4,096 PRINTS "64^2 ="
-        // "8" "x^2" "x^2" RETURNS 4,096 PRINTS "(8^2)^2 ="
-        // "8" "x^2" "x^2" "+" "5" RETURNS 5 PRINTS "(8^2)^2 +"
-        // "8" "x^2" "x^2" "+" "5" "=" RETURNS 4,101 PRINTS "64^2+5 ="
-        // "8" "x^2" "x^2" "+" "5" "=" "=" RETURNS 4,106 PRINTS "64^2+5+5 ="
         
         // "8" "x" "+/-" RETURNS -0 PRINTS "8 x"
         // "8" "x" "+/-" "7" RETURNS -7 PRINTS "8 x"
