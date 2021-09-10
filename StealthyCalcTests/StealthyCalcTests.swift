@@ -75,32 +75,33 @@ class NumberCruncherTests: XCTestCase {
     }
     
     func testDivisionRepeats() {
-        sut.setOperand(9)
+        sut.setOperand(27)
         sut.performOperation("÷")
         sut.setOperand(3)
         sut.performOperation("=")
         var result = sut.evaluate()
-        XCTAssertEqual(result.result, 3)
-        XCTAssertEqual(result.expressionString, "9÷3")
+        XCTAssertEqual(result.result, 9)
+        XCTAssertEqual(result.expressionString, "27÷3")
         sut.performOperation("=")
         result = sut.evaluate()
-        XCTAssertEqual(result.result, 1)
-        XCTAssertEqual(result.expressionString, "9÷3÷3")
+        XCTAssertEqual(result.result, 3)
+        XCTAssertEqual(result.expressionString, "27÷3÷3")
     }
     
     func testDivisionRepeatsNewNumber() {
-        sut.setOperand(12)
+        sut.setOperand(24)
         sut.performOperation("÷")
         sut.setOperand(3)
         sut.performOperation("=")
         var result = sut.evaluate()
-        XCTAssertEqual(result.result, 4)
-        XCTAssertEqual(result.expressionString, "12÷3")
+        XCTAssertEqual(result.result, 8)
+        XCTAssertEqual(result.expressionString, "24÷3")
+        sut.performOperation("÷")
         sut.setOperand(2)
         sut.performOperation("=")
         result = sut.evaluate()
-        XCTAssertEqual(result.result, 2)
-        XCTAssertEqual(result.expressionString, "12÷3÷2")
+        XCTAssertEqual(result.result, 4)
+        XCTAssertEqual(result.expressionString, "24÷3÷2")
     }
     
     func testPercentage() {
