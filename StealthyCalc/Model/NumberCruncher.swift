@@ -175,17 +175,23 @@ struct NumberCruncher {
                     
                 case .equals:
                     if let opOfRecord = operationOfRecord,
-                       let secondOperand = opOfRecord.operand,
-                       let op = operationsDict[opOfRecord.symbol],
-                       case let Operation.binary(math, string, valid, prec, _) = op,
-                       //TODO: what if unary?
-                       let firstOperand = cache.accumulator,
-                       let firstOperandString = cache.expressionAccumulator {
-                        let pb = PendingBinaryOperation(mathFunction: math, stringFunction: string ?? { "\($0)\(opOfRecord.symbol)\($1)" }, firstOperand: firstOperand, firstOperandString: firstOperandString, validation: valid, prevPrecedence: prevPrecedence, precedence: prec)
-                        error = pb.validate(with: secondOperand)
-                        cache.accumulator = pb.performMath(with: secondOperand)
-                        cache.expressionAccumulator = pb.performString(with: DisplayNumberFormatter.formatter.string(from: NSNumber(value: secondOperand)) ?? "")
-                        prevPrecedence = pb.precedence
+                       let op = operationsDict[opOfRecord.symbol] {
+                        switch op {
+                        case .unary(_, _, _, _):
+                            performOperation(opOfRecord.symbol)
+                        case .binary(let math, let string, let valid, let prec, _):
+                            if let firstOperand = cache.accumulator,
+                               let firstOperandString = cache.expressionAccumulator,
+                               let secondOperand = opOfRecord.operand {
+                                let pb = PendingBinaryOperation(mathFunction: math, stringFunction: string ?? { "\($0)\(opOfRecord.symbol)\($1)" }, firstOperand: firstOperand, firstOperandString: firstOperandString, validation: valid, prevPrecedence: prevPrecedence, precedence: prec)
+                                error = pb.validate(with: secondOperand)
+                                cache.accumulator = pb.performMath(with: secondOperand)
+                                cache.expressionAccumulator = pb.performString(with: DisplayNumberFormatter.formatter.string(from: NSNumber(value: secondOperand)) ?? "")
+                                prevPrecedence = pb.precedence
+                            }
+                        default:
+                            break
+                        }
                     }
                     performPendingBinaryOperation()
                 }
