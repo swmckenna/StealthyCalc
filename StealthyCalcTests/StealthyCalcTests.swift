@@ -104,6 +104,21 @@ class NumberCruncherTests: XCTestCase {
         XCTAssertEqual(result.expressionString, "24÷3÷2")
     }
     
+    func testDivisionRepeatsNewNumberNoEquals() {
+        sut.setOperand(24)
+        sut.performOperation("÷")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result, 8)
+        XCTAssertEqual(result.expressionString, "24÷3")
+        sut.setOperand(12)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result, 4)
+        XCTAssertEqual(result.expressionString, "12÷3")
+    }
+    
     func testPercentage() {
         // "8" "%" RETURNS 0.08 PRINTS "8%"
         sut .setOperand(8)

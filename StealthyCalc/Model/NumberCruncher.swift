@@ -89,12 +89,7 @@ struct NumberCruncher {
     }
     
     func evaluate() -> (result: Double?, isPending: Bool, expressionString: String, error: String?) {
-        var cache: (accumulator: Double?, expressionAccumulator: String?) {
-            didSet {
-                guard let acc = cache.accumulator else { return }
-                print("STEVE: accumulator \(String(describing: acc))")
-            }
-        }
+        var cache: (accumulator: Double?, expressionAccumulator: String?)
         var error: String?
         var prevPrecedence = Int.max
         var operationOfRecord: (symbol: String, operand: Double?)?
