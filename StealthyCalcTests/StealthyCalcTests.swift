@@ -168,7 +168,15 @@ class NumberCruncherTests: XCTestCase {
         let result = sut.evaluate()
         XCTAssertEqual(result.result, -56)
         XCTAssertEqual(result.expressionString, "8×˗(7)")
-        
+    }
+    
+    func testGetErrorWhenDivideByZeroAndIncorrectNegativeInput() {
+        sut.setOperand(8)
+        sut.performOperation("÷")
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("+")
+        let result = sut.evaluate()
+        XCTAssertEqual(result.error, "Error")
     }
     
     func testNumberCruncherMath() {

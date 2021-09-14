@@ -153,7 +153,7 @@ struct NumberCruncher {
                     } else if symbol == "ᐩ/˗" {
                         negativeIsPending = !negativeIsPending
                         cache.accumulator = 0
-                        cache.expressionAccumulator = "˗(0)"
+                        cache.expressionAccumulator = "0"
                     }
                     
                 case .binary(let mathFunction, var stringFunction, let validationFunction, let precedence, let repeats):
