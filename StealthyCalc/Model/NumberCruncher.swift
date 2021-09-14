@@ -63,14 +63,52 @@ struct NumberCruncher {
         "Rand": Operation.nullary({
             return (Double(arc4random())/Double(UInt32.max), "RAND")
         }),
-        "ᐩ/˗": Operation.unary({-$0}, {"˗(\($0))"}, nil, false),
-        "%": Operation.unary({$0 / 100}, {"\($0)%"}, nil, false),
-        "х²": Operation.unary({$0 * $0}, { "\($0)²"}, nil, true),
+        "e": Operation.constant(M_E),
+        "π": Operation.constant(Double.pi),
+        "ᐩ/˗": Operation.unary({ -$0 }, { "˗(\($0))" }, nil, false),
+        "%": Operation.unary({ $0 / 100 }, { "\($0)%" }, nil, false),
+        "х²": Operation.unary({ $0 * $0 }, { "\($0)²" }, nil, true),
+        "х³": Operation.unary({ $0 * $0 * $0 }, { "\($0)³" }, nil, true),
+        "eˣ": Operation.unary({ pow(M_E, $0) }, { "e^\($0)" }, nil, true),
+        "10ˣ": Operation.unary({ pow(10, $0) }, { "10^\($0)" }, nil, false),
+        "2ˣ": Operation.unary({ pow(2, $0) }, { "2^\($0)" }, nil, false),
+        "¹/ₓ": Operation.unary({ 1/$0 }, { "\($0)⁻¹" }, {$0 == 0 ? "Error" : nil}, false),
+        "²√ₓ": Operation.unary({ sqrt($0) }, { "√\($0)" }, { $0 < 0 ? "Error" : nil }, true),
+        "³√ₓ": Operation.unary({ pow($0, 1/3) }, { "³√\($0)" }, nil, true),
+        "㏑": Operation.unary({ log($0) } , { "㏑(\($0))" }, { $0 <= 0 ? "Error" : nil }, false),
+        "㏒₁₀": Operation.unary({ log10($0) }, { "㏒₁₀(\($0)" }, { $0 <= 0 ? "Error" : nil }, false),
+        "㏒₂": Operation.unary({ log2($0) }, { "㏒₂(\($0)" }, { $0 <= 0 ? "Error" : nil }, false),
+//        "х!": Operation.unary({ $0! }, { "\($0)!" }, { $0 < 0 ? "Error" : nil }, false),
+        "sin": Operation.unary({ sin($0) }, { "sin(\($0)" }, nil, false),
+        "cos": Operation.unary({ cos($0) }, { "cos(\($0)" }, nil, false),
+        "tan": Operation.unary({ tan($0) }, { "tan(\($0)" }, nil, false),
+        "sinh": Operation.unary({ sinh($0) }, { "sinh(\($0)" }, nil, false),
+        "cosh": Operation.unary({ cosh($0) }, { "cosh(\($0)" }, nil, false),
+        "tanh": Operation.unary({ tanh($0) }, { "tanh(\($0)" }, nil, false),
+        "sin⁻¹": Operation.unary({ asin($0) }, { "sin⁻¹(\($0))"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
+        "cos⁻¹": Operation.unary({ acos($0) }, { "cos⁻¹(\($0))"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
+        "tan⁻¹": Operation.unary({ atan($0) }, { "tan⁻¹(\($0))"}, nil, false),
+        "sinh⁻¹": Operation.unary({ asinh($0) }, { "sinh⁻¹(\($0))"}, nil, false),
+        "cosh⁻¹": Operation.unary({ acosh($0) }, { "cosh⁻¹(\($0))"}, nil, false),
+        "tanh⁻¹": Operation.unary({ atanh($0) }, { "tanh⁻¹(\($0))"}, { $0 <= -1.0 || $0 >= 1.0 ? "Error": nil }, false),
+        "ʸ√ₓ": Operation.binary({ pow($0, 1/$1) }, { "\($1)√\($0)" }, /*something here*/nil, 2, true),
+        "xʸ": Operation.binary({ pow($0, $1) }, { "\($0)^\($1)" }, nil, 2, true),
+        "yˣ": Operation.binary({ pow($1, $0) }, { "\($1)^\($0)" }, nil, 2, true),
+        "㏒ₓ": Operation.binary({ log($0)/log($1) }, {"㏑(\($0))/㏑(\($1))"}, { $0 <= 0 || $1 <= 0 ? "Error" : nil }, 2, true), //should be log(y)
         "÷": Operation.binary({ $0/$1 }, nil, { $1 == 0 || $1 == -0 ? "Error" : nil }, 1, true),
         "×": Operation.binary({ $0*$1 }, nil, nil, 1, true),
+        "−": Operation.binary({ $0-$1 }, nil, nil, 0, true),
         "+": Operation.binary({ $0+$1 }, nil, nil, 0, true),
         "=": Operation.equals
     ]
+    #warning("Need a more thorogh validation check for the variable root")
+    #warning("Need a function for factorial that avoids stack overflow") //5
+    #warning("change signs to better match iOS calculator")
+    #warning("Add parenthesis")
+    #warning("Add memory (m+ m- mc mr)") //3
+    #warning("Add clear") //1
+    #warning("Add 2nd") //2
+    #warning("Add Rad and Deg") //4
     
     mutating func setOperand(_ operand: Double) {
         expressionStack.append(ExpressionElement.operand(operand))
