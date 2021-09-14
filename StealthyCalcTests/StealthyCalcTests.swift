@@ -159,15 +159,20 @@ class NumberCruncherTests: XCTestCase {
         // "8" "x²" "x^2" "+" "5" "=" "=" RETURNS 4,106 PRINTS "64²+5+5 ="
     }
     
+    func testMulitplyByAlternativeInputNegative() {
+        sut.setOperand(8)
+        sut.performOperation("×")
+        sut.performOperation("ᐩ/˗")
+        sut.setOperand(7)
+        sut.performOperation("=")
+        let result = sut.evaluate()
+        XCTAssertEqual(result.result, -56)
+        XCTAssertEqual(result.expressionString, "8×˗(7)")
+        
+    }
+    
     func testNumberCruncherMath() {
         /* rule: typing "=" reduces everything in parentheses */
-        
-        // "8" "x" "+/-" RETURNS -0 PRINTS "8 x"
-        // "8" "x" "+/-" "7" RETURNS -7 PRINTS "8 x"
-        // "8" "x" "+/-" "7" "=" RETURNS -56 PRINTS "8 x -7 ="
-        // "8" "x" "7" "+/-" RETURNS -7 PRINTS "8 x"
-        // "8" "x" "7" "+/-" "=" RETURNS -56 PRINTS "8 x -7 ="
-        
         
         // "9" "x" "9" "=" RETURNS 81
         // "5" "-" "1.7" "=" RETURNS 3.3

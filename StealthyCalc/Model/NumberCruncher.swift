@@ -66,7 +66,9 @@ struct NumberCruncher {
         "ᐩ/˗": Operation.unary({-$0}, {"˗(\($0))"}, nil, false),
         "%": Operation.unary({$0 / 100}, {"\($0)%"}, nil, false),
         "х²": Operation.unary({$0 * $0}, { "\($0)²"}, nil, true),
-        "÷": Operation.binary({ $0/$1 }, nil, { $1 == 0 ? "Error" : nil }, 1, true),
+        "÷": Operation.binary({ $0/$1 }, nil, { $1 == 0 || $1 == -0 ? "Error" : nil }, 1, true),
+        "×": Operation.binary({ $0*$1 }, nil, nil, 1, true),
+        "+": Operation.binary({ $0+$1 }, nil, nil, 0, true),
         "=": Operation.equals
     ]
     
@@ -88,12 +90,13 @@ struct NumberCruncher {
         }
     }
     
-    func evaluate() -> (result: Double?, isPending: Bool, expressionString: String, error: String?) {
+    func evaluate() -> (result: Double?, resultIsPending: Bool, negativeIsPending: Bool, expressionString: String, error: String?) {
         var cache: (accumulator: Double?, expressionAccumulator: String?)
         var error: String?
         var prevPrecedence = Int.max
         var operationOfRecord: (symbol: String, operand: Double?)?
         var pbo: PendingBinaryOperation?
+        var negativeIsPending = false
         
         var expressionString: String? {
             get {
@@ -147,6 +150,10 @@ struct NumberCruncher {
                             stringFunction = { "\(symbol)(\($0))" }
                         }
                         cache.expressionAccumulator = stringFunction!(cache.expressionAccumulator!)
+                    } else if symbol == "ᐩ/˗" {
+                        negativeIsPending = !negativeIsPending
+                        cache.accumulator = 0
+                        cache.expressionAccumulator = "˗(0)"
                     }
                     
                 case .binary(let mathFunction, var stringFunction, let validationFunction, let precedence, let repeats):
@@ -194,6 +201,10 @@ struct NumberCruncher {
         }
         
         func performPendingBinaryOperation() {
+            if negativeIsPending {
+                performOperation("ᐩ/˗")
+            }
+            negativeIsPending = false
             if let pb = pbo, let accumulator = cache.accumulator, let exp = cache.expressionAccumulator {
                 //run the math and string functions, update cache
                 error = pb.validate(with: accumulator)
@@ -210,7 +221,7 @@ struct NumberCruncher {
         }
     
         //MARK: EVALUATE()
-        guard !expressionStack.isEmpty else { return (result: nil, isPending: false, expressionString: "", error: nil) }
+        guard !expressionStack.isEmpty else { return (result: nil, resultIsPending: false, negativeIsPending: false, expressionString: "", error: nil) }
         prevPrecedence = Int.max
         pbo = nil
         for element in expressionStack {
@@ -221,7 +232,7 @@ struct NumberCruncher {
                 performOperation(operation)
             }
         }
-        return (result, resultIsPending, expressionString ?? "", error)
+        return (result, resultIsPending, negativeIsPending, expressionString ?? "", error)
         //
 
     }
