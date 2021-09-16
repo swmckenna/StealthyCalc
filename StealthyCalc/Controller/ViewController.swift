@@ -26,6 +26,26 @@ class ViewController: UIViewController {
         }
     }
     
+    var displayResult = CalculatedResult() {
+        didSet {
+            let d = displayResult
+            switch (d.result, d.resultIsPending, d.negativeIsPending, d.expressionString, d.error) {
+            case (nil, _, _, "", nil):
+                displayValue = 0
+            case (let result, _, _, _, nil):
+                if let r = result {
+                    displayValue = r
+                }
+            case (_, _, _, _, let error):
+                display.text = error!
+            }
+            
+            expressionDisplay.text = displayResult.expressionString != "" ?
+                                displayResult.expressionString + (displayResult.resultIsPending ? "…" : "=") : ""
+//            memoryDisplay.text =
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -73,9 +93,13 @@ class ViewController: UIViewController {
             numberCruncher.performOperation(mathematicalSymbol)
         }
         
-        if let result = numberCruncher.evaluate().result {
-            displayValue = result
-        }
+        displayResult = numberCruncher.evaluate()
+    }
+    
+    @IBAction func clearAll(_ sender: UIButton) {
+        userIsTyping = false
+        numberCruncher.clear()
+        displayResult = numberCruncher.evaluate()
     }
 
 }

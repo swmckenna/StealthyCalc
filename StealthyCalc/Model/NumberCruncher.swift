@@ -7,6 +7,14 @@
 
 import Foundation
 
+struct CalculatedResult {
+    var result: Double? = nil
+    var resultIsPending: Bool = false
+    var negativeIsPending: Bool = false
+    var expressionString: String = ""
+    var error: String? = nil
+}
+
 struct NumberCruncher {
     typealias NullaryFunction = (() -> (result: Double, stringResult: String))
     typealias UnaryMathFunction = ((_ operand: Double) -> Double)
@@ -101,12 +109,12 @@ struct NumberCruncher {
         "+": Operation.binary({ $0+$1 }, nil, nil, 0, true),
         "=": Operation.equals
     ]
-    #warning("Need a more thorogh validation check for the variable root")
+    #warning("Need a more thorough validation check for the variable root")
     #warning("Need a function for factorial that avoids stack overflow") //5
     #warning("change signs to better match iOS calculator")
     #warning("Add parenthesis")
     #warning("Add memory (m+ m- mc mr)") //3
-    #warning("Add clear") //1
+    #warning("Test clear and defined operations")
     #warning("Add 2nd") //2
     #warning("Add Rad and Deg") //4
     
@@ -128,7 +136,7 @@ struct NumberCruncher {
         }
     }
     
-    func evaluate() -> (result: Double?, resultIsPending: Bool, negativeIsPending: Bool, expressionString: String, error: String?) {
+    func evaluate() -> CalculatedResult {
         var cache: (accumulator: Double?, expressionAccumulator: String?)
         var error: String?
         var prevPrecedence = Int.max
@@ -259,7 +267,7 @@ struct NumberCruncher {
         }
     
         //MARK: EVALUATE()
-        guard !expressionStack.isEmpty else { return (result: nil, resultIsPending: false, negativeIsPending: false, expressionString: "", error: nil) }
+        guard !expressionStack.isEmpty else { return CalculatedResult() }
         prevPrecedence = Int.max
         pbo = nil
         for element in expressionStack {
@@ -270,7 +278,7 @@ struct NumberCruncher {
                 performOperation(operation)
             }
         }
-        return (result, resultIsPending, negativeIsPending, expressionString ?? "", error)
+        return CalculatedResult(result: result, resultIsPending: resultIsPending, negativeIsPending: negativeIsPending, expressionString: expressionString ?? "", error: error)
         //
 
     }
