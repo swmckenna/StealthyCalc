@@ -22,6 +22,7 @@ enum CalcTheme: ThemeProtocol {
 
 struct ThemeSettings: ThemeModelProtocol {
     let digitButtonColor: UIColor
+    let scientificButtonColor: UIColor
     let operationButtonColor: UIColor
     let equalsButtonColor: UIColor
     let clearButtonColor: UIColor
@@ -34,6 +35,7 @@ struct ThemeSettings: ThemeModelProtocol {
     
     static let classicTheme = ThemeSettings(
         digitButtonColor: UIColor(named: "ClassicWhite")!,
+        scientificButtonColor: UIColor(named: "ClassicKhaki")!,
         operationButtonColor: UIColor(named: "ClassicTan")!,
         equalsButtonColor: UIColor(named: "ClassicOrange")!,
         clearButtonColor: UIColor(named: "ClassicTan")!,
@@ -47,6 +49,7 @@ struct ThemeSettings: ThemeModelProtocol {
     
     static let iOSTheme = ThemeSettings(
         digitButtonColor: UIColor(named: "iOSGray")!,
+        scientificButtonColor: UIColor(named: "iOSDarkGray")!,
         operationButtonColor: UIColor(named: "iOSOrange")!,
         equalsButtonColor: UIColor(named: "iOSOrange")!,
         clearButtonColor: UIColor(named: "iOSLightGray")!,

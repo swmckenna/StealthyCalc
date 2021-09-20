@@ -82,125 +82,235 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="643-4d-xbr">
                                                         <rect key="frame" x="0.0" y="0.0" width="337" height="37.666666666666664"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zx-Cz-RQS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59.333333333333336" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zx-Cz-RQS" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="(">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viW-32-Rzc">
-                                                                <rect key="frame" x="69.333333333333343" y="0.0" width="59.333333333333343" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viW-32-Rzc" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="58" y="0.0" width="47.666666666666657" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title=")">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYO-28-ZdT">
-                                                                <rect key="frame" x="138.66666666666666" y="0.0" width="59.666666666666657" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYO-28-ZdT" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="115.66666666666666" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="mc">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAr-qF-DB5">
-                                                                <rect key="frame" x="208.33333333333331" y="0.0" width="59.333333333333314" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAr-qF-DB5" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="173.66666666666666" y="0.0" width="47.666666666666657" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="m+">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sX4-tf-u0U">
-                                                                <rect key="frame" x="277.66666666666669" y="0.0" width="59.333333333333314" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sX4-tf-u0U" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="231.33333333333331" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="m-">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZD-EL-3AV" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="289.33333333333331" y="0.0" width="47.666666666666686" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="mr">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v6k-ir-0Rf">
                                                         <rect key="frame" x="0.0" y="47.666666666666657" width="337" height="37.666666666666657"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swm-nG-vkh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59.333333333333336" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swm-nG-vkh" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="2ⁿᵈ">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24l-lU-zOk">
-                                                                <rect key="frame" x="69.333333333333343" y="0.0" width="59.333333333333343" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24l-lU-zOk" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="58" y="0.0" width="47.666666666666657" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="х²">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRi-Ba-Bqr">
-                                                                <rect key="frame" x="138.66666666666666" y="0.0" width="59.666666666666657" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRi-Ba-Bqr" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="115.66666666666666" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="х³">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-9c-Ujx">
-                                                                <rect key="frame" x="208.33333333333331" y="0.0" width="59.333333333333314" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-9c-Ujx" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="173.66666666666666" y="0.0" width="47.666666666666657" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="xʸ">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oF7-qb-lIF">
-                                                                <rect key="frame" x="277.66666666666669" y="0.0" width="59.333333333333314" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oF7-qb-lIF" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="231.33333333333331" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="eˣ">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACh-E4-kqH" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="289.33333333333331" y="0.0" width="47.666666666666686" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="10ˣ">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vGb-cg-WJM">
                                                         <rect key="frame" x="0.0" y="95.333333333333343" width="337" height="37.333333333333343"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-EK-gtM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59.333333333333336" height="37.333333333333336"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-EK-gtM" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="37.333333333333336"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="¹/ₓ">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6b-OH-BCs">
-                                                                <rect key="frame" x="69.333333333333343" y="0.0" width="59.333333333333343" height="37.333333333333336"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6b-OH-BCs" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="58" y="0.0" width="47.666666666666657" height="37.333333333333336"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="²√ₓ">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xw-7e-xC3">
-                                                                <rect key="frame" x="138.66666666666666" y="0.0" width="59.666666666666657" height="37.333333333333336"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xw-7e-xC3" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="115.66666666666666" y="0.0" width="48" height="37.333333333333336"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="³√ₓ">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jV0-3I-OeW">
-                                                                <rect key="frame" x="208.33333333333331" y="0.0" width="59.333333333333314" height="37.333333333333336"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jV0-3I-OeW" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="173.66666666666666" y="0.0" width="47.666666666666657" height="37.333333333333336"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="ʸ√ₓ">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyv-uz-LxI">
-                                                                <rect key="frame" x="277.66666666666669" y="0.0" width="59.333333333333314" height="37.333333333333336"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyv-uz-LxI" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="231.33333333333331" y="0.0" width="48" height="37.333333333333336"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="㏑">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-oC-685" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="289.33333333333331" y="0.0" width="47.666666666666686" height="37.333333333333336"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="㏒₁₀">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jMv-eN-9Rh">
                                                         <rect key="frame" x="0.0" y="142.66666666666666" width="337" height="37.666666666666657"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Nl-PA-ReB">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59.333333333333336" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Nl-PA-ReB" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="х!">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdB-ce-ngN">
-                                                                <rect key="frame" x="69.333333333333343" y="0.0" width="59.333333333333343" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdB-ce-ngN" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="58" y="0.0" width="47.666666666666657" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="sin">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoK-i6-zwI">
-                                                                <rect key="frame" x="138.66666666666666" y="0.0" width="59.666666666666657" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoK-i6-zwI" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="115.66666666666666" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="cos">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dad-o4-K4u">
-                                                                <rect key="frame" x="208.33333333333331" y="0.0" width="59.333333333333314" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dad-o4-K4u" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="173.66666666666666" y="0.0" width="47.666666666666657" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="tan">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wB7-el-U9q">
-                                                                <rect key="frame" x="277.66666666666669" y="0.0" width="59.333333333333314" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wB7-el-U9q" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="231.33333333333331" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="e">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nus-ym-NPG" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="289.33333333333331" y="0.0" width="47.666666666666686" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="EE">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ngt-PE-5hV">
                                                         <rect key="frame" x="0.0" y="190.33333333333331" width="337" height="37.666666666666657"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGW-O4-pUz">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59.333333333333336" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGW-O4-pUz" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="Rad">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vh-Cw-mJs">
-                                                                <rect key="frame" x="69.333333333333343" y="0.0" width="59.333333333333343" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vh-Cw-mJs" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="58" y="0.0" width="47.666666666666657" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="sinh">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEm-c8-j1u">
-                                                                <rect key="frame" x="138.66666666666666" y="0.0" width="59.666666666666657" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEm-c8-j1u" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="115.66666666666666" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="cosh">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6k-pg-PP9">
-                                                                <rect key="frame" x="208.33333333333331" y="0.0" width="59.333333333333314" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6k-pg-PP9" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="173.66666666666666" y="0.0" width="47.666666666666657" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="tanh">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezf-Zw-PLD">
-                                                                <rect key="frame" x="277.66666666666669" y="0.0" width="59.333333333333314" height="37.666666666666664"/>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezf-Zw-PLD" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="231.33333333333331" y="0.0" width="48" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="π">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11p-9w-dkq" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                                <rect key="frame" x="289.33333333333331" y="0.0" width="47.666666666666686" height="37.666666666666664"/>
+                                                                <color key="backgroundColor" name="ClassicKhaki"/>
+                                                                <state key="normal" title="Rand">
+                                                                    <color key="titleColor" name="ClassicBlack"/>
+                                                                </state>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -546,6 +656,12 @@
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <namedColor name="ClassicBlack">
+            <color red="0.22699999809265137" green="0.24300000071525574" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ClassicKhaki">
+            <color red="0.5490196078431373" green="0.52941176470588236" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ClassicRed">
             <color red="0.87800002098083496" green="0.20000000298023224" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -23,6 +23,7 @@
 		DC6343F62669DEE7007A6949 /* StealthyCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343F52669DEE7007A6949 /* StealthyCalcUITests.swift */; };
 		DC6344042669E56D007A6949 /* NumberCruncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6344032669E56D007A6949 /* NumberCruncher.swift */; };
 		DC63B285267E9998006CD45F /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC63B284267E9998006CD45F /* NumberFormatter.swift */; };
+		DC710A9826F822F8007D3FD5 /* ScientificButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC710A9726F822F8007D3FD5 /* ScientificButton.swift */; };
 		DCEB7041266BE50100160DA6 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */; };
 		DCEB7047266BFE9F00160DA6 /* DigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7046266BFE9F00160DA6 /* DigitButton.swift */; };
 		DCEB7049266BFEB800160DA6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7048266BFEB800160DA6 /* Theme.swift */; };
@@ -71,6 +72,7 @@
 		DC6343F72669DEE7007A6949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6344032669E56D007A6949 /* NumberCruncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCruncher.swift; sourceTree = "<group>"; };
 		DC63B284267E9998006CD45F /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		DC710A9726F822F8007D3FD5 /* ScientificButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScientificButton.swift; sourceTree = "<group>"; };
 		DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		DCEB7046266BFE9F00160DA6 /* DigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButton.swift; sourceTree = "<group>"; };
 		DCEB7048266BFEB800160DA6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEB7046266BFE9F00160DA6 /* DigitButton.swift */,
+				DC710A9726F822F8007D3FD5 /* ScientificButton.swift */,
 				DCFCB9E926708DAE00AECBD2 /* ThemeCell.swift */,
 			);
 			path = View;
@@ -365,6 +368,7 @@
 				DC63B285267E9998006CD45F /* NumberFormatter.swift in Sources */,
 				DCEB7049266BFEB800160DA6 /* Theme.swift in Sources */,
 				DC029E37266F1E010043C73B /* Themer.swift in Sources */,
+				DC710A9826F822F8007D3FD5 /* ScientificButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
