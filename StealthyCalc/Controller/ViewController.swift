@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var expressionDisplay: UILabel!
     @IBOutlet weak var display: UILabel!
     
+    @IBOutlet weak var scientificButtonsStackView: UIStackView!
     @IBOutlet var dualPurposeButtons: [ScientificButton]!
     
     
@@ -64,6 +65,19 @@ class ViewController: UIViewController {
         memoryDisplay.text = ""
         expressionDisplay.text = ""
         display.text = "0"
+        
+        showOrHideSciButtons()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        showOrHideSciButtons()
+        
+    }
+    
+    func showOrHideSciButtons() {
+        let isHidden = traitCollection.verticalSizeClass == .regular && traitCollection.horizontalSizeClass == .compact
+        scientificButtonsStackView.isHidden = isHidden
     }
 
     @IBAction func showThemesPopOver(_ sender: UIButton) {
