@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var expressionDisplay: UILabel!
     @IBOutlet weak var display: UILabel!
     
+    @IBOutlet var dualPurposeButtons: [ScientificButton]!
+    
+    
     var numberCruncher = NumberCruncher()
     var userIsTyping = false
     
@@ -43,6 +46,15 @@ class ViewController: UIViewController {
             expressionDisplay.text = displayResult.expressionString != "" ?
                                 displayResult.expressionString + (displayResult.resultIsPending ? "…" : "=") : ""
 //            memoryDisplay.text =
+        }
+    }
+    
+    var showsSecondaryOperations = false {
+        didSet {
+            for button in dualPurposeButtons {
+                let secondary = button.secondaryTitle ?? button.defaultTitle
+                button.setTitle(showsSecondaryOperations ? secondary : button.defaultTitle, for: .normal)
+            }
         }
     }
     
@@ -94,6 +106,10 @@ class ViewController: UIViewController {
         }
         
         displayResult = numberCruncher.evaluate()
+    }
+    
+    @IBAction func showSecondaryTapped(_ sender: UIButton) {
+        showsSecondaryOperations = !showsSecondaryOperations
     }
     
     @IBAction func clearAll(_ sender: UIButton) {

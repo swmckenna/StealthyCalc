@@ -8,6 +8,9 @@
 import UIKit
 
 class ScientificButton: UIButton {
+    
+    var defaultTitle: String!
+    @IBInspectable var secondaryTitle: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -15,12 +18,13 @@ class ScientificButton: UIButton {
     }
     
     private func setUpButton() {
+        defaultTitle = self.title(for: .normal)
         Themer.shared?.register(target: self, action: ScientificButton.handleTheme(_:))
         clipsToBounds = true
     }
     
     private func handleTheme(_ theme: CalcTheme) {
-        backgroundColor = theme.settings.digitButtonColor
+        backgroundColor = theme.settings.scientificButtonColor
         setTitleColor(theme.settings.buttonTextColor, for: .normal)
         layer.cornerRadius = theme.settings.buttonCornerRadius
     }

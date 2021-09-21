@@ -109,13 +109,12 @@ struct NumberCruncher {
         "+": Operation.binary({ $0+$1 }, nil, nil, 0, true),
         "=": Operation.equals
     ]
-    #warning("Need a more thorough validation check for the variable root")
+    #warning("Need a more thorough validation check for the variable root") //6
     #warning("Need a function for factorial that avoids stack overflow") //5
-    #warning("change signs to better match iOS calculator")
+    #warning("change signs to better match iOS calculator, fix log(x/y)")
     #warning("Add parenthesis")
     #warning("Add memory (m+ m- mc mr)") //3
     #warning("Test clear and defined operations")
-    #warning("Add 2nd") //2
     #warning("Add Rad and Deg") //4
     
     mutating func setOperand(_ operand: Double) {
