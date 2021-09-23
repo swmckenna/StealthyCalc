@@ -30,3 +30,7 @@ class ScientificButton: UIButton {
     }
 
 }
+
+class TrigButton: ScientificButton {
+    
+}

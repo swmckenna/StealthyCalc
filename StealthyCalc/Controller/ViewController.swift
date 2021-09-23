@@ -16,9 +16,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var scientificButtonsStackView: UIStackView!
     @IBOutlet var dualPurposeButtons: [ScientificButton]!
+    @IBOutlet weak var radiansDegreesButton: ScientificButton!
     
     
     var numberCruncher = NumberCruncher()
+    var memoryTally = MemoryTally()
     var userIsTyping = false
     
     var displayValue: Double {
@@ -59,6 +61,13 @@ class ViewController: UIViewController {
         }
     }
     
+    var isInDegreeMode = true {
+        didSet {
+            radiansDegreesButton.setTitle(isInDegreeMode ? "Rad" : "Deg", for: .normal)
+            #warning("Add Rad label")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -75,7 +84,7 @@ class ViewController: UIViewController {
         
     }
     
-    func showOrHideSciButtons() {
+    private func showOrHideSciButtons() {
         let isHidden = traitCollection.verticalSizeClass == .regular && traitCollection.horizontalSizeClass == .compact
         scientificButtonsStackView.isHidden = isHidden
     }
@@ -115,7 +124,10 @@ class ViewController: UIViewController {
             userIsTyping = false
         }
         
-        if let mathematicalSymbol = sender.currentTitle {
+        if var mathematicalSymbol = sender.currentTitle {
+            if sender is TrigButton && !isInDegreeMode {
+                mathematicalSymbol = "\(mathematicalSymbol)RAD"
+            }
             numberCruncher.performOperation(mathematicalSymbol)
         }
         
@@ -131,6 +143,29 @@ class ViewController: UIViewController {
         numberCruncher.clear()
         displayResult = numberCruncher.evaluate()
     }
-
+    
+    @IBAction func switchRadianDegreesTapped(_ sender: UIButton) {
+        isInDegreeMode = !isInDegreeMode
+    }
+    
+    @IBAction func addDisplayedValueToMemory(_ sender: ScientificButton) {
+        memoryTally.add(displayValue)
+        userIsTyping = false
+    }
+    
+    @IBAction func subtractDisplayedValueFromMemory(_ sender: ScientificButton) {
+        memoryTally.subtract(displayValue)
+        userIsTyping = false
+    }
+    
+    @IBAction func recallValueStoredInMemory(_ sender: ScientificButton) {
+        displayValue = memoryTally.recall() ?? 0
+    }
+    
+    @IBAction func clearMemory(_ sender: ScientificButton) {
+        memoryTally.clear()
+        userIsTyping = false
+    }
+    
 }
 

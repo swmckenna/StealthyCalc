@@ -102,6 +102,9 @@
                                                                 <state key="normal" title="mc">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="clearMemory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UaP-1d-xeN"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAr-qF-DB5" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="96" y="0.0" width="22" height="103"/>
@@ -109,6 +112,9 @@
                                                                 <state key="normal" title="m+">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="addDisplayedValueToMemory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FT5-Po-v5b"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sX4-tf-u0U" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="128" y="0.0" width="22" height="103"/>
@@ -116,6 +122,9 @@
                                                                 <state key="normal" title="m-">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="subtractDisplayedValueFromMemory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Um-zj-Oyb"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZD-EL-3AV" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="160" y="0.0" width="22" height="103"/>
@@ -123,6 +132,9 @@
                                                                 <state key="normal" title="mr">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="recallValueStoredInMemory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LnF-5m-u1e"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -145,6 +157,9 @@
                                                                 <state key="normal" title="х²">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ycd-JU-oHa"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRi-Ba-Bqr" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="64" y="0.0" width="22" height="103"/>
@@ -152,6 +167,9 @@
                                                                 <state key="normal" title="х³">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WbS-4C-DwK"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-9c-Ujx" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="96" y="0.0" width="22" height="103"/>
@@ -159,6 +177,9 @@
                                                                 <state key="normal" title="xʸ">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a4k-rc-2qB"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oF7-qb-lIF" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="128" y="0.0" width="22" height="103"/>
@@ -169,6 +190,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="yˣ"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nnm-5Z-SoO"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACh-E4-kqH" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="160" y="0.0" width="22" height="103"/>
@@ -179,6 +203,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="2ˣ"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vPK-lT-zRb"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -191,6 +218,9 @@
                                                                 <state key="normal" title="¹/ₓ">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Qd-dP-nDH"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6b-OH-BCs" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="32" y="0.0" width="22" height="103"/>
@@ -198,6 +228,9 @@
                                                                 <state key="normal" title="²√ₓ">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XTc-Vg-eeN"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xw-7e-xC3" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="64" y="0.0" width="22" height="103"/>
@@ -205,6 +238,9 @@
                                                                 <state key="normal" title="³√ₓ">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hZA-Fy-Pcv"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jV0-3I-OeW" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="96" y="0.0" width="22" height="103"/>
@@ -212,6 +248,9 @@
                                                                 <state key="normal" title="ʸ√ₓ">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zYc-Wg-1Xk"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyv-uz-LxI" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="128" y="0.0" width="22" height="103"/>
@@ -222,6 +261,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="㏒ₓ"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hvk-3l-FKh"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-oC-685" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="160" y="0.0" width="22" height="103"/>
@@ -232,6 +274,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="㏒₂"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I5y-CD-QlR"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -244,8 +289,11 @@
                                                                 <state key="normal" title="х!">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IWJ-Zx-yvO"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdB-ce-ngN" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdB-ce-ngN" customClass="TrigButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="32" y="0.0" width="22" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicKhaki"/>
                                                                 <state key="normal" title="sin">
@@ -254,8 +302,11 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="sin⁻¹"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C7p-gB-Oke"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoK-i6-zwI" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoK-i6-zwI" customClass="TrigButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="64" y="0.0" width="22" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicKhaki"/>
                                                                 <state key="normal" title="cos">
@@ -264,8 +315,11 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="cos⁻¹"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jn1-wc-JWn"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dad-o4-K4u" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dad-o4-K4u" customClass="TrigButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="96" y="0.0" width="22" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicKhaki"/>
                                                                 <state key="normal" title="tan">
@@ -274,6 +328,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="tan⁻¹"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pgo-yh-Zt2"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wB7-el-U9q" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="128" y="0.0" width="22" height="103"/>
@@ -281,6 +338,9 @@
                                                                 <state key="normal" title="e">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jca-eS-OCD"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nus-ym-NPG" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="160" y="0.0" width="22" height="103"/>
@@ -288,6 +348,9 @@
                                                                 <state key="normal" title="EE">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9A3-yE-7jM"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -300,8 +363,14 @@
                                                                 <state key="normal" title="Rad">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="Deg"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="switchRadianDegreesTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IR2-Lc-LSc"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vh-Cw-mJs" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vh-Cw-mJs" customClass="TrigButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="32" y="0.0" width="22" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicKhaki"/>
                                                                 <state key="normal" title="sinh">
@@ -310,8 +379,11 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="sinh⁻¹"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1g-jv-eHT"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEm-c8-j1u" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEm-c8-j1u" customClass="TrigButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="64" y="0.0" width="22" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicKhaki"/>
                                                                 <state key="normal" title="cosh">
@@ -320,8 +392,11 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="cosh⁻¹"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfd-R0-G73"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6k-pg-PP9" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6k-pg-PP9" customClass="TrigButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="96" y="0.0" width="22" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicKhaki"/>
                                                                 <state key="normal" title="tanh">
@@ -330,6 +405,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="secondaryTitle" value="tanh⁻¹"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MQp-vL-dJa"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezf-Zw-PLD" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="128" y="0.0" width="22" height="103"/>
@@ -337,6 +415,9 @@
                                                                 <state key="normal" title="π">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A0f-iq-bPP"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11p-9w-dkq" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="160" y="0.0" width="22" height="103"/>
@@ -344,6 +425,9 @@
                                                                 <state key="normal" title="Rand">
                                                                     <color key="titleColor" name="ClassicBlack"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5fy-73-DoI"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -605,6 +689,7 @@
                         <outlet property="display" destination="GBm-W2-Vba" id="iVx-a1-Dmw"/>
                         <outlet property="expressionDisplay" destination="m06-NT-IpG" id="cIU-x5-hZd"/>
                         <outlet property="memoryDisplay" destination="Ae7-df-hnT" id="snA-BB-DOA"/>
+                        <outlet property="radiansDegreesButton" destination="CGW-O4-pUz" id="9FS-ay-2na"/>
                         <outlet property="scientificButtonsStackView" destination="hou-kU-aHo" id="xsA-60-kFy"/>
                         <outlet property="themeSelectButton" destination="Si8-D7-RJf" id="IwO-3w-7Gt"/>
                         <outletCollection property="dualPurposeButtons" destination="oF7-qb-lIF" collectionClass="NSMutableArray" id="6Dj-Al-nNq"/>

@@ -87,18 +87,33 @@ struct NumberCruncher {
         "㏒₁₀": Operation.unary({ log10($0) }, { "㏒₁₀(\($0)" }, { $0 <= 0 ? "Error" : nil }, false),
         "㏒₂": Operation.unary({ log2($0) }, { "㏒₂(\($0)" }, { $0 <= 0 ? "Error" : nil }, false),
 //        "х!": Operation.unary({ $0! }, { "\($0)!" }, { $0 < 0 ? "Error" : nil }, false),
-        "sin": Operation.unary({ sin($0) }, { "sin(\($0)" }, nil, false),
-        "cos": Operation.unary({ cos($0) }, { "cos(\($0)" }, nil, false),
-        "tan": Operation.unary({ tan($0) }, { "tan(\($0)" }, nil, false),
-        "sinh": Operation.unary({ sinh($0) }, { "sinh(\($0)" }, nil, false),
-        "cosh": Operation.unary({ cosh($0) }, { "cosh(\($0)" }, nil, false),
-        "tanh": Operation.unary({ tanh($0) }, { "tanh(\($0)" }, nil, false),
-        "sin⁻¹": Operation.unary({ asin($0) }, { "sin⁻¹(\($0))"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
-        "cos⁻¹": Operation.unary({ acos($0) }, { "cos⁻¹(\($0))"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
-        "tan⁻¹": Operation.unary({ atan($0) }, { "tan⁻¹(\($0))"}, nil, false),
-        "sinh⁻¹": Operation.unary({ asinh($0) }, { "sinh⁻¹(\($0))"}, nil, false),
-        "cosh⁻¹": Operation.unary({ acosh($0) }, { "cosh⁻¹(\($0))"}, nil, false),
-        "tanh⁻¹": Operation.unary({ atanh($0) }, { "tanh⁻¹(\($0))"}, { $0 <= -1.0 || $0 >= 1.0 ? "Error": nil }, false),
+        //RADIANS
+        "sinRAD": Operation.unary({ sin($0) }, { "sin(\($0))" }, nil, false),
+        "cosRAD": Operation.unary({ cos($0) }, { "cos(\($0))" }, nil, false),
+        "tanRAD": Operation.unary({ tan($0) }, { "tan(\($0))" }, nil, false),
+        "sinhRAD": Operation.unary({ sinh($0) }, { "sinh(\($0))" }, nil, false),
+        "coshRAD": Operation.unary({ cosh($0) }, { "cosh(\($0))" }, nil, false),
+        "tanhRAD": Operation.unary({ tanh($0) }, { "tanh(\($0))" }, nil, false),
+        "sin⁻¹RAD": Operation.unary({ asin($0) }, { "sin⁻¹(\($0))"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
+        "cos⁻¹RAD": Operation.unary({ acos($0) }, { "cos⁻¹(\($0))"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
+        "tan⁻¹RAD": Operation.unary({ atan($0) }, { "tan⁻¹(\($0))"}, nil, false),
+        "sinh⁻¹RAD": Operation.unary({ asinh($0) }, { "sinh⁻¹(\($0))"}, nil, false),
+        "cosh⁻¹RAD": Operation.unary({ acosh($0) }, { "cosh⁻¹(\($0))"}, nil, false),
+        "tanh⁻¹RAD": Operation.unary({ atanh($0) }, { "tanh⁻¹(\($0))"}, { $0 <= -1.0 || $0 >= 1.0 ? "Error": nil }, false),
+        //DEGREES
+        "sin": Operation.unary({ sin($0*Double.pi/180) }, { "sin(\($0)°)" }, nil, false),
+        "cos": Operation.unary({ cos($0*Double.pi/180) }, { "cos(\($0)°)" }, nil, false),
+        "tan": Operation.unary({ tan($0*Double.pi/180) }, { "tan(\($0)°)" }, nil, false),
+        "sinh": Operation.unary({ sinh($0*Double.pi/180) }, { "sinh(\($0)°)" }, nil, false),
+        "cosh": Operation.unary({ cosh($0*Double.pi/180) }, { "cosh(\($0)°)" }, nil, false),
+        "tanh": Operation.unary({ tanh($0*Double.pi/180) }, { "tanh(\($0)°)" }, nil, false),
+        "sin⁻¹": Operation.unary({ asin($0*Double.pi/180) }, { "sin⁻¹(\($0)°)"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
+        "cos⁻¹": Operation.unary({ acos($0*Double.pi/180) }, { "cos⁻¹(\($0)°)"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
+        "tan⁻¹": Operation.unary({ atan($0*Double.pi/180) }, { "tan⁻¹(\($0)°)"}, nil, false),
+        "sinh⁻¹": Operation.unary({ asinh($0*Double.pi/180) }, { "sinh⁻¹(\($0)°)"}, nil, false),
+        "cosh⁻¹": Operation.unary({ acosh($0*Double.pi/180) }, { "cosh⁻¹(\($0)°)"}, nil, false),
+        "tanh⁻¹": Operation.unary({ atanh($0*Double.pi/180) }, { "tanh⁻¹(\($0)°)"}, { $0 <= -1.0 || $0 >= 1.0 ? "Error": nil }, false),
+        //
         "ʸ√ₓ": Operation.binary({ pow($0, 1/$1) }, { "\($1)√\($0)" }, /*something here*/nil, 2, true),
         "xʸ": Operation.binary({ pow($0, $1) }, { "\($0)^\($1)" }, nil, 2, true),
         "yˣ": Operation.binary({ pow($1, $0) }, { "\($1)^\($0)" }, nil, 2, true),
@@ -113,9 +128,9 @@ struct NumberCruncher {
     #warning("Need a function for factorial that avoids stack overflow") //5
     #warning("change signs to better match iOS calculator, fix log(x/y)")
     #warning("Add parenthesis")
-    #warning("Add memory (m+ m- mc mr)") //3
-    #warning("Test clear and defined operations")
-    #warning("Add Rad and Deg") //4
+    #warning("Test clear and defined operations, add AC")
+    #warning("Integrated Testing for Memory") //7
+    #warning("Unary functions with no input (operand of 0) not working")
     
     mutating func setOperand(_ operand: Double) {
         expressionStack.append(ExpressionElement.operand(operand))
@@ -141,7 +156,7 @@ struct NumberCruncher {
         var prevPrecedence = Int.max
         var operationOfRecord: (symbol: String, operand: Double?)?
         var pbo: PendingBinaryOperation?
-        var negativeIsPending = false
+        var negativeIsPending = false //added to support backwards entry (e.g. tap "-" then "6" is the same as tap "6" then "-")
         
         var expressionString: String? {
             get {
