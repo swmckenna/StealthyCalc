@@ -176,7 +176,7 @@ class NumberCruncherTests: XCTestCase {
         sut.performOperation("ᐩ/˗")
         sut.performOperation("+")
         let result = sut.evaluate()
-        XCTAssertEqual(result.error, "Error")
+        XCTAssertNotNil(result.error)
     }
     
     func testNumberCruncherMath() {

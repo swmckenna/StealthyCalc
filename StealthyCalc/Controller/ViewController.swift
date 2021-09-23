@@ -43,8 +43,8 @@ class ViewController: UIViewController {
                 if let r = result {
                     displayValue = r
                 }
-            case (_, _, _, _, let error):
-                display.text = error!
+            case (_, _, _, _, _):
+                display.text = "Error"
             }
             
             expressionDisplay.text = displayResult.expressionString != "" ?

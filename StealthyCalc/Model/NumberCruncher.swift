@@ -12,17 +12,21 @@ struct CalculatedResult {
     var resultIsPending: Bool = false
     var negativeIsPending: Bool = false
     var expressionString: String = ""
-    var error: String? = nil
+    var error: CalculationError? = nil
+}
+
+enum CalculationError: Error {
+    case notANumber
+    case infinite
+    case unaccountedFor
 }
 
 struct NumberCruncher {
     typealias NullaryFunction = (() -> (result: Double, stringResult: String))
     typealias UnaryMathFunction = ((_ operand: Double) -> Double)
     typealias UnaryStringFunction = ((_ operand: String) -> String)
-    typealias UnaryValidationFunction = ((_ operand: Double) -> String?)
     typealias BinaryMathFunction = ((_ firstOperand: Double, _ secondOperand: Double) -> Double)
     typealias BinaryStringFunction = ((_ firstOperand: String, _ secondOperand: String) -> String)
-    typealias BinaryValidationFunction = ((_ firstOperand: Double, _ secondOperand: Double) -> String?)
     typealias RepeatsOnEquals = Bool
     typealias Precedence = Int
     
@@ -34,8 +38,8 @@ struct NumberCruncher {
     private enum Operation {
         case constant(Double)
         case nullary(NullaryFunction)
-        case unary(UnaryMathFunction, UnaryStringFunction?, UnaryValidationFunction?, RepeatsOnEquals)
-        case binary (BinaryMathFunction, BinaryStringFunction?, BinaryValidationFunction?, Precedence, RepeatsOnEquals)
+        case unary(UnaryMathFunction, UnaryStringFunction?, RepeatsOnEquals)
+        case binary (BinaryMathFunction, BinaryStringFunction?, Precedence, RepeatsOnEquals)
         case equals
     }
     
@@ -44,12 +48,20 @@ struct NumberCruncher {
         var stringFunction: BinaryStringFunction
         let firstOperand: Double
         var firstOperandString: String
-        var validation: BinaryValidationFunction?
         var prevPrecedence: Int
         var precedence: Int
         
-        func performMath(with secondOperand: Double) -> Double {
-            return mathFunction(firstOperand, secondOperand)
+        func performMath(with secondOperand: Double) throws -> Double {
+            let result = mathFunction(firstOperand, secondOperand)
+            
+            if result.isInfinite {
+                throw CalculationError.infinite
+            }
+            if result.isNaN {
+                throw CalculationError.notANumber
+            }
+            
+            return result
         }
         
         func performString(with secondStringOperand: String) -> String {
@@ -58,11 +70,6 @@ struct NumberCruncher {
                 newStringOp = "(\(newStringOp))"
             }
             return stringFunction(newStringOp, secondStringOperand)
-        }
-        
-        func validate(with secondOperand: Double) -> String? {
-            guard let validation = validation else { return nil }
-            return validation(firstOperand, secondOperand)
         }
     }
     
@@ -73,55 +80,55 @@ struct NumberCruncher {
         }),
         "e": Operation.constant(M_E),
         "π": Operation.constant(Double.pi),
-        "ᐩ/˗": Operation.unary({ -$0 }, { "˗(\($0))" }, nil, false),
-        "%": Operation.unary({ $0 / 100 }, { "\($0)%" }, nil, false),
-        "х²": Operation.unary({ $0 * $0 }, { "\($0)²" }, nil, true),
-        "х³": Operation.unary({ $0 * $0 * $0 }, { "\($0)³" }, nil, true),
-        "eˣ": Operation.unary({ pow(M_E, $0) }, { "e^\($0)" }, nil, true),
-        "10ˣ": Operation.unary({ pow(10, $0) }, { "10^\($0)" }, nil, false),
-        "2ˣ": Operation.unary({ pow(2, $0) }, { "2^\($0)" }, nil, false),
-        "¹/ₓ": Operation.unary({ 1/$0 }, { "\($0)⁻¹" }, {$0 == 0 ? "Error" : nil}, false),
-        "²√ₓ": Operation.unary({ sqrt($0) }, { "√\($0)" }, { $0 < 0 ? "Error" : nil }, true),
-        "³√ₓ": Operation.unary({ pow($0, 1/3) }, { "³√\($0)" }, nil, true),
-        "㏑": Operation.unary({ log($0) } , { "㏑(\($0))" }, { $0 <= 0 ? "Error" : nil }, false),
-        "㏒₁₀": Operation.unary({ log10($0) }, { "㏒₁₀(\($0)" }, { $0 <= 0 ? "Error" : nil }, false),
-        "㏒₂": Operation.unary({ log2($0) }, { "㏒₂(\($0)" }, { $0 <= 0 ? "Error" : nil }, false),
+        "ᐩ/˗": Operation.unary({ -$0 }, { "˗(\($0))" }, false),
+        "%": Operation.unary({ $0 / 100 }, { "\($0)%" }, false),
+        "х²": Operation.unary({ $0 * $0 }, { "\($0)²" }, true),
+        "х³": Operation.unary({ $0 * $0 * $0 }, { "\($0)³" }, true),
+        "eˣ": Operation.unary({ pow(M_E, $0) }, { "e^\($0)" }, true),
+        "10ˣ": Operation.unary({ pow(10, $0) }, { "10^\($0)" }, false),
+        "2ˣ": Operation.unary({ pow(2, $0) }, { "2^\($0)" }, false),
+        "¹/ₓ": Operation.unary({ 1/$0 }, { "\($0)⁻¹" }, false),
+        "²√ₓ": Operation.unary({ sqrt($0) }, { "√\($0)" }, true),
+        "³√ₓ": Operation.unary({ pow($0, 1/3) }, { "³√\($0)" }, true),
+        "㏑": Operation.unary({ log($0) } , { "㏑(\($0))" }, false),
+        "㏒₁₀": Operation.unary({ log10($0) }, { "㏒₁₀(\($0)" }, false),
+        "㏒₂": Operation.unary({ log2($0) }, { "㏒₂(\($0)" }, false),
 //        "х!": Operation.unary({ $0! }, { "\($0)!" }, { $0 < 0 ? "Error" : nil }, false),
         //RADIANS
-        "sinRAD": Operation.unary({ sin($0) }, { "sin(\($0))" }, nil, false),
-        "cosRAD": Operation.unary({ cos($0) }, { "cos(\($0))" }, nil, false),
-        "tanRAD": Operation.unary({ tan($0) }, { "tan(\($0))" }, nil, false),
-        "sinhRAD": Operation.unary({ sinh($0) }, { "sinh(\($0))" }, nil, false),
-        "coshRAD": Operation.unary({ cosh($0) }, { "cosh(\($0))" }, nil, false),
-        "tanhRAD": Operation.unary({ tanh($0) }, { "tanh(\($0))" }, nil, false),
-        "sin⁻¹RAD": Operation.unary({ asin($0) }, { "sin⁻¹(\($0))"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
-        "cos⁻¹RAD": Operation.unary({ acos($0) }, { "cos⁻¹(\($0))"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
-        "tan⁻¹RAD": Operation.unary({ atan($0) }, { "tan⁻¹(\($0))"}, nil, false),
-        "sinh⁻¹RAD": Operation.unary({ asinh($0) }, { "sinh⁻¹(\($0))"}, nil, false),
-        "cosh⁻¹RAD": Operation.unary({ acosh($0) }, { "cosh⁻¹(\($0))"}, nil, false),
-        "tanh⁻¹RAD": Operation.unary({ atanh($0) }, { "tanh⁻¹(\($0))"}, { $0 <= -1.0 || $0 >= 1.0 ? "Error": nil }, false),
+        "sinRAD": Operation.unary({ sin($0) }, { "sin(\($0))" }, false),
+        "cosRAD": Operation.unary({ cos($0) }, { "cos(\($0))" }, false),
+        "tanRAD": Operation.unary({ tan($0) }, { "tan(\($0))" }, false),
+        "sinhRAD": Operation.unary({ sinh($0) }, { "sinh(\($0))" }, false),
+        "coshRAD": Operation.unary({ cosh($0) }, { "cosh(\($0))" }, false),
+        "tanhRAD": Operation.unary({ tanh($0) }, { "tanh(\($0))" }, false),
+        "sin⁻¹RAD": Operation.unary({ asin($0) }, { "sin⁻¹(\($0))"}, false),
+        "cos⁻¹RAD": Operation.unary({ acos($0) }, { "cos⁻¹(\($0))"}, false),
+        "tan⁻¹RAD": Operation.unary({ atan($0) }, { "tan⁻¹(\($0))"}, false),
+        "sinh⁻¹RAD": Operation.unary({ asinh($0) }, { "sinh⁻¹(\($0))"}, false),
+        "cosh⁻¹RAD": Operation.unary({ acosh($0) }, { "cosh⁻¹(\($0))"}, false),
+        "tanh⁻¹RAD": Operation.unary({ atanh($0) }, { "tanh⁻¹(\($0))"}, false),
         //DEGREES
-        "sin": Operation.unary({ sin($0*Double.pi/180) }, { "sin(\($0)°)" }, nil, false),
-        "cos": Operation.unary({ cos($0*Double.pi/180) }, { "cos(\($0)°)" }, nil, false),
-        "tan": Operation.unary({ tan($0*Double.pi/180) }, { "tan(\($0)°)" }, nil, false),
-        "sinh": Operation.unary({ sinh($0*Double.pi/180) }, { "sinh(\($0)°)" }, nil, false),
-        "cosh": Operation.unary({ cosh($0*Double.pi/180) }, { "cosh(\($0)°)" }, nil, false),
-        "tanh": Operation.unary({ tanh($0*Double.pi/180) }, { "tanh(\($0)°)" }, nil, false),
-        "sin⁻¹": Operation.unary({ asin($0*Double.pi/180) }, { "sin⁻¹(\($0)°)"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
-        "cos⁻¹": Operation.unary({ acos($0*Double.pi/180) }, { "cos⁻¹(\($0)°)"}, { $0 < -1.0 || $0 > 1.0 ? "Error": nil }, false),
-        "tan⁻¹": Operation.unary({ atan($0*Double.pi/180) }, { "tan⁻¹(\($0)°)"}, nil, false),
-        "sinh⁻¹": Operation.unary({ asinh($0*Double.pi/180) }, { "sinh⁻¹(\($0)°)"}, nil, false),
-        "cosh⁻¹": Operation.unary({ acosh($0*Double.pi/180) }, { "cosh⁻¹(\($0)°)"}, nil, false),
-        "tanh⁻¹": Operation.unary({ atanh($0*Double.pi/180) }, { "tanh⁻¹(\($0)°)"}, { $0 <= -1.0 || $0 >= 1.0 ? "Error": nil }, false),
+        "sin": Operation.unary({ sin($0*Double.pi/180) }, { "sin(\($0)°)" }, false),
+        "cos": Operation.unary({ cos($0*Double.pi/180) }, { "cos(\($0)°)" }, false),
+        "tan": Operation.unary({ tan($0*Double.pi/180) }, { "tan(\($0)°)" }, false),
+        "sinh": Operation.unary({ sinh($0*Double.pi/180) }, { "sinh(\($0)°)" }, false),
+        "cosh": Operation.unary({ cosh($0*Double.pi/180) }, { "cosh(\($0)°)" }, false),
+        "tanh": Operation.unary({ tanh($0*Double.pi/180) }, { "tanh(\($0)°)" }, false),
+        "sin⁻¹": Operation.unary({ asin($0*Double.pi/180) }, { "sin⁻¹(\($0)°)"}, false),
+        "cos⁻¹": Operation.unary({ acos($0*Double.pi/180) }, { "cos⁻¹(\($0)°)"}, false),
+        "tan⁻¹": Operation.unary({ atan($0*Double.pi/180) }, { "tan⁻¹(\($0)°)"}, false),
+        "sinh⁻¹": Operation.unary({ asinh($0*Double.pi/180) }, { "sinh⁻¹(\($0)°)"}, false),
+        "cosh⁻¹": Operation.unary({ acosh($0*Double.pi/180) }, { "cosh⁻¹(\($0)°)"}, false),
+        "tanh⁻¹": Operation.unary({ atanh($0*Double.pi/180) }, { "tanh⁻¹(\($0)°)"}, false),
         //
-        "ʸ√ₓ": Operation.binary({ pow($0, 1/$1) }, { "\($1)√\($0)" }, /*something here*/nil, 2, true),
-        "xʸ": Operation.binary({ pow($0, $1) }, { "\($0)^\($1)" }, nil, 2, true),
-        "yˣ": Operation.binary({ pow($1, $0) }, { "\($1)^\($0)" }, nil, 2, true),
-        "㏒ₓ": Operation.binary({ log($0)/log($1) }, {"㏑(\($0))/㏑(\($1))"}, { $0 <= 0 || $1 <= 0 ? "Error" : nil }, 2, true), //should be log(y)
-        "÷": Operation.binary({ $0/$1 }, nil, { $1 == 0 || $1 == -0 ? "Error" : nil }, 1, true),
-        "×": Operation.binary({ $0*$1 }, nil, nil, 1, true),
-        "−": Operation.binary({ $0-$1 }, nil, nil, 0, true),
-        "+": Operation.binary({ $0+$1 }, nil, nil, 0, true),
+        "ʸ√ₓ": Operation.binary({ pow($0, 1/$1) }, { "\($1)√\($0)" }, 2, true),
+        "xʸ": Operation.binary({ pow($0, $1) }, { "\($0)^\($1)" }, 2, true),
+        "yˣ": Operation.binary({ pow($1, $0) }, { "\($1)^\($0)" }, 2, true),
+        "㏒ₓ": Operation.binary({ log($0)/log($1) }, {"㏑(\($0))/㏑(\($1))"}, 2, true), //should be log(y)
+        "÷": Operation.binary({ $0/$1 }, nil, 1, true),
+        "×": Operation.binary({ $0*$1 }, nil, 1, true),
+        "−": Operation.binary({ $0-$1 }, nil, 0, true),
+        "+": Operation.binary({ $0+$1 }, nil, 0, true),
         "=": Operation.equals
     ]
     #warning("Need a more thorough validation check for the variable root") //6
@@ -152,7 +159,7 @@ struct NumberCruncher {
     
     func evaluate() -> CalculatedResult {
         var cache: (accumulator: Double?, expressionAccumulator: String?)
-        var error: String?
+        var err: CalculationError?
         var prevPrecedence = Int.max
         var operationOfRecord: (symbol: String, operand: Double?)?
         var pbo: PendingBinaryOperation?
@@ -190,7 +197,7 @@ struct NumberCruncher {
         
         func performOperation(_ symbol: String) {
             if let operation = operationsDict[symbol] {
-                error = nil
+                err = nil
                 switch operation {
                 case .constant(let value):
                     cache = (accumulator: value, expressionAccumulator: symbol)
@@ -199,10 +206,17 @@ struct NumberCruncher {
                     let function = nullaryFunction()
                     cache = (accumulator: function.result, expressionAccumulator: function.stringResult)
                     
-                case .unary(let mathFunction, var stringFunction, let validationFunction, let repeats):
+                case .unary(let mathFunction, var stringFunction, let repeats):
                     if let accumulator = cache.accumulator {
-                        error = validationFunction?(accumulator)
-                        cache.accumulator = mathFunction(accumulator)
+                        let mathResult = mathFunction(accumulator)
+                        if mathResult.isInfinite {
+                            err = CalculationError.infinite
+                        } else if mathResult.isNaN {
+                            err = CalculationError.notANumber
+                        } else {
+                            cache.accumulator = mathResult
+                        }
+                        
                         if repeats {
                             operationOfRecord = (symbol, nil)
                         }
@@ -216,7 +230,7 @@ struct NumberCruncher {
                         cache.expressionAccumulator = "0"
                     }
                     
-                case .binary(let mathFunction, var stringFunction, let validationFunction, let precedence, let repeats):
+                case .binary(let mathFunction, var stringFunction, let precedence, let repeats):
                     performPendingBinaryOperation()
                     if let accumulator = cache.accumulator {
                         if stringFunction == nil {
@@ -226,7 +240,6 @@ struct NumberCruncher {
                                                      stringFunction: stringFunction!,
                                                      firstOperand: accumulator,
                                                      firstOperandString: cache.expressionAccumulator!,
-                                                     validation: validationFunction,
                                                      prevPrecedence: prevPrecedence,
                                                      precedence: precedence)
                         if repeats {
@@ -239,15 +252,29 @@ struct NumberCruncher {
                     if let opOfRecord = operationOfRecord,
                        let op = operationsDict[opOfRecord.symbol] {
                         switch op {
-                        case .unary(_, _, _, _):
+                        case .unary(_, _, _):
                             performOperation(opOfRecord.symbol)
-                        case .binary(let math, let string, let valid, let prec, _):
+                        case .binary(let math, let string, let prec, _):
                             if let firstOperand = cache.accumulator,
                                let firstOperandString = cache.expressionAccumulator,
                                let secondOperand = opOfRecord.operand {
-                                let pb = PendingBinaryOperation(mathFunction: math, stringFunction: string ?? { "\($0)\(opOfRecord.symbol)\($1)" }, firstOperand: firstOperand, firstOperandString: firstOperandString, validation: valid, prevPrecedence: prevPrecedence, precedence: prec)
-                                error = pb.validate(with: secondOperand)
-                                cache.accumulator = pb.performMath(with: secondOperand)
+                                let pb = PendingBinaryOperation(
+                                    mathFunction: math,
+                                    stringFunction: string ?? { "\($0)\(opOfRecord.symbol)\($1)" },
+                                    firstOperand: firstOperand,
+                                    firstOperandString: firstOperandString,
+                                    prevPrecedence: prevPrecedence,
+                                    precedence: prec)
+                                do {
+                                    cache.accumulator = try pb.performMath(with: secondOperand)
+                                } catch CalculationError.infinite {
+                                    err = CalculationError.infinite
+                                } catch CalculationError.notANumber {
+                                    err = CalculationError.notANumber
+                                } catch {
+                                    err = CalculationError.unaccountedFor
+                                }
+                                
                                 cache.expressionAccumulator = pb.performString(with: DisplayNumberFormatter.formatter.string(from: NSNumber(value: secondOperand)) ?? "")
                                 prevPrecedence = pb.precedence
                             }
@@ -267,12 +294,20 @@ struct NumberCruncher {
             negativeIsPending = false
             if let pb = pbo, let accumulator = cache.accumulator, let exp = cache.expressionAccumulator {
                 //run the math and string functions, update cache
-                error = pb.validate(with: accumulator)
-                cache.accumulator = pb.performMath(with: accumulator)
+//                err = pb.validate(with: accumulator)
+                do {
+                    cache.accumulator = try pb.performMath(with: accumulator)
+                } catch CalculationError.infinite {
+                    err = CalculationError.infinite
+                } catch CalculationError.notANumber {
+                    err = CalculationError.notANumber
+                } catch {
+                    err = CalculationError.unaccountedFor
+                }
                 cache.expressionAccumulator = pb.performString(with: exp)
                 prevPrecedence = pb.precedence
                 if let symbol = operationOfRecord?.symbol,
-                   case let Operation.binary(_, _, _, _, repeats) = operationsDict[symbol]!,
+                   case let Operation.binary(_, _, _, repeats) = operationsDict[symbol]!,
                    repeats {
                     operationOfRecord?.operand = accumulator
                 }
@@ -292,7 +327,7 @@ struct NumberCruncher {
                 performOperation(operation)
             }
         }
-        return CalculatedResult(result: result, resultIsPending: resultIsPending, negativeIsPending: negativeIsPending, expressionString: expressionString ?? "", error: error)
+        return CalculatedResult(result: result, resultIsPending: resultIsPending, negativeIsPending: negativeIsPending, expressionString: expressionString ?? "", error: err)
         //
 
     }
