@@ -701,6 +701,7 @@
                         <outlet property="expressionDisplay" destination="m06-NT-IpG" id="cIU-x5-hZd"/>
                         <outlet property="memoryDisplay" destination="Ae7-df-hnT" id="snA-BB-DOA"/>
                         <outlet property="radiansDegreesButton" destination="CGW-O4-pUz" id="9FS-ay-2na"/>
+                        <outlet property="radiansLabel" destination="fSl-aa-DYl" id="ygx-8y-mcg"/>
                         <outlet property="scientificButtonsStackView" destination="hou-kU-aHo" id="xsA-60-kFy"/>
                         <outlet property="themeSelectButton" destination="Si8-D7-RJf" id="IwO-3w-7Gt"/>
                         <outletCollection property="dualPurposeButtons" destination="oF7-qb-lIF" collectionClass="NSMutableArray" id="6Dj-Al-nNq"/>

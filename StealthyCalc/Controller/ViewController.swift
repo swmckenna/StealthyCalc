@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var themeSelectButton: UIButton!
     @IBOutlet weak var memoryDisplay: UILabel!
     @IBOutlet weak var expressionDisplay: UILabel!
+    @IBOutlet weak var radiansLabel: UILabel!
     @IBOutlet weak var display: UILabel!
     
     @IBOutlet weak var scientificButtonsStackView: UIStackView!
@@ -64,7 +65,10 @@ class ViewController: UIViewController {
     var isInDegreeMode = true {
         didSet {
             radiansDegreesButton.setTitle(isInDegreeMode ? "Rad" : "Deg", for: .normal)
-            #warning("Add Rad label")
+            radiansLabel.isHidden = isInDegreeMode
+            if scientificButtonsStackView.isHidden {
+                radiansLabel.isHidden = true
+            }
         }
     }
     
@@ -87,6 +91,13 @@ class ViewController: UIViewController {
     private func showOrHideSciButtons() {
         let isHidden = traitCollection.verticalSizeClass == .regular && traitCollection.horizontalSizeClass == .compact
         scientificButtonsStackView.isHidden = isHidden
+        radiansLabel.isHidden = false
+        if isHidden {
+            radiansLabel.isHidden = true
+        }
+        if isInDegreeMode {
+            radiansLabel.isHidden = true
+        }
     }
 
     @IBAction func showThemesPopOver(_ sender: UIButton) {
