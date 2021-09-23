@@ -20,12 +20,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWr-yE-vr8" userLabel="DisplayContainerView">
                                 <rect key="frame" x="15" y="52" width="384" height="237"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBm-W2-Vba">
-                                        <rect key="frame" x="5" y="118.5" width="374" height="118.5"/>
-                                        <fontDescription key="fontDescription" name="VT323-Regular" family="VT323" pointSize="80"/>
-                                        <color key="textColor" red="0.8784313725490196" green="0.20000000000000001" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="n0H-N1-Xi5">
+                                        <rect key="frame" x="15" y="118.5" width="364" height="118.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Rad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSl-aa-DYl">
+                                                <rect key="frame" x="0.0" y="0.0" width="33" height="118.5"/>
+                                                <fontDescription key="fontDescription" name="VT323-Regular" family="VT323" pointSize="18"/>
+                                                <color key="textColor" name="ClassicRed"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBm-W2-Vba">
+                                                <rect key="frame" x="319.5" y="0.0" width="44.5" height="118.5"/>
+                                                <fontDescription key="fontDescription" name="VT323-Regular" family="VT323" pointSize="80"/>
+                                                <color key="textColor" red="0.8784313725490196" green="0.20000000000000001" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Si8-D7-RJf">
                                         <rect key="frame" x="8" y="8" width="22" height="22"/>
                                         <constraints>
@@ -39,16 +50,16 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="A9x-4D-xld">
-                                        <rect key="frame" x="35" y="5" width="344" height="108.5"/>
+                                        <rect key="frame" x="35" y="5" width="344" height="113.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M=9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae7-df-hnT">
-                                                <rect key="frame" x="307.5" y="0.0" width="36.5" height="54.5"/>
+                                                <rect key="frame" x="307.5" y="0.0" width="36.5" height="57"/>
                                                 <fontDescription key="fontDescription" name="VT323-Regular" family="VT323" pointSize="18"/>
                                                 <color key="textColor" name="ClassicRed"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9+6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m06-NT-IpG">
-                                                <rect key="frame" x="313" y="54.5" width="31" height="54"/>
+                                                <rect key="frame" x="313" y="57" width="31" height="56.5"/>
                                                 <fontDescription key="fontDescription" name="VT323-Regular" family="VT323" pointSize="18"/>
                                                 <color key="textColor" name="ClassicRed"/>
                                                 <nil key="highlightedColor"/>
@@ -59,15 +70,15 @@
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.015686274509803921" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="Si8-D7-RJf" firstAttribute="top" secondItem="SWr-yE-vr8" secondAttribute="top" constant="8" id="7fP-Qz-oz8"/>
+                                    <constraint firstAttribute="bottom" secondItem="n0H-N1-Xi5" secondAttribute="bottom" id="8pq-Y1-O7h"/>
                                     <constraint firstItem="A9x-4D-xld" firstAttribute="leading" secondItem="Si8-D7-RJf" secondAttribute="trailing" constant="5" id="8vd-eY-Wol"/>
                                     <constraint firstAttribute="trailing" secondItem="A9x-4D-xld" secondAttribute="trailing" constant="5" id="AnY-9l-tCN"/>
-                                    <constraint firstItem="GBm-W2-Vba" firstAttribute="height" secondItem="SWr-yE-vr8" secondAttribute="height" multiplier="0.5" id="I4q-Mv-Rig"/>
-                                    <constraint firstItem="GBm-W2-Vba" firstAttribute="leading" secondItem="SWr-yE-vr8" secondAttribute="leading" constant="5" id="LBb-UR-5Jq"/>
                                     <constraint firstItem="A9x-4D-xld" firstAttribute="top" secondItem="SWr-yE-vr8" secondAttribute="top" constant="5" id="PvB-Fi-rCr"/>
-                                    <constraint firstAttribute="bottom" secondItem="GBm-W2-Vba" secondAttribute="bottom" id="UUS-O6-V8K"/>
-                                    <constraint firstAttribute="trailing" secondItem="GBm-W2-Vba" secondAttribute="trailing" constant="5" id="VFN-gb-fzb"/>
+                                    <constraint firstItem="n0H-N1-Xi5" firstAttribute="height" secondItem="SWr-yE-vr8" secondAttribute="height" multiplier="0.5" id="a5U-iE-b5O"/>
+                                    <constraint firstAttribute="trailing" secondItem="n0H-N1-Xi5" secondAttribute="trailing" constant="5" id="bP4-xb-3ew"/>
                                     <constraint firstItem="Si8-D7-RJf" firstAttribute="leading" secondItem="SWr-yE-vr8" secondAttribute="leading" constant="8" id="gtK-Xq-dj0"/>
-                                    <constraint firstItem="GBm-W2-Vba" firstAttribute="top" secondItem="A9x-4D-xld" secondAttribute="bottom" constant="5" id="pba-DP-ocJ"/>
+                                    <constraint firstItem="n0H-N1-Xi5" firstAttribute="leading" secondItem="SWr-yE-vr8" secondAttribute="leading" constant="15" id="jNw-Rc-Z2q"/>
+                                    <constraint firstItem="n0H-N1-Xi5" firstAttribute="top" secondItem="A9x-4D-xld" secondAttribute="bottom" id="kCD-Mm-kQP"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="608-gS-3uf" userLabel="AllButtonsContainerView">
