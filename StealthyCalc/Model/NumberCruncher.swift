@@ -93,7 +93,11 @@ struct NumberCruncher {
         "㏑": Operation.unary({ log($0) } , { "㏑(\($0))" }, false),
         "㏒₁₀": Operation.unary({ log10($0) }, { "㏒₁₀(\($0)" }, false),
         "㏒₂": Operation.unary({ log2($0) }, { "㏒₂(\($0)" }, false),
-//        "х!": Operation.unary({ $0! }, { "\($0)!" }, { $0 < 0 ? "Error" : nil }, false),
+        "х!": Operation.unary({ op in
+            guard let i = Int(exactly: op), i >= 0 else { return Double.nan}
+            if i == 0 { return 1 }
+            return (1...i).map(Double.init).reduce(1.0, *)
+        }, { "\($0)!" }, false),
         //RADIANS
         "sinRAD": Operation.unary({ sin($0) }, { "sin(\($0))" }, false),
         "cosRAD": Operation.unary({ cos($0) }, { "cos(\($0))" }, false),
@@ -125,14 +129,13 @@ struct NumberCruncher {
         "xʸ": Operation.binary({ pow($0, $1) }, { "\($0)^\($1)" }, 2, true),
         "yˣ": Operation.binary({ pow($1, $0) }, { "\($1)^\($0)" }, 2, true),
         "㏒ₓ": Operation.binary({ log($0)/log($1) }, {"㏑(\($0))/㏑(\($1))"}, 2, true), //should be log(y)
+        "EE": Operation.binary({ $0*pow(10, $1) }, {"\($0)e\($1)"}, 2, true),
         "÷": Operation.binary({ $0/$1 }, nil, 1, true),
         "×": Operation.binary({ $0*$1 }, nil, 1, true),
         "−": Operation.binary({ $0-$1 }, nil, 0, true),
         "+": Operation.binary({ $0+$1 }, nil, 0, true),
         "=": Operation.equals
     ]
-    #warning("Need a more thorough validation check for the variable root") //6
-    #warning("Need a function for factorial that avoids stack overflow") //5
     #warning("change signs to better match iOS calculator, fix log(x/y)")
     #warning("Add parenthesis")
     #warning("Test clear and defined operations, add AC")
