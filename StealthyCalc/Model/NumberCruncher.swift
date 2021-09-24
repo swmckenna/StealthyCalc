@@ -78,8 +78,10 @@ struct NumberCruncher {
         "Rand": Operation.nullary({
             return (Double(arc4random())/Double(UInt32.max), "RAND")
         }),
+        //
         "e": Operation.constant(M_E),
         "π": Operation.constant(Double.pi),
+        //
         "ᐩ/˗": Operation.unary({ -$0 }, { "˗(\($0))" }, false),
         "%": Operation.unary({ $0 / 100 }, { "\($0)%" }, false),
         "х²": Operation.unary({ $0 * $0 }, { "\($0)²" }, true),
@@ -139,7 +141,7 @@ struct NumberCruncher {
     #warning("change signs to better match iOS calculator, fix log(x/y)")
     #warning("Add parenthesis")
     #warning("Test clear and defined operations, add AC")
-    #warning("Integrated Testing for Memory") //7
+    #warning("Integration Testing for Memory") //7
     #warning("Unary functions with no input (operand of 0) not working")
     
     mutating func setOperand(_ operand: Double) {
@@ -297,7 +299,6 @@ struct NumberCruncher {
             negativeIsPending = false
             if let pb = pbo, let accumulator = cache.accumulator, let exp = cache.expressionAccumulator {
                 //run the math and string functions, update cache
-//                err = pb.validate(with: accumulator)
                 do {
                     cache.accumulator = try pb.performMath(with: accumulator)
                 } catch CalculationError.infinite {
