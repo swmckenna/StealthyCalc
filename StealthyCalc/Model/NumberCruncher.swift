@@ -101,9 +101,9 @@ struct NumberCruncher {
             return (1...i).map(Double.init).reduce(1.0, *)
         }, { "\($0)!" }, false),
         //RADIANS
-        "sinRAD": Operation.unary({ sin($0) }, { "sin(\($0))" }, false),
-        "cosRAD": Operation.unary({ cos($0) }, { "cos(\($0))" }, false),
-        "tanRAD": Operation.unary({ tan($0) }, { "tan(\($0))" }, false),
+        "sinRAD": Operation.unary({ sin($0).roundTo15Places() }, { "sin(\($0))" }, false),
+        "cosRAD": Operation.unary({ cos($0).roundTo15Places() }, { "cos(\($0))" }, false),
+        "tanRAD": Operation.unary({ sin($0).roundTo15Places()/cos($0).roundTo15Places() }, { "tan(\($0))" }, false),
         "sinhRAD": Operation.unary({ sinh($0) }, { "sinh(\($0))" }, false),
         "coshRAD": Operation.unary({ cosh($0) }, { "cosh(\($0))" }, false),
         "tanhRAD": Operation.unary({ tanh($0) }, { "tanh(\($0))" }, false),
@@ -336,4 +336,11 @@ struct NumberCruncher {
 
     }
       
+}
+
+extension Double {
+    func roundTo15Places() -> Double {
+        let divisor = 1000000000000000.0
+        return (self * divisor).rounded() / divisor
+    }
 }

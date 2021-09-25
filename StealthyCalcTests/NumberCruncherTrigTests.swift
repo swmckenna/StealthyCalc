@@ -157,7 +157,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("=")
         sut.performOperation("tanRAD")
         result = sut.evaluate()
-        XCTAssertNotNil(result.error) //have to change roundings so that cos(3×π÷2) returns zero, therefore returns error divide by 0
+        XCTAssertNotNil(result.error)
         XCTAssertEqual(result.expressionString, "tan(3×π÷2)")
         
         sut.clear()
@@ -179,7 +179,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("=")
         sut.performOperation("tanRAD")
         result = sut.evaluate()
-        XCTAssertEqual(result.result!, 1.732050807568877, accuracy: 0.000000000000001) //changing rounding will fix this too
+        XCTAssertEqual(result.result!, 1.732050807568877, accuracy: 0.000000000000001)
         XCTAssertEqual(result.expressionString, "tan(4×π÷3)")
         
         sut.setOperand(0)
@@ -188,5 +188,7 @@ class NumberCruncherTrigTests: XCTestCase {
         XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
         XCTAssertEqual(result.expressionString, "tan(0)")
     }
+    
+    
 
 }
