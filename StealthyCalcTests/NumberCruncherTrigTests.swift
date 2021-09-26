@@ -287,6 +287,173 @@ class NumberCruncherTrigTests: XCTestCase {
         XCTAssertEqual(result.expressionString, "cos⁻¹(1)")
     }
     
+    func testTan⁻¹Radians() {
+        sut.setOperand(0)
+        sut.performOperation("tan⁻¹RAD")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan⁻¹(0)")
+        
+        sut.setOperand(0.5)
+        sut.performOperation("tan⁻¹RAD")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.463647609000806, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan⁻¹(0.5)")
+        
+        sut.setOperand(-1)
+        sut.performOperation("tan⁻¹RAD")
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.785398163397448, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan⁻¹(-1)")
+        
+        sut.clear()
+        sut.setOperand(2)
+        sut.performOperation("²√ₓ")
+        sut.performOperation("¹/ₓ")
+        sut.performOperation("tan⁻¹RAD")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.615479708670387, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan⁻¹(√2⁻¹)")
+        
+        sut.clear()
+        sut.setOperand(3)
+        sut.performOperation("²√ₓ")
+        sut.performOperation("÷")
+        sut.setOperand(2)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        sut.performOperation("tan⁻¹RAD")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.713724378944766, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan⁻¹(√3÷˗(2))")
+        
+        sut.setOperand(1)
+        sut.performOperation("tan⁻¹RAD")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.785398163397448, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan⁻¹(1)")
+    }
+    
+    //MARK: HYPERBOLIC
+    func testSinH() {
+        sut.performOperation("π")
+        sut.performOperation("sinh")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 11.54873935725775, accuracy: 0.00000000000001)
+        XCTAssertEqual(result.expressionString, "sinh(π)")
+        
+        sut.setOperand(0)
+        sut.performOperation("sinh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sinh(0)")
+        
+        sut.setOperand(2)
+        sut.performOperation("㏑")
+        sut.performOperation("sinh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.75, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sinh(㏑(2))")
+        
+        sut.clear()
+        sut.setOperand(1)
+        sut.performOperation("=")
+        sut.performOperation("sinh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1.175201193643801, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sinh(1)")
+        
+        sut.clear()
+        sut.setOperand(0.5)
+        sut.performOperation("㏑")
+        sut.performOperation("sinh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.75, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sinh(㏑(0.5))")
+    }
+    
+    func testCosH() {
+        sut.performOperation("π")
+        sut.performOperation("cosh")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 11.59195327552152, accuracy: 0.00000000000001)
+        XCTAssertEqual(result.expressionString, "cosh(π)")
+        
+        sut.setOperand(0)
+        sut.performOperation("cosh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cosh(0)")
+        
+        sut.setOperand(2)
+        sut.performOperation("㏑")
+        sut.performOperation("cosh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1.25, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cosh(㏑(2))")
+        
+        sut.clear()
+        sut.setOperand(1)
+        sut.performOperation("=")
+        sut.performOperation("cosh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1.543080634815244, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cosh(1)")
+        
+        sut.clear()
+        sut.setOperand(0.5)
+        sut.performOperation("㏑")
+        sut.performOperation("cosh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1.25, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cosh(㏑(0.5))")
+    }
+    
+    func testTanH() {
+        sut.performOperation("π")
+        sut.performOperation("tanh")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.99627207622075, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh(π)")
+        
+        sut.setOperand(0)
+        sut.performOperation("tanh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh(0)")
+        
+        sut.setOperand(2)
+        sut.performOperation("㏑")
+        sut.performOperation("tanh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.6, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh(㏑(2))")
+        
+        sut.clear()
+        sut.setOperand(1)
+        sut.performOperation("=")
+        sut.performOperation("tanh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.761594155955765, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh(1)")
+        
+        sut.clear()
+        sut.setOperand(0.5)
+        sut.performOperation("㏑")
+        sut.performOperation("tanh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.6, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh(㏑(0.5))")
+        
+        sut.setOperand(3)
+        sut.performOperation("㏑")
+        sut.performOperation("tanh")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.8, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh(㏑(3))")
+    }
+
     
 
 }
