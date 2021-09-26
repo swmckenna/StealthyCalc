@@ -453,6 +453,106 @@ class NumberCruncherTrigTests: XCTestCase {
         XCTAssertEqual(result.result!, 0.8, accuracy: 0.000000000000001)
         XCTAssertEqual(result.expressionString, "tanh(㏑(3))")
     }
+    
+    //MARK: INVERSE HYPERBOLIC
+    func testSinH⁻¹() {
+        sut.setOperand(0)
+        sut.performOperation("sinh⁻¹")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sinh⁻¹(0)")
+        
+        sut.setOperand(1)
+        sut.performOperation("sinh⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.881373587019543, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sinh⁻¹(1)")
+        
+        sut.setOperand(1)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("sinh⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.881373587019543)
+        XCTAssertEqual(result.expressionString, "sinh⁻¹(˗(1))")
+        
+        sut.clear()
+        sut.performOperation("e")
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("sinh⁻¹")
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -1.725382558852315, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sinh⁻¹(˗(e))")
+    }
+    
+    func testCosH⁻¹() {
+        sut.setOperand(0)
+        sut.performOperation("cosh⁻¹")
+        var result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "cosh⁻¹(0)")
+        
+        sut.setOperand(1)
+        sut.performOperation("cosh⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cosh⁻¹(1)")
+        
+        sut.setOperand(1)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("cosh⁻¹")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "cosh⁻¹(˗(1))")
+        
+        sut.clear()
+        sut.performOperation("e")
+        sut.performOperation("cosh⁻¹")
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1.657454454153077, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cosh⁻¹(e)")
+    }
+    
+    func testTanH⁻¹() {
+        sut.setOperand(0)
+        sut.performOperation("tanh⁻¹")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh⁻¹(0)")
+        
+        sut.setOperand(1)
+        sut.performOperation("tanh⁻¹")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "tanh⁻¹(1)")
+        
+        sut.setOperand(0.5)
+        sut.performOperation("tanh⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.549306144334055, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh⁻¹(0.5)")
+        
+        sut.setOperand(2)
+        sut.performOperation("㏑")
+        sut.performOperation("tanh⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.853988047997524, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh⁻¹(㏑(2))")
+        
+        sut.setOperand(0.85398804799754)
+        sut.performOperation("tanh⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1.270702909056732, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh⁻¹(0.853988048)")
+        
+        sut.setOperand(0.28)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("tanh⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.287682072451781, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tanh⁻¹(˗(0.28))")
+    }
 
     
 
