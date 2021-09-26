@@ -381,7 +381,7 @@
                                                                     <action selector="switchRadianDegreesTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IR2-Lc-LSc"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vh-Cw-mJs" customClass="TrigButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vh-Cw-mJs" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="32" y="0.0" width="22" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicKhaki"/>
                                                                 <state key="normal" title="sinh">
@@ -394,7 +394,7 @@
                                                                     <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1g-jv-eHT"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEm-c8-j1u" customClass="TrigButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEm-c8-j1u" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="64" y="0.0" width="22" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicKhaki"/>
                                                                 <state key="normal" title="cosh">
@@ -407,7 +407,7 @@
                                                                     <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfd-R0-G73"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6k-pg-PP9" customClass="TrigButton" customModule="StealthyCalc" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6k-pg-PP9" customClass="ScientificButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="96" y="0.0" width="22" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicKhaki"/>
                                                                 <state key="normal" title="tanh">
