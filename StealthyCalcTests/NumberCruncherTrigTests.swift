@@ -553,7 +553,175 @@ class NumberCruncherTrigTests: XCTestCase {
         XCTAssertEqual(result.result!, -0.287682072451781, accuracy: 0.000000000000001)
         XCTAssertEqual(result.expressionString, "tanh⁻¹(˗(0.28))")
     }
-
     
+    //MARK: DEGREES
+    //MARK: BASIC
+    func testSinDegrees() {
+        sut.setOperand(0)
+        sut.performOperation("sin")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin(0°)")
+        
+        sut.setOperand(30)
+        sut.performOperation("sin")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.5, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin(30°)")
+        
+        sut.setOperand(30)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("sin")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.5, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin(˗(30)°)")
+
+        sut.setOperand(270)
+        sut.performOperation("=")
+        sut.performOperation("sin")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -1, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin(270°)")
+        
+        sut.clear()
+        sut.setOperand(45)
+        sut.performOperation("=")
+        sut.performOperation("sin")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.707106781186548, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin(45°)")
+        
+        sut.clear()
+        sut.setOperand(300)
+        sut.performOperation("=")
+        sut.performOperation("sin")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.866025403784439, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin(300°)")
+        
+        sut.setOperand(360)
+        sut.performOperation("sin")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin(360°)")
+        
+        sut.performOperation("π")
+        sut.performOperation("sin")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.05480366514879, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin(π°)")
+    }
+    
+    func testCosDegrees() {
+        sut.setOperand(0)
+        sut.performOperation("cos")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos(0°)")
+        
+        sut.setOperand(30)
+        sut.performOperation("cos")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.866025403784439, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos(30°)")
+        
+        sut.setOperand(30)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("cos")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.866025403784439, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos(˗(30)°)")
+
+        sut.setOperand(270)
+        sut.performOperation("=")
+        sut.performOperation("cos")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos(270°)")
+        
+        sut.clear()
+        sut.setOperand(45)
+        sut.performOperation("=")
+        sut.performOperation("cos")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.707106781186548, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos(45°)")
+        
+        sut.clear()
+        sut.setOperand(300)
+        sut.performOperation("=")
+        sut.performOperation("cos")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.5, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos(300°)")
+        
+        sut.setOperand(360)
+        sut.performOperation("cos")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos(360°)")
+        
+        sut.performOperation("π")
+        sut.performOperation("cos")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.998497149863864, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos(π°)")
+    }
+    
+    func testTanDegrees() {
+        sut.setOperand(0)
+        sut.performOperation("tan")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan(0°)")
+        
+        sut.setOperand(30)
+        sut.performOperation("tan")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.577350269189626, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan(30°)")
+        
+        sut.setOperand(30)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("tan")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.577350269189626, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan(˗(30)°)")
+
+        sut.setOperand(270)
+        sut.performOperation("=")
+        sut.performOperation("tan")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "tan(270°)")
+        
+        sut.clear()
+        sut.setOperand(45)
+        sut.performOperation("=")
+        sut.performOperation("tan")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan(45°)")
+        
+        sut.clear()
+        sut.setOperand(300)
+        sut.performOperation("=")
+        sut.performOperation("tan")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -1.732050807568877, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan(300°)")
+        
+        sut.setOperand(360)
+        sut.performOperation("tan")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan(360°)")
+        
+        sut.performOperation("π")
+        sut.performOperation("tan")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.054886150808003, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan(π°)")
+    }
 
 }
