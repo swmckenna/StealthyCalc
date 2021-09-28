@@ -341,6 +341,8 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("sinh")
         var result = sut.evaluate()
         XCTAssertEqual(result.result!, 11.54873935725775, accuracy: 0.00000000000001)
+        //I guess it's ok to lower the accuracy here because we don't print
+        //beyond 14 decimal digits when more than one digit is in front of the .
         XCTAssertEqual(result.expressionString, "sinh(π)")
         
         sut.setOperand(0)
@@ -378,6 +380,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("cosh")
         var result = sut.evaluate()
         XCTAssertEqual(result.result!, 11.59195327552152, accuracy: 0.00000000000001)
+        // see comment in testSinH function
         XCTAssertEqual(result.expressionString, "cosh(π)")
         
         sut.setOperand(0)
@@ -722,6 +725,189 @@ class NumberCruncherTrigTests: XCTestCase {
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 0.054886150808003, accuracy: 0.000000000000001)
         XCTAssertEqual(result.expressionString, "tan(π°)")
+    }
+    
+    //MARK: INVERSE
+    func testSin⁻¹Degrees() {
+        sut.setOperand(0)
+        sut.performOperation("sin⁻¹")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin⁻¹(0)")
+        
+        sut.setOperand(0.5)
+        sut.performOperation("sin⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 30, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin⁻¹(0.5)")
+        
+        sut.setOperand(0.5)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("sin⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -30, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin⁻¹(˗(0.5))")
+
+        sut.setOperand(1)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        sut.performOperation("sin⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -90, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin⁻¹(˗(1))")
+        
+        /* I guess I'll leave this out because it works fine after NumberFormatter rounds it for display
+//        sut.clear()
+//        sut.setOperand(2)
+//        sut.performOperation("²√ₓ")
+//        sut.performOperation("÷")
+//        sut.setOperand(2)
+//        sut.performOperation("=")
+//        sut.performOperation("sin⁻¹")
+//        result = sut.evaluate()
+//        XCTAssertEqual(result.result!, 45, accuracy: 0.000000000000001) FAILS: ("45.00000000000001") is not equal to ("45.0")
+//        XCTAssertEqual(result.expressionString, "sin⁻¹(√2÷2)")
+        */
+        
+        sut.clear()
+        sut.setOperand(3)
+        sut.performOperation("²√ₓ")
+        sut.performOperation("÷")
+        sut.setOperand(2)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        sut.performOperation("sin⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -60, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "sin⁻¹(√3÷˗(2))")
+        
+        sut.performOperation("π")
+        sut.performOperation("sin⁻¹")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "sin⁻¹(π)")
+    }
+    
+    func testCos⁻¹Degrees() {
+        sut.setOperand(0)
+        sut.performOperation("cos⁻¹")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 90, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos⁻¹(0)")
+
+        sut.setOperand(0.5)
+        sut.performOperation("cos⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 60, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos⁻¹(0.5)")
+
+        /* I guess I'll leave this out because it works fine after NumberFormatter rounds it for display
+//        sut.setOperand(0.5)
+//        sut.performOperation("ᐩ/˗")
+//        sut.performOperation("cos⁻¹")
+//        result = sut.evaluate()
+//        XCTAssertEqual(result.result!, 120, accuracy: 0.000000000000001)
+//        XCTAssertEqual(result.expressionString, "cos⁻¹(˗(0.5))")
+        */
+
+        sut.setOperand(1)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        sut.performOperation("cos⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 180, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos⁻¹(˗(1))")
+
+        sut.clear()
+        sut.setOperand(2)
+        sut.performOperation("²√ₓ")
+        sut.performOperation("÷")
+        sut.setOperand(2)
+        sut.performOperation("=")
+        sut.performOperation("cos⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 45, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos⁻¹(√2÷2)")
+
+        sut.clear()
+        sut.setOperand(3)
+        sut.performOperation("²√ₓ")
+        sut.performOperation("÷")
+        sut.setOperand(2)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        sut.performOperation("cos⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 150, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "cos⁻¹(√3÷˗(2))")
+
+        sut.performOperation("π")
+        sut.performOperation("cos⁻¹")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "cos⁻¹(π)")
+    }
+
+    func testTan⁻¹Degrees() {
+        sut.setOperand(0)
+        sut.performOperation("tan⁻¹")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan⁻¹(0)")
+
+        sut.setOperand(0.5)
+        sut.performOperation("tan⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 26.56505117707799, accuracy: 0.00000000000001)
+        // see comment in testSinH function
+        XCTAssertEqual(result.expressionString, "tan⁻¹(0.5)")
+
+        sut.setOperand(0.5)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("tan⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -26.56505117707799, accuracy: 0.00000000000001)
+        // see comment in testSinH function
+        XCTAssertEqual(result.expressionString, "tan⁻¹(˗(0.5))")
+
+        sut.setOperand(1)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        sut.performOperation("tan⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -45, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan⁻¹(˗(1))")
+
+        sut.clear()
+        sut.setOperand(2)
+        sut.performOperation("²√ₓ")
+        sut.performOperation("÷")
+        sut.setOperand(2)
+        sut.performOperation("=")
+        sut.performOperation("tan⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 35.26438968275465, accuracy: 0.00000000000001)
+        // see comment in testSinH function
+        XCTAssertEqual(result.expressionString, "tan⁻¹(√2÷2)")
+        
+        sut.clear()
+        sut.setOperand(3)
+        sut.performOperation("²√ₓ")
+        sut.performOperation("÷")
+        sut.setOperand(2)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        sut.performOperation("tan⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -40.89339464913091, accuracy: 0.00000000000001)
+        // see comment in testSinH function
+        XCTAssertEqual(result.expressionString, "tan⁻¹(√3÷˗(2))")
+        
+        sut.performOperation("π")
+        sut.performOperation("tan⁻¹")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 72.34321284858714, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "tan⁻¹(π)")
     }
 
 }

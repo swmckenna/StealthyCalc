@@ -117,9 +117,9 @@ struct NumberCruncher {
         "sin": Operation.unary({ sin($0*Double.pi/180) }, { "sin(\($0)°)" }, false),
         "cos": Operation.unary({ cos($0*Double.pi/180) }, { "cos(\($0)°)" }, false),
         "tan": Operation.unary({ __sinpi($0/180)/__cospi($0/180) }, { "tan(\($0)°)" }, false),
-        "sin⁻¹": Operation.unary({ asin($0)*180/Double.pi }, { "sin⁻¹(\($0))"}, false),
-        "cos⁻¹": Operation.unary({ acos($0)*180/Double.pi }, { "cos⁻¹(\($0))"}, false),
-        "tan⁻¹": Operation.unary({ atan($0)*180/Double.pi }, { "tan⁻¹(\($0))"}, false),
+        "sin⁻¹": Operation.unary({ asin($0)/Double.pi*180 }, { "sin⁻¹(\($0))"}, false),
+        "cos⁻¹": Operation.unary({ acos($0)/Double.pi*180 }, { "cos⁻¹(\($0))"}, false),
+        "tan⁻¹": Operation.unary({ atan($0)/Double.pi*180 }, { "tan⁻¹(\($0))"}, false),
         //
         "ʸ√ₓ": Operation.binary({ pow($0, 1/$1) }, { "\($1)√\($0)" }, 2, true),
         "xʸ": Operation.binary({ pow($0, $1) }, { "\($0)^\($1)" }, 2, true),
