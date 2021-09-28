@@ -28,6 +28,7 @@
 		DC699D9D26FD86B500D7B657 /* NumberCruncherTrigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC699D9C26FD86B500D7B657 /* NumberCruncherTrigTests.swift */; };
 		DC699D9E26FD890600D7B657 /* NumberCruncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6344032669E56D007A6949 /* NumberCruncher.swift */; };
 		DC710A9826F822F8007D3FD5 /* ScientificButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC710A9726F822F8007D3FD5 /* ScientificButton.swift */; };
+		DC96CA372703AFDA0034F814 /* NumberCruncherUnaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC96CA362703AFDA0034F814 /* NumberCruncherUnaryTests.swift */; };
 		DCEB7041266BE50100160DA6 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */; };
 		DCEB7047266BFE9F00160DA6 /* DigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7046266BFE9F00160DA6 /* DigitButton.swift */; };
 		DCEB7049266BFEB800160DA6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7048266BFEB800160DA6 /* Theme.swift */; };
@@ -79,6 +80,7 @@
 		DC63B284267E9998006CD45F /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		DC699D9C26FD86B500D7B657 /* NumberCruncherTrigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCruncherTrigTests.swift; sourceTree = "<group>"; };
 		DC710A9726F822F8007D3FD5 /* ScientificButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScientificButton.swift; sourceTree = "<group>"; };
+		DC96CA362703AFDA0034F814 /* NumberCruncherUnaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCruncherUnaryTests.swift; sourceTree = "<group>"; };
 		DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		DCEB7046266BFE9F00160DA6 /* DigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButton.swift; sourceTree = "<group>"; };
 		DCEB7048266BFEB800160DA6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				DC6343EA2669DEE7007A6949 /* StealthyCalcTests.swift */,
+				DC96CA362703AFDA0034F814 /* NumberCruncherUnaryTests.swift */,
 				DC699D9C26FD86B500D7B657 /* NumberCruncherTrigTests.swift */,
 				DC6343EC2669DEE7007A6949 /* Info.plist */,
 			);
@@ -388,6 +391,7 @@
 				DC699D9D26FD86B500D7B657 /* NumberCruncherTrigTests.swift in Sources */,
 				DC0113F226FD8A790047FD05 /* NumberFormatter.swift in Sources */,
 				DC699D9E26FD890600D7B657 /* NumberCruncher.swift in Sources */,
+				DC96CA372703AFDA0034F814 /* NumberCruncherUnaryTests.swift in Sources */,
 				DC6343EB2669DEE7007A6949 /* StealthyCalcTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

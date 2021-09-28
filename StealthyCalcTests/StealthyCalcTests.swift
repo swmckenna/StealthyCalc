@@ -21,40 +21,6 @@ class NumberCruncherTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func testSignChange() {
-        #warning("Implement = rule")
-        // "8" "+/-" RETURNS -8 PRINTS "-(8)"
-        sut.setOperand(8)
-        sut.performOperation("ᐩ/˗")
-        var result = sut.evaluate()
-        XCTAssertEqual(result.result, -8)
-        XCTAssertEqual(result.expressionString, "˗(8)")
-        
-        // "8" "+/-" "=" RETURNS -8 PRINTS "-8" (= should be added in UI)
-        sut.performOperation("=")
-        result = sut.evaluate()
-        XCTAssertEqual(result.result, -8)
-        XCTAssertEqual(result.expressionString, "˗(8)")
-
-        // "8" "+/-" "=" "=" RETURNS -8 PRINTS "-(8)"
-        sut.performOperation("=")
-        result = sut.evaluate()
-        XCTAssertEqual(result.result, -8)
-        XCTAssertEqual(result.expressionString, "˗(8)")
-
-        // "8" "+/-" "=" "=" "+/-" RETURNS 8 PRINTS "-(-8)"
-        sut.performOperation("ᐩ/˗")
-        result = sut.evaluate()
-        XCTAssertEqual(result.result, 8)
-        XCTAssertEqual(result.expressionString, "˗(˗(8))")
-
-        // "8" "+/-" "=" "=" "+/-" "=" RETURNS 8 PRINTS "-(-8)"
-        sut.performOperation("=")
-        result = sut.evaluate()
-        XCTAssertEqual(result.result, 8)
-        XCTAssertEqual(result.expressionString, "˗(˗(8))")
-    }
-    
     func testDivision() {
         // "12" "÷" "2" "=" RETURNS 6
         sut.setOperand(12)
@@ -119,46 +85,6 @@ class NumberCruncherTests: XCTestCase {
         XCTAssertEqual(result.expressionString, "12÷3")
     }
     
-    func testPercentage() {
-        // "8" "%" RETURNS 0.08 PRINTS "8%"
-        sut .setOperand(8)
-        sut.performOperation("%")
-        var result = sut.evaluate()
-        XCTAssertEqual(result.result, 0.08)
-        XCTAssertEqual(result.expressionString, "8%")
-        
-        // "8" "%" "=" RETURNS 0.08 PRINTS "8%"
-        sut.performOperation("=")
-        result = sut.evaluate()
-        XCTAssertEqual(result.result, 0.08)
-        XCTAssertEqual(result.expressionString, "8%")
-        
-        // "8" "%" "=" "=" RETURNS 0.08 PRINTS "8% ="
-        sut.performOperation("=")
-        result = sut.evaluate()
-        XCTAssertEqual(result.result, 0.08)
-        XCTAssertEqual(result.expressionString, "8%")
-        
-    }
-    
-    func testSquared() {
-        // "8" "x²" RETURNS 64 PRINTS "8²"
-        sut.setOperand(8)
-        sut.performOperation("х²")
-        var result = sut.evaluate()
-        XCTAssertEqual(result.result, 64)
-        XCTAssertEqual(result.expressionString, "8²")
-        
-        // "8" "x²" "=" RETURNS 4,096 PRINTS "64² ="
-        sut.performOperation("=")
-        result = sut.evaluate()
-        XCTAssertEqual(result.result, 4096)
-        // "8" "x²" "x^2" RETURNS 4,096 PRINTS "(8²)² ="
-        // "8" "x²" "x^2" "+" "5" RETURNS 5 PRINTS "(8²)² +"
-        // "8" "x²" "x^2" "+" "5" "=" RETURNS 4,101 PRINTS "64²+5 ="
-        // "8" "x²" "x^2" "+" "5" "=" "=" RETURNS 4,106 PRINTS "64²+5+5 ="
-    }
-    
     func testMulitplyByAlternativeInputNegative() {
         sut.setOperand(8)
         sut.performOperation("×")
@@ -167,7 +93,7 @@ class NumberCruncherTests: XCTestCase {
         sut.performOperation("=")
         let result = sut.evaluate()
         XCTAssertEqual(result.result, -56)
-        XCTAssertEqual(result.expressionString, "8×˗(7)")
+        XCTAssertEqual(result.expressionString, "8×˗7")
     }
     
     func testGetErrorWhenDivideByZeroAndIncorrectNegativeInput() {

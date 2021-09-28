@@ -218,7 +218,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("sin⁻¹RAD")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, Double.pi/4, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "sin⁻¹(√2⁻¹)")
+        XCTAssertEqual(result.expressionString, "sin⁻¹((√2)⁻¹)")
         
         sut.clear()
         sut.setOperand(3)
@@ -230,7 +230,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("sin⁻¹RAD")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -Double.pi/3, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "sin⁻¹(√3÷˗(2))")
+        XCTAssertEqual(result.expressionString, "sin⁻¹(√3÷˗2)")
         
         sut.setOperand(1)
         sut.performOperation("sin⁻¹RAD")
@@ -266,7 +266,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("cos⁻¹RAD")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, Double.pi/4, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "cos⁻¹(√2⁻¹)")
+        XCTAssertEqual(result.expressionString, "cos⁻¹((√2)⁻¹)")
         
         sut.clear()
         sut.setOperand(3)
@@ -278,7 +278,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("cos⁻¹RAD")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 5*Double.pi/6, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "cos⁻¹(√3÷˗(2))")
+        XCTAssertEqual(result.expressionString, "cos⁻¹(√3÷˗2)")
         
         sut.setOperand(1)
         sut.performOperation("cos⁻¹RAD")
@@ -314,7 +314,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("tan⁻¹RAD")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 0.615479708670387, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "tan⁻¹(√2⁻¹)")
+        XCTAssertEqual(result.expressionString, "tan⁻¹((√2)⁻¹)")
         
         sut.clear()
         sut.setOperand(3)
@@ -326,7 +326,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("tan⁻¹RAD")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -0.713724378944766, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "tan⁻¹(√3÷˗(2))")
+        XCTAssertEqual(result.expressionString, "tan⁻¹(√3÷˗2)")
         
         sut.setOperand(1)
         sut.performOperation("tan⁻¹RAD")
@@ -476,7 +476,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("sinh⁻¹")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -0.881373587019543)
-        XCTAssertEqual(result.expressionString, "sinh⁻¹(˗(1))")
+        XCTAssertEqual(result.expressionString, "sinh⁻¹(˗1)")
         
         sut.clear()
         sut.performOperation("e")
@@ -506,7 +506,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("cosh⁻¹")
         result = sut.evaluate()
         XCTAssertNotNil(result.error)
-        XCTAssertEqual(result.expressionString, "cosh⁻¹(˗(1))")
+        XCTAssertEqual(result.expressionString, "cosh⁻¹(˗1)")
         
         sut.clear()
         sut.performOperation("e")
@@ -554,7 +554,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("tanh⁻¹")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -0.287682072451781, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "tanh⁻¹(˗(0.28))")
+        XCTAssertEqual(result.expressionString, "tanh⁻¹(˗0.28)")
     }
     
     //MARK: DEGREES
@@ -577,7 +577,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("sin")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -0.5, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "sin(˗(30)°)")
+        XCTAssertEqual(result.expressionString, "sin(˗30°)")
 
         sut.setOperand(270)
         sut.performOperation("=")
@@ -633,7 +633,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("cos")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 0.866025403784439, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "cos(˗(30)°)")
+        XCTAssertEqual(result.expressionString, "cos(˗30°)")
 
         sut.setOperand(270)
         sut.performOperation("=")
@@ -689,7 +689,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("tan")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -0.577350269189626, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "tan(˗(30)°)")
+        XCTAssertEqual(result.expressionString, "tan(˗30°)")
 
         sut.setOperand(270)
         sut.performOperation("=")
@@ -746,7 +746,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("sin⁻¹")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -30, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "sin⁻¹(˗(0.5))")
+        XCTAssertEqual(result.expressionString, "sin⁻¹(˗0.5)")
 
         sut.setOperand(1)
         sut.performOperation("ᐩ/˗")
@@ -754,7 +754,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("sin⁻¹")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -90, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "sin⁻¹(˗(1))")
+        XCTAssertEqual(result.expressionString, "sin⁻¹(˗1)")
         
         /* I guess I'll leave this out because it works fine after NumberFormatter rounds it for display
 //        sut.clear()
@@ -779,7 +779,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("sin⁻¹")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -60, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "sin⁻¹(√3÷˗(2))")
+        XCTAssertEqual(result.expressionString, "sin⁻¹(√3÷˗2)")
         
         sut.performOperation("π")
         sut.performOperation("sin⁻¹")
@@ -816,7 +816,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("cos⁻¹")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 180, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "cos⁻¹(˗(1))")
+        XCTAssertEqual(result.expressionString, "cos⁻¹(˗1)")
 
         sut.clear()
         sut.setOperand(2)
@@ -839,7 +839,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("cos⁻¹")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 150, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "cos⁻¹(√3÷˗(2))")
+        XCTAssertEqual(result.expressionString, "cos⁻¹(√3÷˗2)")
 
         sut.performOperation("π")
         sut.performOperation("cos⁻¹")
@@ -868,7 +868,7 @@ class NumberCruncherTrigTests: XCTestCase {
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -26.56505117707799, accuracy: 0.00000000000001)
         // see comment in testSinH function
-        XCTAssertEqual(result.expressionString, "tan⁻¹(˗(0.5))")
+        XCTAssertEqual(result.expressionString, "tan⁻¹(˗0.5)")
 
         sut.setOperand(1)
         sut.performOperation("ᐩ/˗")
@@ -876,7 +876,7 @@ class NumberCruncherTrigTests: XCTestCase {
         sut.performOperation("tan⁻¹")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -45, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "tan⁻¹(˗(1))")
+        XCTAssertEqual(result.expressionString, "tan⁻¹(˗1)")
 
         sut.clear()
         sut.setOperand(2)
@@ -901,7 +901,7 @@ class NumberCruncherTrigTests: XCTestCase {
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -40.89339464913091, accuracy: 0.00000000000001)
         // see comment in testSinH function
-        XCTAssertEqual(result.expressionString, "tan⁻¹(√3÷˗(2))")
+        XCTAssertEqual(result.expressionString, "tan⁻¹(√3÷˗2)")
         
         sut.performOperation("π")
         sut.performOperation("tan⁻¹")

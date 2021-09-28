@@ -38,7 +38,7 @@ struct NumberCruncher {
     private enum Operation {
         case constant(Double)
         case nullary(NullaryFunction)
-        case unary(UnaryMathFunction, UnaryStringFunction?, RepeatsOnEquals)
+        case unary(UnaryMathFunction, UnaryStringFunction, RepeatsOnEquals)
         case binary (BinaryMathFunction, BinaryStringFunction?, Precedence, RepeatsOnEquals)
         case equals
     }
@@ -82,24 +82,24 @@ struct NumberCruncher {
         "e": Operation.constant(M_E),
         "π": Operation.constant(Double.pi),
         //
-        "ᐩ/˗": Operation.unary({ -$0 }, { "˗(\($0))" }, false),
-        "%": Operation.unary({ $0 / 100 }, { "\($0)%" }, false),
-        "х²": Operation.unary({ $0 * $0 }, { "\($0)²" }, true),
-        "х³": Operation.unary({ $0 * $0 * $0 }, { "\($0)³" }, true),
-        "eˣ": Operation.unary({ pow(M_E, $0) }, { "e^\($0)" }, true),
-        "10ˣ": Operation.unary({ pow(10, $0) }, { "10^\($0)" }, false),
-        "2ˣ": Operation.unary({ pow(2, $0) }, { "2^\($0)" }, false),
-        "¹/ₓ": Operation.unary({ 1/$0 }, { "\($0)⁻¹" }, false),
-        "²√ₓ": Operation.unary({ sqrt($0) }, { "√\($0)" }, true),
-        "³√ₓ": Operation.unary({ pow($0, 1/3) }, { "³√\($0)" }, true),
+        "ᐩ/˗": Operation.unary({ -$0 }, { $0.isJustANumber ? "˗\($0)" : "˗(\($0))" }, false),
+        "%": Operation.unary({ $0 / 100 }, { $0.isJustANumber ? "\($0)%" : "(\($0))%" }, false),
+        "х²": Operation.unary({ $0 * $0 }, { $0.isJustANumber ? "\($0)²" : "(\($0))²" }, true),
+        "х³": Operation.unary({ $0 * $0 * $0 }, { $0.isJustANumber ? "\($0)³" : "(\($0))³"}, true),
+        "eˣ": Operation.unary({ pow(M_E, $0) }, { $0.isJustANumber ? "e^\($0)" : "e^(\($0))" }, true),
+        "10ˣ": Operation.unary({ pow(10, $0) }, { $0.isJustANumber ? "10^\($0)" : "10^(\($0))" }, false),
+        "2ˣ": Operation.unary({ pow(2, $0) }, { $0.isJustANumber ? "2^\($0)" : "2^(\($0))" }, false),
+        "¹/ₓ": Operation.unary({ 1/$0 }, { $0.isJustANumber ? "\($0)⁻¹" : "(\($0))⁻¹" }, false),
+        "²√ₓ": Operation.unary({ sqrt($0) }, { $0.isJustANumber ? "√\($0)" : "√(\($0))" }, true),
+        "³√ₓ": Operation.unary({ pow($0, 1/3) }, { $0.isJustANumber ? "³√\($0)" : "³√(\($0))" }, true),
         "㏑": Operation.unary({ log($0) } , { "㏑(\($0))" }, false),
-        "㏒₁₀": Operation.unary({ log10($0) }, { "㏒₁₀(\($0)" }, false),
-        "㏒₂": Operation.unary({ log2($0) }, { "㏒₂(\($0)" }, false),
+        "㏒₁₀": Operation.unary({ log10($0) }, { "㏒₁₀(\($0))" }, false),
+        "㏒₂": Operation.unary({ log2($0) }, { "㏒₂(\($0))" }, false),
         "х!": Operation.unary({ op in
             guard let i = Int(exactly: op), i >= 0 else { return Double.nan}
             if i == 0 { return 1 }
             return (1...i).map(Double.init).reduce(1.0, *)
-        }, { "\($0)!" }, false),
+        }, { $0.isJustANumber ? "\($0)!" : "(\($0))!" }, false),
         //RADIANS
         "sinRAD": Operation.unary({ sin($0).roundTo15Places() }, { "sin(\($0))" }, false),
         "cosRAD": Operation.unary({ cos($0).roundTo15Places() }, { "cos(\($0))" }, false),
@@ -205,7 +205,7 @@ struct NumberCruncher {
                     let function = nullaryFunction()
                     cache = (accumulator: function.result, expressionAccumulator: function.stringResult)
                     
-                case .unary(let mathFunction, var stringFunction, let repeats):
+                case .unary(let mathFunction, let stringFunction, let repeats):
                     if let accumulator = cache.accumulator {
                         let mathResult = mathFunction(accumulator)
                         if mathResult.isInfinite {
@@ -219,10 +219,10 @@ struct NumberCruncher {
                         if repeats {
                             operationOfRecord = (symbol, nil)
                         }
-                        if stringFunction == nil {
-                            stringFunction = { "\(symbol)(\($0))" }
-                        }
-                        cache.expressionAccumulator = stringFunction!(cache.expressionAccumulator!)
+//                        if stringFunction == nil {
+//                            stringFunction = { "\(symbol)(\($0))" }
+//                        }
+                        cache.expressionAccumulator = stringFunction(cache.expressionAccumulator!)
                     } else if symbol == "ᐩ/˗" {
                         negativeIsPending = !negativeIsPending
                         cache.accumulator = 0
@@ -336,5 +336,13 @@ extension Double {
     func roundTo15Places() -> Double {
         let divisor = 1000000000000000.0
         return (self * divisor).rounded() / divisor
+    }
+}
+
+extension String {
+    var isJustANumber: Bool {
+        get {
+            return Double(self) != nil
+        }
     }
 }
