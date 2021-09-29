@@ -48,6 +48,12 @@ class NumberCruncherUnaryTests: XCTestCase {
         result = sut.evaluate()
         XCTAssertEqual(result.result, 8)
         XCTAssertEqual(result.expressionString, "˗(˗8)")
+        
+        sut.setOperand(0)
+        sut.performOperation("ᐩ/˗")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result, 0)
+        XCTAssertEqual(result.expressionString, "˗0")
     }
     
     func testPercentage() {
@@ -186,6 +192,12 @@ class NumberCruncherUnaryTests: XCTestCase {
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 0.00000001)
         XCTAssertEqual(result.expressionString, "10^(˗8)")
+        
+        sut.setOperand(0)
+        sut.performOperation("10ˣ")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "10^0")
     }
     
     func test2Power() {
@@ -229,6 +241,12 @@ class NumberCruncherUnaryTests: XCTestCase {
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 0.00390625)
         XCTAssertEqual(result.expressionString, "2^(˗8)")
+        
+        sut.setOperand(0)
+        sut.performOperation("2ˣ")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "2^0")
     }
     
     func testInverse() {
@@ -272,6 +290,12 @@ class NumberCruncherUnaryTests: XCTestCase {
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -1/8)
         XCTAssertEqual(result.expressionString, "(˗8)⁻¹")
+        
+        sut.setOperand(0)
+        sut.performOperation("¹/ₓ")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "0⁻¹")
     }
     
     func testSquareRoot() {
@@ -315,6 +339,12 @@ class NumberCruncherUnaryTests: XCTestCase {
         result = sut.evaluate()
         XCTAssertNotNil(result.error)
         XCTAssertEqual(result.expressionString, "√(˗8)")
+        
+        sut.setOperand(0)
+        sut.performOperation("²√ₓ")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "√0")
     }
 
     func testCubeRoot() {
@@ -358,6 +388,225 @@ class NumberCruncherUnaryTests: XCTestCase {
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -2)
         XCTAssertEqual(result.expressionString, "³√(˗8)")
+        
+        sut.setOperand(0)
+        sut.performOperation("³√ₓ")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "³√0")
     }
+    
+    
+    func testNaturalLog() {
+        sut.setOperand(8)
+        sut.performOperation("㏑")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 2.079441541679836, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏑(8)")
+        
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 2.079441541679836, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏑(8)")
+        
+        sut.setOperand(0)
+        sut.performOperation("㏑")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏑(0)")
+        
+        sut.setOperand(1)
+        sut.performOperation("㏑")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "㏑(1)")
+        
+        sut.clear()
+        sut.setOperand(2)
+        sut.performOperation("㏑")
+        sut.performOperation("㏑")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.366512920581664, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏑(㏑(2))")
+        
 
+        sut.performOperation("㏑")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏑(㏑(㏑(2)))")
+        
+        sut.setOperand(2)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("㏑")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏑(˗2)")
+        
+        sut.performOperation("e")
+        sut.performOperation("㏑")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "㏑(e)")
+    }
+    
+    func testLog10() {
+        sut.setOperand(8)
+        sut.performOperation("㏒₁₀")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.903089986991944, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏒₁₀(8)")
+        
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.903089986991944, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏒₁₀(8)")
+        
+        sut.setOperand(0)
+        sut.performOperation("㏒₁₀")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏒₁₀(0)")
+        
+        sut.clear()
+        sut.setOperand(2)
+        sut.performOperation("㏒₁₀")
+        sut.performOperation("㏒₁₀")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.521390227654325, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏒₁₀(㏒₁₀(2))")
+        
+
+        sut.performOperation("㏒₁₀")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏒₁₀(㏒₁₀(㏒₁₀(2)))")
+        
+        sut.setOperand(2)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("㏒₁₀")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏒₁₀(˗2)")
+        
+        sut.performOperation("e")
+        sut.performOperation("㏒₁₀")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.434294481903252, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏒₁₀(e)")
+        
+        sut.setOperand(1)
+        sut.performOperation("㏒₁₀")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "㏒₁₀(1)")
+        
+        sut.setOperand(10)
+        sut.performOperation("㏒₁₀")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "㏒₁₀(10)")
+    }
+    
+    func testLog2() {
+        sut.setOperand(8)
+        sut.performOperation("㏒₂")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 3)
+        XCTAssertEqual(result.expressionString, "㏒₂(8)")
+        
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 3)
+        XCTAssertEqual(result.expressionString, "㏒₂(8)")
+        
+        sut.setOperand(0)
+        sut.performOperation("㏒₂")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏒₂(0)")
+        
+        sut.clear()
+        sut.setOperand(3)
+        sut.performOperation("㏒₂")
+        sut.performOperation("㏒₂")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.664448707453889, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏒₂(㏒₂(3))")
+        
+
+        sut.performOperation("㏒₂")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -0.589770260860788, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏒₂(㏒₂(㏒₂(3)))")
+        
+        sut.setOperand(5)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("㏒₂")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏒₂(˗5)")
+        
+        sut.performOperation("e")
+        sut.performOperation("㏒₂")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1.442695040888963, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏒₂(e)")
+        
+        sut.setOperand(1)
+        sut.performOperation("㏒₂")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "㏒₂(1)")
+        
+        sut.setOperand(2)
+        sut.performOperation("㏒₂")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "㏒₂(2)")
+    }
+    
+    func testFactorial() {
+        sut.setOperand(8)
+        sut.performOperation("х!")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 40320)
+        XCTAssertEqual(result.expressionString, "8!")
+        
+        sut.performOperation("х!")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "(8!)!")
+        
+        sut.setOperand(0)
+        sut.performOperation("х!")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "0!")
+        
+        sut.clear()
+        sut.setOperand(1)
+        sut.performOperation("х!")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "1!")
+        
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "1!")
+        
+        sut.performOperation("e")
+        sut.performOperation("х!")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "(e)!")
+        
+        sut.setOperand(4)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("х!")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "(˗4)!")
+    }
+    
 }
