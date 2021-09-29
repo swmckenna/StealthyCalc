@@ -121,7 +121,13 @@ struct NumberCruncher {
         "cos⁻¹": Operation.unary({ acos($0)/Double.pi*180 }, { "cos⁻¹(\($0))"}, nil, false),
         "tan⁻¹": Operation.unary({ atan($0)/Double.pi*180 }, { "tan⁻¹(\($0))"}, nil, false),
         //
-        "ʸ√ₓ": Operation.binary({ pow($0, 1/$1) }, { "\($1)√\($0)" }, 2, true),
+        "ʸ√ₓ": Operation.binary({ x, y in
+            if x < 0 && abs(y.truncatingRemainder(dividingBy: 2)) == 1 {
+                //odd root of a negative number
+                return -pow(-x, 1/y)
+            }
+            return pow(x, 1/y)
+        }, { "\($1)√\($0)" }, 2, true),
         "xʸ": Operation.binary({ pow($0, $1) }, { "\($0)^\($1)" }, 2, true),
         "yˣ": Operation.binary({ pow($1, $0) }, { "\($1)^\($0)" }, 2, true),
         "㏒ₓ": Operation.binary({ log($0)/log($1) }, {"㏑(\($0))/㏑(\($1))"}, 2, true), //should be log(y)
@@ -132,7 +138,6 @@ struct NumberCruncher {
         "+": Operation.binary({ $0+$1 }, nil, 0, true),
         "=": Operation.equals
     ]
-    #warning("ʸ√ₓ needs to be changed to look more like cube root to accomodate neg roots")
     #warning("change signs to better match iOS calculator, fix log(x/y)")
     #warning("Add parenthesis")
     #warning("Test clear and defined operations, add AC")

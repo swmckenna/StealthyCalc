@@ -8,7 +8,7 @@
 import XCTest
 @testable import StealthyCalc
 
-class NumberCruncherTests: XCTestCase {
+class NumberCruncherBinaryTests: XCTestCase {
     var sut: NumberCruncher!
 
     override func setUpWithError() throws {
@@ -19,6 +19,84 @@ class NumberCruncherTests: XCTestCase {
     override func tearDownWithError() throws {
         sut = nil
         try super.tearDownWithError()
+    }
+    
+    func testNthRoot() {
+        sut.setOperand(8)
+        sut.performOperation("ʸ√ₓ")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 2)
+        XCTAssertEqual(result.expressionString, "3√8")
+        
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1.259921049894873, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "3√3√8")
+
+        sut.setOperand(16)
+        sut.performOperation("ʸ√ₓ")
+        sut.setOperand(4)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 2)
+        XCTAssertEqual(result.expressionString, "4√16")
+
+        sut.clear()
+        sut.setOperand(5)
+        sut.performOperation("ʸ√ₓ")
+        sut.performOperation("ʸ√ₓ")
+        sut.setOperand(2)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 2.23606797749979, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "2√5")
+
+        sut.clear()
+        sut.setOperand(8)
+        sut.performOperation("ʸ√ₓ")
+        sut.performOperation("ᐩ/˗")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.5)
+        XCTAssertEqual(result.expressionString, "˗3√8")
+
+        sut.setOperand(8)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("ʸ√ₓ")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -2)
+        XCTAssertEqual(result.expressionString, "3√˗8")
+
+        sut.setOperand(0)
+        sut.performOperation("ʸ√ₓ")
+        sut.setOperand(9)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "9√0")
+        
+        sut.setOperand(16)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("ʸ√ₓ")
+        sut.setOperand(4)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "4√˗16")
+        
+        sut.setOperand(16)
+        sut.performOperation("ʸ√ₓ")
+        sut.setOperand(4)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.5)
+        XCTAssertEqual(result.expressionString, "˗4√16")
     }
     
     func testDivision() {
@@ -118,7 +196,6 @@ class NumberCruncherTests: XCTestCase {
         // "8" "x" "(" "5" "+" "5" ")" "=" "=" "x^2" RETURNS 8,100
         // "8" "x" "(" "5" "+" "5" ")" "=" "=" "x^2" "=" RETURNS 65,610,000
         
-        #warning("Solve for large numbers like in Fib problem")
         #warning("Solve for printing long equations")
     }
 

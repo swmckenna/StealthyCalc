@@ -21,7 +21,7 @@
 		DC6343DB2669DEE6007A6949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6343D92669DEE6007A6949 /* Main.storyboard */; };
 		DC6343DD2669DEE7007A6949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6343DC2669DEE7007A6949 /* Assets.xcassets */; };
 		DC6343E02669DEE7007A6949 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6343DE2669DEE7007A6949 /* LaunchScreen.storyboard */; };
-		DC6343EB2669DEE7007A6949 /* StealthyCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343EA2669DEE7007A6949 /* StealthyCalcTests.swift */; };
+		DC6343EB2669DEE7007A6949 /* NumberCruncherBinaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343EA2669DEE7007A6949 /* NumberCruncherBinaryTests.swift */; };
 		DC6343F62669DEE7007A6949 /* StealthyCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6343F52669DEE7007A6949 /* StealthyCalcUITests.swift */; };
 		DC6344042669E56D007A6949 /* NumberCruncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6344032669E56D007A6949 /* NumberCruncher.swift */; };
 		DC63B285267E9998006CD45F /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC63B284267E9998006CD45F /* NumberFormatter.swift */; };
@@ -71,7 +71,7 @@
 		DC6343DF2669DEE7007A6949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC6343E12669DEE7007A6949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6343E62669DEE7007A6949 /* StealthyCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StealthyCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC6343EA2669DEE7007A6949 /* StealthyCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StealthyCalcTests.swift; sourceTree = "<group>"; };
+		DC6343EA2669DEE7007A6949 /* NumberCruncherBinaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCruncherBinaryTests.swift; sourceTree = "<group>"; };
 		DC6343EC2669DEE7007A6949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6343F12669DEE7007A6949 /* StealthyCalcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StealthyCalcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6343F52669DEE7007A6949 /* StealthyCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StealthyCalcUITests.swift; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		DC6343E92669DEE7007A6949 /* StealthyCalcTests */ = {
 			isa = PBXGroup;
 			children = (
-				DC6343EA2669DEE7007A6949 /* StealthyCalcTests.swift */,
+				DC6343EA2669DEE7007A6949 /* NumberCruncherBinaryTests.swift */,
 				DC96CA362703AFDA0034F814 /* NumberCruncherUnaryTests.swift */,
 				DC699D9C26FD86B500D7B657 /* NumberCruncherTrigTests.swift */,
 				DC6343EC2669DEE7007A6949 /* Info.plist */,
@@ -392,7 +392,7 @@
 				DC0113F226FD8A790047FD05 /* NumberFormatter.swift in Sources */,
 				DC699D9E26FD890600D7B657 /* NumberCruncher.swift in Sources */,
 				DC96CA372703AFDA0034F814 /* NumberCruncherUnaryTests.swift in Sources */,
-				DC6343EB2669DEE7007A6949 /* StealthyCalcTests.swift in Sources */,
+				DC6343EB2669DEE7007A6949 /* NumberCruncherBinaryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
