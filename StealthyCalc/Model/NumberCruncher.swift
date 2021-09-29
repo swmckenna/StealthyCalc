@@ -86,12 +86,12 @@ struct NumberCruncher {
         "%": Operation.unary({ $0 / 100 },  { "(\($0))%" }, { "\($0)%" }, false),
         "х²": Operation.unary({ $0 * $0 }, { "(\($0))²" }, { "\($0)²" }, true),
         "х³": Operation.unary({ $0 * $0 * $0 }, { "(\($0))³"}, { "\($0)³" }, true),
-        "eˣ": Operation.unary({ pow(M_E, $0) }, { "e^(\($0))" }, { "e^\($0)" }, true),
+        "eˣ": Operation.unary({ pow(M_E, $0) }, { "e^(\($0))" }, { "e^\($0)" }, false),
         "10ˣ": Operation.unary({ pow(10, $0) }, { "10^(\($0))" }, {"10^\($0)" }, false),
         "2ˣ": Operation.unary({ pow(2, $0) }, { "2^(\($0))" }, { "2^\($0)" }, false),
         "¹/ₓ": Operation.unary({ 1/$0 }, { "(\($0))⁻¹" }, { "\($0)⁻¹" }, false),
         "²√ₓ": Operation.unary({ sqrt($0) }, { "√(\($0))" }, { "√\($0)" }, true),
-        "³√ₓ": Operation.unary({ pow($0, 1/3) }, { "³√(\($0))" }, { "³√\($0)" }, true),
+        "³√ₓ": Operation.unary({ $0 < 0 ? -pow(-$0, 1/3) : pow($0, 1/3) }, { "³√(\($0))" }, { "³√\($0)" }, true),
         "㏑": Operation.unary({ log($0) } , { "㏑(\($0))" }, nil, false),
         "㏒₁₀": Operation.unary({ log10($0) }, { "㏒₁₀(\($0))" }, nil, false),
         "㏒₂": Operation.unary({ log2($0) }, { "㏒₂(\($0))" }, nil, false),
@@ -132,6 +132,7 @@ struct NumberCruncher {
         "+": Operation.binary({ $0+$1 }, nil, 0, true),
         "=": Operation.equals
     ]
+    #warning("ʸ√ₓ needs to be changed to look more like cube root to accomodate neg roots")
     #warning("change signs to better match iOS calculator, fix log(x/y)")
     #warning("Add parenthesis")
     #warning("Test clear and defined operations, add AC")
