@@ -39,7 +39,7 @@ struct NumberCruncher {
         case constant(Double)
         case nullary(NullaryFunction)
         case unary(UnaryMathFunction, UnaryStringFunction, UnaryStringFunction?, RepeatsOnEquals)
-        case binary (BinaryMathFunction, BinaryStringFunction?, Precedence, RepeatsOnEquals)
+        case binary (BinaryMathFunction, BinaryStringFunction, Precedence, RepeatsOnEquals)
         case equals
     }
     
@@ -127,15 +127,15 @@ struct NumberCruncher {
                 return -pow(-x, 1/y)
             }
             return pow(x, 1/y)
-        }, { "\($1)√\($0)" }, 2, true),
+        }, { "\($0)^(1/\($1))" }, 2, true),
         "xʸ": Operation.binary({ pow($0, $1) }, { "\($0)^\($1)" }, 2, true),
         "yˣ": Operation.binary({ pow($1, $0) }, { "\($1)^\($0)" }, 2, true),
-        "㏒ₓ": Operation.binary({ log($0)/log($1) }, {"㏑(\($0))/㏑(\($1))"}, 2, true), //should be log(y)
+        "㏒ₓ": Operation.binary({ log($0)/log($1) }, {$1.isJustANumber ? "㏒\($1)(\($0))" : "㏑(\($0))/㏑(\($1))"}, 2, true), //should be log(y)
         "EE": Operation.binary({ $0*pow(10, $1) }, {"\($0)e\($1)"}, 2, true),
-        "÷": Operation.binary({ $0/$1 }, nil, 1, true),
-        "×": Operation.binary({ $0*$1 }, nil, 1, true),
-        "−": Operation.binary({ $0-$1 }, nil, 0, true),
-        "+": Operation.binary({ $0+$1 }, nil, 0, true),
+        "÷": Operation.binary({ $0/$1 }, { "\($0)÷\($1)" }, 1, true),
+        "×": Operation.binary({ $0*$1 }, { "\($0)×\($1)" }, 1, true),
+        "−": Operation.binary({ $0-$1 }, { "\($0)−\($1)" }, 0, true),
+        "+": Operation.binary({ $0+$1 }, { "\($0)+\($1)" }, 0, true),
         "=": Operation.equals
     ]
     #warning("change signs to better match iOS calculator, fix log(x/y)")
@@ -143,6 +143,7 @@ struct NumberCruncher {
     #warning("Test clear and defined operations, add AC")
     #warning("Integration Testing for Memory") //7
     #warning("Unary functions with no input (operand of 0) not working")
+    #warning("Precedence not working")
     
     mutating func setOperand(_ operand: Double) {
         expressionStack.append(ExpressionElement.operand(operand))
@@ -237,14 +238,17 @@ struct NumberCruncher {
                         cache.expressionAccumulator = "0"
                     }
                     
-                case .binary(let mathFunction, var stringFunction, let precedence, let repeats):
+                case .binary(let mathFunction, let basicStringFunction, let precedence, let repeats):
                     performPendingBinaryOperation()
                     if let accumulator = cache.accumulator {
-                        if stringFunction == nil {
-                            stringFunction = { "\($0)\(symbol)\($1)" }
+                        let stringFunction: BinaryStringFunction = { x, y in
+                            //put parentheses around complex expressions, leave simple numbers alone
+                            let _x = x.isJustANumber ? x : "(\(x))"
+                            let _y = y.isJustANumber ? y : "(\(y))"
+                            return basicStringFunction(_x, _y)
                         }
                         pbo = PendingBinaryOperation(mathFunction: mathFunction,
-                                                     stringFunction: stringFunction!,
+                                                     stringFunction: stringFunction,
                                                      firstOperand: accumulator,
                                                      firstOperandString: cache.expressionAccumulator!,
                                                      prevPrecedence: prevPrecedence,
@@ -262,12 +266,18 @@ struct NumberCruncher {
                         case .unary(_, _, _, _):
                             performOperation(opOfRecord.symbol)
                         case .binary(let math, let string, let prec, _):
+                            let stringFunction: BinaryStringFunction = { x, y in
+                                //put parentheses around complex expressions, leave simple numbers alone
+                                let _x = x.isJustANumber ? x : "(\(x))"
+                                let _y = y.isJustANumber ? y : "(\(y))"
+                                return string(_x, _y)
+                            }
                             if let firstOperand = cache.accumulator,
                                let firstOperandString = cache.expressionAccumulator,
                                let secondOperand = opOfRecord.operand {
                                 let pb = PendingBinaryOperation(
                                     mathFunction: math,
-                                    stringFunction: string ?? { "\($0)\(opOfRecord.symbol)\($1)" },
+                                    stringFunction: stringFunction,
                                     firstOperand: firstOperand,
                                     firstOperandString: firstOperandString,
                                     prevPrecedence: prevPrecedence,
@@ -350,7 +360,7 @@ extension Double {
 extension String {
     var isJustANumber: Bool {
         get {
-            return Double(self) != nil
+            return Double(self) != nil || self == "e" || self == "π"
         }
     }
 }

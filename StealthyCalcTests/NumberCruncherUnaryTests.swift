@@ -599,7 +599,7 @@ class NumberCruncherUnaryTests: XCTestCase {
         sut.performOperation("х!")
         result = sut.evaluate()
         XCTAssertNotNil(result.error)
-        XCTAssertEqual(result.expressionString, "(e)!")
+        XCTAssertEqual(result.expressionString, "e!")
         
         sut.setOperand(4)
         sut.performOperation("ᐩ/˗")

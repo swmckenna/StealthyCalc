@@ -28,12 +28,12 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         var result = sut.evaluate()
         XCTAssertEqual(result.result!, 2)
-        XCTAssertEqual(result.expressionString, "3√8")
+        XCTAssertEqual(result.expressionString, "8^(1/3)")
         
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 1.259921049894873, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "3√3√8")
+        XCTAssertEqual(result.expressionString, "(8^(1/3))^(1/3)")
 
         sut.setOperand(16)
         sut.performOperation("ʸ√ₓ")
@@ -41,7 +41,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 2)
-        XCTAssertEqual(result.expressionString, "4√16")
+        XCTAssertEqual(result.expressionString, "16^(1/4)")
 
         sut.clear()
         sut.setOperand(5)
@@ -51,7 +51,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 2.23606797749979, accuracy: 0.000000000000001)
-        XCTAssertEqual(result.expressionString, "2√5")
+        XCTAssertEqual(result.expressionString, "5^(1/2)")
 
         sut.clear()
         sut.setOperand(8)
@@ -61,7 +61,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 0.5)
-        XCTAssertEqual(result.expressionString, "˗3√8")
+        XCTAssertEqual(result.expressionString, "8^(1/(˗3))")
 
         sut.setOperand(8)
         sut.performOperation("ᐩ/˗")
@@ -70,7 +70,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, -2)
-        XCTAssertEqual(result.expressionString, "3√˗8")
+        XCTAssertEqual(result.expressionString, "(˗8)^(1/3)")
 
         sut.setOperand(0)
         sut.performOperation("ʸ√ₓ")
@@ -78,7 +78,15 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 0)
-        XCTAssertEqual(result.expressionString, "9√0")
+        XCTAssertEqual(result.expressionString, "0^(1/9)")
+        
+        sut.setOperand(9)
+        sut.performOperation("ʸ√ₓ")
+        sut.setOperand(0)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "9^(1/0)")
         
         sut.setOperand(16)
         sut.performOperation("ᐩ/˗")
@@ -87,7 +95,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertNotNil(result.error)
-        XCTAssertEqual(result.expressionString, "4√˗16")
+        XCTAssertEqual(result.expressionString, "(˗16)^(1/4)")
         
         sut.setOperand(16)
         sut.performOperation("ʸ√ₓ")
@@ -96,7 +104,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result!, 0.5)
-        XCTAssertEqual(result.expressionString, "˗4√16")
+        XCTAssertEqual(result.expressionString, "16^(1/(˗4))")
     }
     
     func testDivision() {
@@ -115,7 +123,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result, 2)
-        XCTAssertEqual(result.expressionString, "12÷2÷3")
+        XCTAssertEqual(result.expressionString, "(12÷2)÷3")
     }
     
     func testDivisionRepeats() {
@@ -129,7 +137,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result, 3)
-        XCTAssertEqual(result.expressionString, "27÷3÷3")
+        XCTAssertEqual(result.expressionString, "(27÷3)÷3")
     }
     
     func testDivisionRepeatsNewNumber() {
@@ -145,7 +153,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         result = sut.evaluate()
         XCTAssertEqual(result.result, 4)
-        XCTAssertEqual(result.expressionString, "24÷3÷2")
+        XCTAssertEqual(result.expressionString, "(24÷3)÷2")
     }
     
     func testDivisionRepeatsNewNumberNoEquals() {
@@ -171,7 +179,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         sut.performOperation("=")
         let result = sut.evaluate()
         XCTAssertEqual(result.result, -56)
-        XCTAssertEqual(result.expressionString, "8×˗7")
+        XCTAssertEqual(result.expressionString, "8×(˗7)")
     }
     
     func testGetErrorWhenDivideByZeroAndIncorrectNegativeInput() {
