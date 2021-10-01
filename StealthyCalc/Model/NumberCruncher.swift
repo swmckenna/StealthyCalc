@@ -130,7 +130,14 @@ struct NumberCruncher {
         }, { "\($0)^(1/\($1))" }, 2, true),
         "xʸ": Operation.binary({ pow($0, $1) }, { "\($0)^\($1)" }, 2, true),
         "yˣ": Operation.binary({ pow($1, $0) }, { "\($1)^\($0)" }, 2, true),
-        "㏒ₓ": Operation.binary({ log($0)/log($1) }, {$1.isJustANumber ? "㏒\($1)(\($0))" : "㏑(\($0))/㏑(\($1))"}, 2, true), //should be log(y)
+        "㏒ₓ": Operation.binary({ log($0)/log($1) }, { x, y in
+            switch (x.isJustANumber, y.isJustANumber) {
+            case (true, true): return "㏒\(y)(\(x))"
+            case (false, true): return "㏒\(y)\(x)" // x will have "()" applied later anyway
+            case (true, false): return "㏑(\(x))/㏑\(y)" // y will have "()" applied later anyway
+            case (false, false): return "㏑\(x)/㏑\(y)" // both will have "()" applied later anyway
+            }
+        }, 2, true), //should be log(y) {$1.isJustANumber ? "㏒\($1)(\($0))" : "㏑(\($0))/㏑(\($1))"}
         "EE": Operation.binary({ $0*pow(10, $1) }, {"\($0)e\($1)"}, 2, true),
         "÷": Operation.binary({ $0/$1 }, { "\($0)÷\($1)" }, 1, true),
         "×": Operation.binary({ $0*$1 }, { "\($0)×\($1)" }, 1, true),

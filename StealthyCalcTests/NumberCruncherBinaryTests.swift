@@ -107,6 +107,191 @@ class NumberCruncherBinaryTests: XCTestCase {
         XCTAssertEqual(result.expressionString, "16^(1/(˗4))")
     }
     
+    func testExponent() {
+        sut.setOperand(0)
+        sut.performOperation("xʸ")
+        sut.setOperand(8)
+        sut.performOperation("=")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "0^8")
+        
+        sut.setOperand(1)
+        sut.performOperation("xʸ")
+        sut.setOperand(8)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "1^8")
+        
+        sut.setOperand(8)
+        sut.performOperation("xʸ")
+        sut.setOperand(6)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 262144)
+        XCTAssertEqual(result.expressionString, "8^6")
+        
+        sut.setOperand(8)
+        sut.performOperation("xʸ")
+        sut.setOperand(6)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.000003814697266, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "8^(˗6)")
+        
+        sut.setOperand(8)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("xʸ")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -512)
+        XCTAssertEqual(result.expressionString, "(˗8)^3")
+        
+        sut.setOperand(8)
+        sut.performOperation("xʸ")
+        sut.setOperand(0)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "8^0")
+        
+        sut.setOperand(16)
+        sut.performOperation("xʸ")
+        sut.setOperand(0.25)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 2)
+        XCTAssertEqual(result.expressionString, "16^0.25")
+    }
+    
+    func testReverseExponent() {
+        sut.setOperand(0)
+        sut.performOperation("yˣ")
+        sut.setOperand(8)
+        sut.performOperation("=")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "8^0")
+        
+        sut.setOperand(1)
+        sut.performOperation("yˣ")
+        sut.setOperand(8)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 8)
+        XCTAssertEqual(result.expressionString, "8^1")
+        
+        sut.setOperand(8)
+        sut.performOperation("yˣ")
+        sut.setOperand(6)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1679616)
+        XCTAssertEqual(result.expressionString, "6^8")
+        
+        sut.setOperand(8)
+        sut.performOperation("yˣ")
+        sut.setOperand(6)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1679616)
+        XCTAssertEqual(result.expressionString, "(˗6)^8")
+        
+        sut.setOperand(8)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("yˣ")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.000152415790276, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "3^(˗8)")
+        
+        sut.setOperand(8)
+        sut.performOperation("yˣ")
+        sut.setOperand(0)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "0^8")
+        
+        sut.setOperand(16)
+        sut.performOperation("yˣ")
+        sut.setOperand(0.25)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0.000000000232831, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "0.25^16")
+    }
+    
+    func testLogYofX() {
+        sut.setOperand(8)
+        sut.performOperation("㏒ₓ")
+        sut.setOperand(2)
+        sut.performOperation("=")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 3)
+        XCTAssertEqual(result.expressionString, "㏒2(8)")
+        
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1.584962500721156, accuracy: 0.000000000000001)
+        XCTAssertEqual(result.expressionString, "㏒2(㏒2(8))")
+        
+        sut.setOperand(0)
+        sut.performOperation("㏒ₓ")
+        sut.setOperand(3)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏒3(0)")
+
+        sut.setOperand(3)
+        sut.performOperation("㏒ₓ")
+        sut.performOperation("ᐩ/˗")
+        sut.setOperand(2)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏑(3)/㏑(˗2)")
+        
+        sut.clear()
+        sut.setOperand(16)
+        sut.performOperation("㏒ₓ")
+        sut.setOperand(0.5)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -4)
+        XCTAssertEqual(result.expressionString, "㏒0.5(16)")
+        
+
+        sut.performOperation("㏒ₓ")
+        sut.setOperand(2)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertNotNil(result.error)
+        XCTAssertEqual(result.expressionString, "㏒2(㏒0.5(16))")
+        
+        sut.performOperation("e")
+        sut.performOperation("㏒ₓ")
+        sut.performOperation("e")
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 1)
+        XCTAssertEqual(result.expressionString, "㏒e(e)")
+        
+        sut.setOperand(1)
+        sut.performOperation("㏒ₓ")
+        sut.performOperation("π")
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "㏒π(1)")
+    }
+    
     func testDivision() {
         // "12" "÷" "2" "=" RETURNS 6
         sut.setOperand(12)
@@ -205,6 +390,7 @@ class NumberCruncherBinaryTests: XCTestCase {
         // "8" "x" "(" "5" "+" "5" ")" "=" "=" "x^2" "=" RETURNS 65,610,000
         
         #warning("Solve for printing long equations")
+        #warning("Test precedence")
     }
 
 }
