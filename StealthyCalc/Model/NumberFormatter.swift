@@ -18,7 +18,7 @@ class DisplayNumberFormatter: NumberFormatter {
         self.numberStyle = .decimal
         self.maximumFractionDigits = 10
         self.notANumberSymbol = "Error"
-        self.groupingSeparator = " "
+        self.groupingSeparator = ","
     }
     
     static var formatter = DisplayNumberFormatter()

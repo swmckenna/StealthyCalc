@@ -292,6 +292,58 @@ class NumberCruncherBinaryTests: XCTestCase {
         XCTAssertEqual(result.expressionString, "㏒π(1)")
     }
     
+    func testEE() {
+        sut.setOperand(3)
+        sut.performOperation("EE")
+        sut.setOperand(23)
+        sut.performOperation("=")
+        var result = sut.evaluate()
+        XCTAssertEqual(result.result!, 3e23)
+        XCTAssertEqual(result.expressionString, "3e23")
+        
+        sut.setOperand(7)
+        sut.performOperation("EE")
+        sut.setOperand(69)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 7e69)
+        XCTAssertEqual(result.expressionString, "7e69")
+        
+        sut.setOperand(5)
+        sut.performOperation("ᐩ/˗")
+        sut.performOperation("EE")
+        sut.setOperand(55)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, -5e55)
+        XCTAssertEqual(result.expressionString, "(˗5)e55")
+        
+        sut.setOperand(5)
+        sut.performOperation("EE")
+        sut.performOperation("ᐩ/˗")
+        sut.setOperand(55)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 5e-55)
+        XCTAssertEqual(result.expressionString, "5e(˗55)")
+        
+        sut.setOperand(0)
+        sut.performOperation("EE")
+        sut.setOperand(55)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 0)
+        XCTAssertEqual(result.expressionString, "0e55")
+        
+        sut.setOperand(105)
+        sut.performOperation("EE")
+        sut.setOperand(0)
+        sut.performOperation("=")
+        result = sut.evaluate()
+        XCTAssertEqual(result.result!, 105)
+        XCTAssertEqual(result.expressionString, "105e0")
+    }
+    
     func testDivision() {
         // "12" "÷" "2" "=" RETURNS 6
         sut.setOperand(12)

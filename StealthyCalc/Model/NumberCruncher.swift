@@ -66,9 +66,9 @@ struct NumberCruncher {
         
         func performString(with secondStringOperand: String) -> String {
             var newStringOp = firstOperandString
-            if prevPrecedence < precedence {
-                newStringOp = "(\(newStringOp))"
-            }
+//            if prevPrecedence < precedence {
+//                newStringOp = "(\(newStringOp))"
+//            }
             return stringFunction(newStringOp, secondStringOperand)
         }
     }
@@ -138,7 +138,7 @@ struct NumberCruncher {
             case (false, false): return "㏑\(x)/㏑\(y)" // both will have "()" applied later anyway
             }
         }, 2, true), //should be log(y) {$1.isJustANumber ? "㏒\($1)(\($0))" : "㏑(\($0))/㏑(\($1))"}
-        "EE": Operation.binary({ $0*pow(10, $1) }, {"\($0)e\($1)"}, 2, true),
+        "EE": Operation.binary({ pow(10, $1)*$0 }, {"\($0)e\($1)"}, 2, true),
         "÷": Operation.binary({ $0/$1 }, { "\($0)÷\($1)" }, 1, true),
         "×": Operation.binary({ $0*$1 }, { "\($0)×\($1)" }, 1, true),
         "−": Operation.binary({ $0-$1 }, { "\($0)−\($1)" }, 0, true),
@@ -147,10 +147,10 @@ struct NumberCruncher {
     ]
     #warning("change signs to better match iOS calculator, fix log(x/y)")
     #warning("Add parenthesis")
-    #warning("Test clear and defined operations, add AC")
-    #warning("Integration Testing for Memory") //7
+    #warning("Test clear and defined operations, add AC") //7
+    #warning("Integration Testing for Memory") //8
     #warning("Unary functions with no input (operand of 0) not working")
-    #warning("Precedence not working")
+    #warning("Precedence not working") //6
     
     mutating func setOperand(_ operand: Double) {
         expressionStack.append(ExpressionElement.operand(operand))
