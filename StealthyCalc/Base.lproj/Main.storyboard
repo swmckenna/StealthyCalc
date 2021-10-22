@@ -525,6 +525,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn2-Rq-haS" customClass="DigitButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="38" height="103"/>
                                                                 <color key="backgroundColor" red="0.9727960229" green="0.99997383360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <state key="normal" title="7">
                                                                     <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>

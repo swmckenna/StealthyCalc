@@ -106,9 +106,15 @@ class ViewController: UIViewController {
         buttonsContainerView.backgroundColor = theme.settings.numberPadColor
         displayContainerView.backgroundColor = theme.settings.displayColor
         memoryDisplay.textColor = theme.settings.displayTextColor
+        memoryDisplay.font = UIFont(name: theme.settings.displayFontName, size: 18)
         expressionDisplay.textColor = theme.settings.displayTextColor
+        expressionDisplay.font = UIFont(name: theme.settings.displayFontName, size: 18)
         radiansLabel.textColor = theme.settings.displayTextColor
+        radiansLabel.font = UIFont(name: theme.settings.displayFontName, size: 18)
         display.textColor = theme.settings.displayTextColor
+        display.font = UIFont(name: theme.settings.displayFontName, size: 80)
+        themeSelectButton.tintColor = theme.settings.settingsButtonTint
+        
     }
     
     private func showOrHideSciButtons() {

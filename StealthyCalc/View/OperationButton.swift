@@ -24,6 +24,7 @@ class OperationButton: UIButton {
     private func handleTheme(_ theme: CalcTheme) {
         backgroundColor = useSecondaryColor ? theme.settings.clearButtonColor : theme.settings.operationButtonColor
         setTitleColor(theme.settings.buttonTextColor, for: .normal)
+        titleLabel?.font = theme.settings.buttonFont
         layer.cornerRadius = theme.settings.buttonCornerRadius
     }
 }

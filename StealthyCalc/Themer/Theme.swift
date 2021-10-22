@@ -32,6 +32,9 @@ struct ThemeSettings: ThemeModelProtocol {
     let displayColor: UIColor
     let displayTextColor: UIColor
     let buttonCornerRadius: CGFloat
+    var settingsButtonTint: UIColor
+    let displayFontName: String
+    let buttonFont: UIFont
     
     static let classicTheme = ThemeSettings(
         digitButtonColor: UIColor(named: "ClassicWhite")!,
@@ -44,7 +47,10 @@ struct ThemeSettings: ThemeModelProtocol {
         numberPadColor: UIColor(named: "ClassicBlack")!,
         displayColor: UIColor(named: "ClassicRedBlack")!,
         displayTextColor: UIColor(named: "ClassicRed")!,
-        buttonCornerRadius: 5
+        buttonCornerRadius: 5,
+        settingsButtonTint: UIColor(named: "ClassicWhite")!,
+        displayFontName: Font.VT323,
+        buttonFont: .systemFont(ofSize: 18)
     )
     
     static let iOSTheme = ThemeSettings(
@@ -58,7 +64,10 @@ struct ThemeSettings: ThemeModelProtocol {
         numberPadColor: UIColor(named: "iOSBlack")!,
         displayColor: UIColor(named: "iOSBlack")!,
         displayTextColor: UIColor(named: "iOSWhite")!,
-        buttonCornerRadius: 15 //TODO: how to get this right? Probably callback.
+        buttonCornerRadius: 15, //TODO: how to get this right? Probably callback.
+        settingsButtonTint: .darkGray,
+        displayFontName: Font.Helvetica,
+        buttonFont: .systemFont(ofSize: 22)
     )
 }
 

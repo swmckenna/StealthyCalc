@@ -28,6 +28,7 @@ class ScientificButton: UIButton {
     private func handleTheme(_ theme: CalcTheme) {
         backgroundColor = isReadyToShip ? theme.settings.scientificButtonColor : .clear
         setTitleColor(theme.settings.buttonTextColor, for: .normal)
+        titleLabel?.font = theme.settings.buttonFont
         layer.cornerRadius = theme.settings.buttonCornerRadius
     }
 

@@ -22,6 +22,7 @@ class EqualsButton: UIButton {
     private func handleTheme(_ theme: CalcTheme) {
         backgroundColor = theme.settings.equalsButtonColor
         setTitleColor(theme.settings.buttonTextColor, for: .normal)
+        titleLabel?.font = theme.settings.buttonFont
         layer.cornerRadius = theme.settings.buttonCornerRadius
     }
 

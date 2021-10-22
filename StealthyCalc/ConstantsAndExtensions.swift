@@ -12,6 +12,11 @@ enum DefaultKeys {
     static let theme = "THEME"
 }
 
+enum Font {
+    static let Helvetica = "Helvetica"
+    static let VT323 = "VT323-Regular"
+}
+
 extension UserDefaults {
     @objc dynamic var theme: CalcTheme {
         get {
