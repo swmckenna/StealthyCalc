@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     
     @IBOutlet weak var scientificButtonsStackView: UIStackView!
+    @IBOutlet var laterFunctionalityButtons: [ScientificButton]! //to be implemented properly later
     @IBOutlet var dualPurposeButtons: [ScientificButton]!
     @IBOutlet weak var radiansDegreesButton: ScientificButton!
     
@@ -74,7 +75,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        for button in laterFunctionalityButtons {
+            //rather do this than hide for stackview spacing reasons. Plan to implement buttons later anyway
+            button.setTitle("", for: .normal)
+            button.backgroundColor = .clear
+            button.isEnabled = false
+        }
+        expressionDisplay.isHidden = true // also implement properly later
         memoryDisplay.text = ""
         expressionDisplay.text = ""
         display.text = "0"

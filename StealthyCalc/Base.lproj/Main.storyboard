@@ -714,6 +714,12 @@
                         <outletCollection property="dualPurposeButtons" destination="1Vh-Cw-mJs" collectionClass="NSMutableArray" id="gGp-w7-ZsP"/>
                         <outletCollection property="dualPurposeButtons" destination="eEm-c8-j1u" collectionClass="NSMutableArray" id="Yw0-zO-iZ1"/>
                         <outletCollection property="dualPurposeButtons" destination="B6k-pg-PP9" collectionClass="NSMutableArray" id="ubP-fC-xj9"/>
+                        <outletCollection property="laterFunctionalityButtons" destination="8zx-Cz-RQS" collectionClass="NSMutableArray" id="aHT-r9-JiW"/>
+                        <outletCollection property="laterFunctionalityButtons" destination="viW-32-Rzc" collectionClass="NSMutableArray" id="5Wm-eH-Jfu"/>
+                        <outletCollection property="laterFunctionalityButtons" destination="VYO-28-ZdT" collectionClass="NSMutableArray" id="lWQ-al-b9S"/>
+                        <outletCollection property="laterFunctionalityButtons" destination="sX4-tf-u0U" collectionClass="NSMutableArray" id="Usb-u2-Os9"/>
+                        <outletCollection property="laterFunctionalityButtons" destination="iAr-qF-DB5" collectionClass="NSMutableArray" id="9P5-89-8CP"/>
+                        <outletCollection property="laterFunctionalityButtons" destination="tZD-EL-3AV" collectionClass="NSMutableArray" id="P3e-pH-dYy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
