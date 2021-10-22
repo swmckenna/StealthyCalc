@@ -450,37 +450,46 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UiJ-iB-Nyc">
                                                         <rect key="frame" x="0.0" y="0.0" width="182" height="103"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7A-hk-hsX">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7A-hk-hsX" customClass="OperationButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="38" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicTan"/>
                                                                 <state key="normal" title="C">
                                                                     <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="useSecondaryColor" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="clearAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XtM-SZ-TMU"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdB-vf-ycI">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdB-vf-ycI" customClass="OperationButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="48" y="0.0" width="38" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicTan"/>
                                                                 <state key="normal" title="ᐩ/˗">
                                                                     <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="useSecondaryColor" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HDy-Su-2Dm"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXL-Cu-BfK">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXL-Cu-BfK" customClass="OperationButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="96" y="0.0" width="38" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicTan"/>
                                                                 <state key="normal" title="%">
                                                                     <color key="titleColor" red="0.22774282100000001" green="0.24274194239999999" blue="0.25882613659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="useSecondaryColor" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="operationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UDL-OC-c3F"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="150-L4-Ikb">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="150-L4-Ikb" customClass="OperationButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="144" y="0.0" width="38" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicTan"/>
                                                                 <state key="normal" title="÷">
@@ -525,7 +534,7 @@
                                                                     <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bD0-6L-Mul"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk5-IE-k3d">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk5-IE-k3d" customClass="OperationButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="144" y="0.0" width="38" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicTan"/>
                                                                 <state key="normal" title="×">
@@ -570,7 +579,7 @@
                                                                     <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z28-z4-CVH"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0an-Vf-AyL">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0an-Vf-AyL" customClass="OperationButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="144" y="0.0" width="38" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicTan"/>
                                                                 <state key="normal" title="−">
@@ -615,7 +624,7 @@
                                                                     <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hEV-4o-2F2"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbL-gz-dp4">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbL-gz-dp4" customClass="OperationButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="144" y="0.0" width="38" height="103"/>
                                                                 <color key="backgroundColor" name="ClassicTan"/>
                                                                 <state key="normal" title="+">
@@ -650,7 +659,7 @@
                                                                     <action selector="digitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mVg-l0-UYD"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E7-Nd-vfV">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E7-Nd-vfV" customClass="EqualsButton" customModule="StealthyCalc" customModuleProvider="target">
                                                                 <rect key="frame" x="144" y="0.0" width="38" height="103"/>
                                                                 <color key="backgroundColor" red="0.94509803921568625" green="0.65098039215686276" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <state key="normal" title="=">
