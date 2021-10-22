@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum CalcTheme: ThemeProtocol {
+@objc enum CalcTheme: Int, ThemeProtocol {
     case classic, iOS
     
     var settings: ThemeSettings {
@@ -66,7 +66,7 @@ extension Themer where Theme == CalcTheme {
     private static var instance: Themer?
     static var shared: Themer? {
         if instance == nil {
-            instance = Themer(defaultTheme: .classic)
+            instance = Themer(defaultTheme: UserDefaults.standard.theme)
         }
         return instance!
     }

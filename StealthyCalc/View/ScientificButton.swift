@@ -11,6 +11,8 @@ class ScientificButton: UIButton {
     
     var defaultTitle: String!
     @IBInspectable var secondaryTitle: String?
+    @IBInspectable var isReadyToShip: Bool = true
+    #warning("Remove above var when parenthesis and memory functionality is added")
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +26,7 @@ class ScientificButton: UIButton {
     }
     
     private func handleTheme(_ theme: CalcTheme) {
-        backgroundColor = theme.settings.scientificButtonColor
+        backgroundColor = isReadyToShip ? theme.settings.scientificButtonColor : .clear
         setTitleColor(theme.settings.buttonTextColor, for: .normal)
         layer.cornerRadius = theme.settings.buttonCornerRadius
     }

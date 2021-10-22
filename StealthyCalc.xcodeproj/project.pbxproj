@@ -34,7 +34,7 @@
 		DCEB7041266BE50100160DA6 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */; };
 		DCEB7047266BFE9F00160DA6 /* DigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7046266BFE9F00160DA6 /* DigitButton.swift */; };
 		DCEB7049266BFEB800160DA6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB7048266BFEB800160DA6 /* Theme.swift */; };
-		DCEB704B266C335200160DA6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB704A266C335200160DA6 /* Constants.swift */; };
+		DCEB704B266C335200160DA6 /* ConstantsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB704A266C335200160DA6 /* ConstantsAndExtensions.swift */; };
 		DCFCB9E8267081AE00AECBD2 /* ThemesPopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFCB9E7267081AE00AECBD2 /* ThemesPopOverViewController.swift */; };
 		DCFCB9EA26708DAE00AECBD2 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFCB9E926708DAE00AECBD2 /* ThemeCell.swift */; };
 /* End PBXBuildFile section */
@@ -88,7 +88,7 @@
 		DCEB7040266BE50100160DA6 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		DCEB7046266BFE9F00160DA6 /* DigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButton.swift; sourceTree = "<group>"; };
 		DCEB7048266BFEB800160DA6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		DCEB704A266C335200160DA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DCEB704A266C335200160DA6 /* ConstantsAndExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsAndExtensions.swift; sourceTree = "<group>"; };
 		DCFCB9E7267081AE00AECBD2 /* ThemesPopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPopOverViewController.swift; sourceTree = "<group>"; };
 		DCFCB9E926708DAE00AECBD2 /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,7 +170,7 @@
 				DCEB7045266BFE7600160DA6 /* View */,
 				DCEB7043266BFE4E00160DA6 /* Controller */,
 				DC029E2A266F1C8E0043C73B /* Themer */,
-				DCEB704A266C335200160DA6 /* Constants.swift */,
+				DCEB704A266C335200160DA6 /* ConstantsAndExtensions.swift */,
 				DC6343DC2669DEE7007A6949 /* Assets.xcassets */,
 				DC6343DE2669DEE7007A6949 /* LaunchScreen.storyboard */,
 				DC6343E12669DEE7007A6949 /* Info.plist */,
@@ -378,7 +378,7 @@
 				DC6343D42669DEE6007A6949 /* AppDelegate.swift in Sources */,
 				DC029E31266F1D330043C73B /* TargetAction.swift in Sources */,
 				DC6344042669E56D007A6949 /* NumberCruncher.swift in Sources */,
-				DCEB704B266C335200160DA6 /* Constants.swift in Sources */,
+				DCEB704B266C335200160DA6 /* ConstantsAndExtensions.swift in Sources */,
 				DC6343D62669DEE6007A6949 /* SceneDelegate.swift in Sources */,
 				DCFCB9E8267081AE00AECBD2 /* ThemesPopOverViewController.swift in Sources */,
 				DC11B4AC27223B9B00C7A936 /* EqualsButton.swift in Sources */,

@@ -15,12 +15,22 @@ class ThemesPopOverViewController: UIViewController, UITableViewDelegate, UITabl
         (title:"iOS", theme: CalcTheme.iOS),
         (title: "Classic", theme: CalcTheme.classic)
     ]
+    
+    var observer: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableview.dataSource = self
         tableview.delegate = self
+        
+        observer = UserDefaults.standard.observe(\.theme, options: [.initial, .new, .old], changeHandler: { defaults, _ in
+            Themer.shared?.theme = defaults.theme
+        })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        observer?.invalidate()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,5 +42,11 @@ class ThemesPopOverViewController: UIViewController, UITableViewDelegate, UITabl
         cell.label.text = themesArray[indexPath.row].title
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UserDefaults.standard.theme = themesArray[indexPath.row].theme
+        self.dismiss(animated: true)
+    }
 
 }
+

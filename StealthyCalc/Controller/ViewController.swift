@@ -9,12 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var displayContainerView: UIView!
     @IBOutlet weak var themeSelectButton: UIButton!
     @IBOutlet weak var memoryDisplay: UILabel!
     @IBOutlet weak var expressionDisplay: UILabel!
     @IBOutlet weak var radiansLabel: UILabel!
     @IBOutlet weak var display: UILabel!
     
+    @IBOutlet weak var buttonsContainerView: UIView!
     @IBOutlet weak var scientificButtonsStackView: UIStackView!
     @IBOutlet var laterFunctionalityButtons: [ScientificButton]! //to be implemented properly later
     @IBOutlet var dualPurposeButtons: [ScientificButton]!
@@ -75,13 +77,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK: Temporary
         for button in laterFunctionalityButtons {
             //rather do this than hide for stackview spacing reasons. Plan to implement buttons later anyway
             button.setTitle("", for: .normal)
-            button.backgroundColor = .clear
             button.isEnabled = false
         }
+        #warning("Remove above loop when parenthesis and memory functionality is added")
+
         expressionDisplay.isHidden = true // also implement properly later
+        
+        Themer.shared?.register(target: self, action: ViewController.handleTheme(_:))
+        
         memoryDisplay.text = ""
         expressionDisplay.text = ""
         display.text = "0"
@@ -92,7 +99,16 @@ class ViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         showOrHideSciButtons()
-        
+    }
+    
+    private func handleTheme(_ theme: CalcTheme) {
+        self.view.backgroundColor = theme.settings.caseColor
+        buttonsContainerView.backgroundColor = theme.settings.numberPadColor
+        displayContainerView.backgroundColor = theme.settings.displayColor
+        memoryDisplay.textColor = theme.settings.displayTextColor
+        expressionDisplay.textColor = theme.settings.displayTextColor
+        radiansLabel.textColor = theme.settings.displayTextColor
+        display.textColor = theme.settings.displayTextColor
     }
     
     private func showOrHideSciButtons() {
